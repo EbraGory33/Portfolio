@@ -10,6 +10,15 @@ const projects = [
   demoUrl: "https://github.com/EbraGory33/ecommerce_platform", // You can replace this with a deployed link if available
   githubUrl: "https://github.com/EbraGory33/ecommerce_platform",
   },
+  {
+    id: 2,
+    title: "RealTimeChat",
+    description: "Real-time chat application with socket-based messaging, authentication, and online presence tracking.",
+    image: "/public/ChatApp.png",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "Zustand"],
+    demoUrl: "https://real-time-chat-1121002.vercel.app",
+    githubUrl: "https://github.com/EbraGory33/RealTimeChat",
+    },
 ];
 
 export const ProjectsSection = () => {
