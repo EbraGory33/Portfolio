@@ -14,12 +14,22 @@ const projects = [
     id: 2,
     title: "RealTimeChat",
     description: "Real-time chat application with socket-based messaging, authentication, and online presence tracking.",
-    image: "/public/ChatApp.png",
+    image: "/ChatApp.png",
     tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "Zustand"],
     demoUrl: "https://real-time-chat-1121002.vercel.app",
     githubUrl: "https://github.com/EbraGory33/RealTimeChat",
     },
+    {
+      id: 3,
+      title: "Financial Dashboard",
+      description: "A modern personal finance dashboard that connects bank accounts via Plaid, displays real-time transactions, and enables ACH transfers using Dwolla.",
+      image: "/PersonalFinance.png",
+      tags: ["Next.js", "FastAPI", "PostgreSQL", "Plaid", "Dwolla", "OpenAI", "Tailwind"],
+      demoUrl: "https://full-stack-personal-finance-dashboard.vercel.app/",
+      githubUrl: "https://github.com/EbraGory33/PersonalFinanceTracker",
+    },
 ];
+// image: "/PersonalFinance.png"
 
 export const ProjectsSection = () => {
   return (
