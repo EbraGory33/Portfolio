@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/
 
 # dependencies
 /node_modules
@@ -24,18 +24,47 @@
 .DS_Store
 *.pem
 
-# debug
+# logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
+!.env.example
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# local OS files
+Thumbs.db
+
+# temporary files
+*.tmp
+*.temp
+
+# cache
+.cache/
+.turbo/
+
+# package manager
+.npm/
+.pnpm-store/
+
+# next telemetry (optional)
+.next/cache
+
+# local databases (if you add SQLite later)
+*.sqlite
+*.sqlite3
