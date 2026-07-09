@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { Header } from "@/components/layout/header/Header";
+import { Header, Footer } from "@/components/layout";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {
@@ -27,9 +27,14 @@ export default function RootLayout({
 }) {
   return (
     // theme needs to be dynamic
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+    <html
+      lang="en"
+      className={`dark ${outfit.variable} ${instrumentSerif.variable}`}
+      style={{ colorScheme: "dark" }}
+    >
       <body className="relative h-full bg-[#F4F4F4] antialiased selection:bg-black/10 selection:text-black dark:bg-black dark:selection:bg-white/10 dark:selection:text-white">
         <div
+          //  ${coreMono.variable} ${bluuNext.variable}
           className="pointer-events-none fixed top-0 left-0 z-40 h-22.5 w-full select-none lg:h-25"
           style={{
             backdropFilter: "blur(2px)",
@@ -39,6 +44,7 @@ export default function RootLayout({
         />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
