@@ -25,7 +25,12 @@ function NavItems() {
       <span
         className="absolute inset-y-0 right-0 left-0 -z-10 bg-neutral-900/8 dark:bg-white/10"
         style={{
-          clipPath: "inset(0px 383px 0px 0px round 9999px)",
+          // 466.63 - home pixels,
+          clipPath: "inset(0px 397.36px 0px 0px round 9999px)",
+          // clipPath: "inset(0px 327.18px 0px 69.27px round 9999px)",
+          // clipPath: "inset(0px 261.98px 0px 139.45px round 9999px)",
+          // clipPath: "inset(0px 202.13px 0px 204.65px round 9999px)",
+          // clipPath: "inset(0px 121.55px 0px 264.5px round 9999px)",
           opacity: 1,
         }}
       ></span>

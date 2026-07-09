@@ -1,13 +1,6 @@
 import { NavItems } from ".";
 
 function Navigation() {
-  const page = "http://localhost:3000/";
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Work", href: "/projects" },
-    { name: "Blog", href: "/blog" },
-  ];
   return (
     <nav className="container flex items-start py-1.5">
       <div className="mx-auto flex items-start gap-3.5">
@@ -16,19 +9,19 @@ function Navigation() {
           <div
             aria-hidden="true"
             className="pointer-events-none invisible h-10 shrink-0"
-            style={{ width: 460 }}
+            style={{ width: 480 }}
           ></div>
 
           {/* <!-- Actual navbar --> */}
           <div
-            //   deal with the shadow
-            className="absolute top-0 left-1/2 flex min-h-10 -translate-x-1/2 items-start justify-center bg-white/90 px-1 dark:bg-neutral-800/90"
+            //   deal with the shadow: shadow-[0_10px_30px_-14px_rgba(0,0,0,0.22),0_3px_8px_-4px_rgba(0,0,0,0.08)]
+            className="shadow-border absolute top-0 left-1/2 flex min-h-10 -translate-x-1/2 items-start justify-center bg-white/90 px-1 dark:bg-neutral-800/90 dark:shadow-none"
             id="js-nav-content"
             style={{
               borderRadius: "22px",
               clipPath: "inset(-24px -32px -32px round 22px)",
               opacity: 1,
-              width: "460px",
+              width: "480px",
               height: "42px;",
             }}
           >
