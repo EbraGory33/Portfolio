@@ -20,16 +20,16 @@ export function ConnectButton() {
           <path
             d="M18.5 12L4.99997 12"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
           ></path>
           <path
             d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
           ></path>
         </svg>
         <svg
@@ -43,16 +43,16 @@ export function ConnectButton() {
           <path
             d="M18.5 12L4.99997 12"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
           ></path>
           <path
             d="M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
           ></path>
         </svg>
       </span>

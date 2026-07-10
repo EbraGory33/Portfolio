@@ -22,7 +22,7 @@ function Navigation() {
               clipPath: "inset(-24px -32px -32px round 22px)",
               opacity: 1,
               width: "480px",
-              height: "42px;",
+              height: "42px",
             }}
           >
             <div
