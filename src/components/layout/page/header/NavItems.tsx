@@ -16,6 +16,7 @@ function NavItems() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    // { name: "Skills", href: "/blog" },
     { name: "Work", href: "/projects" },
     { name: "Blog", href: "/blog" },
   ];
@@ -34,7 +35,12 @@ function NavItems() {
           opacity: 1,
         }}
       ></span>
-      <div></div>
+      <div
+        className="dark:bg-primary pointer-events-none absolute -top-2 left-0 -z-10 h-1 w-8 rounded-t-full bg-neutral-900"
+        style={{ opacity: 1, transform: "translateX(18.5px)" }}
+      >
+        <div className="absolute -top-3 -left-2 h-7 w-12 rounded-full bg-[radial-gradient(farthest-side_at_50%_50%,rgba(23,23,23,0.6),transparent)] blur-md dark:bg-[radial-gradient(farthest-side_at_50%_50%,color-mix(in_oklab,var(--color-primary)_62%,transparent),transparent)]"></div>
+      </div>
       {/*  */}
 
       <ul className="relative flex items-center">

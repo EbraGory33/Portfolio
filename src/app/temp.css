@@ -1,0 +1,82 @@
+/* theme.css */
+
+:root {
+  /* Backgrounds */
+  --color-surface: #ffffff;
+  --color-card: #ffffff;
+  --color-card-hover: #f8fafc;
+
+  /* Borders */
+  --color-border: #e5e7eb;
+  --color-border-hover: #818cf8;
+
+  /* Text */
+  --color-text-primary: #374151;
+  --color-text-secondary: #a3a3a3;
+  --color-text-inverse: #f5f5f5;
+
+  /* Accent */
+  --color-accent: #6366f1;
+  --color-accent-light: rgba(99, 102, 241, 0.2);
+  --color-accent-hover: rgba(99, 102, 241, 0.4);
+
+  /* Neutral fills */
+  --color-fill-1: rgba(245, 245, 245, 0.4);
+  --color-fill-2: rgba(212, 212, 212, 0.3);
+
+  /* Overlays */
+  --color-overlay-light: rgba(0, 0, 0, 0.1);
+  --color-overlay-dark: rgba(255, 255, 255, 0.1);
+
+  /* Gradients */
+  --gradient-card-overlay: linear-gradient(
+    to bottom right,
+    transparent,
+    transparent,
+    rgba(99, 102, 241, 0.2)
+  );
+}
+
+/* Dark theme */
+
+.dark {
+  --color-surface: #111827;
+  --color-card: rgba(255, 255, 255, 0.08);
+  --color-card-hover: rgba(255, 255, 255, 0.03);
+
+  --color-border: #404040;
+  --color-border-hover: #818cf8;
+
+  --color-text-primary: #d4d4d4;
+  --color-text-secondary: #a3a3a3;
+  --color-text-inverse: #f5f5f5;
+
+  --color-fill-1: rgba(64, 64, 64, 0.6);
+  --color-fill-2: rgba(82, 82, 82, 0.5);
+
+  --color-overlay-light: rgba(255, 255, 255, 0.05);
+  --color-overlay-dark: rgba(255, 255, 255, 0.1);
+
+  --gradient-card-overlay: linear-gradient(
+    to bottom right,
+    transparent,
+    transparent,
+    rgba(255, 255, 255, 0.05)
+  );
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+.ring-border {
+  --tw-ring-color: var(--color-border);
+}
+
+.fill-surface {
+  fill: var(--color-surface);
+}

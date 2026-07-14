@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container, Divider, PageGrid } from "../";
+import { Container, Divider, PageGrid } from "..";
 
 interface PageBuilderProps {
   children: ReactNode;

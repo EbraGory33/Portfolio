@@ -37,6 +37,8 @@ body {
    theme
    ========================================================================== */
 @theme {
+  --primary: #e5e5e5;
+  --color-primary: #e5e5e5;
   --border: lab(15.32% 0 0);
   --spacing-pagebuilder: 4rem;
   --font-instrument-serif: var(--font-instrument-serif);
@@ -46,6 +48,33 @@ body {
   inherits: false;
   initial-value: 100%;
 }
+/* @layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+
+    --primary: 220 80% 35%;
+
+    --primary-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 8%;
+
+    --primary: 220 80% 35%;
+
+    --primary-foreground: 213 31% 91%;
+
+    --border: 217 33% 20%;
+  }
+} */
 
 /* ==========================================================================
    Utilities
@@ -75,6 +104,9 @@ body {
   background-clip: text;
 }
 
+.dark .bg-primary {
+  background-color: var(--primary);
+}
 /* Dark mode override */
 .dark .grad-white {
   background-image: linear-gradient(

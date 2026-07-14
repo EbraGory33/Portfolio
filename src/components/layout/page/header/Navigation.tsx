@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/effects/themeToggle/ThemeToggle";
 import { NavItems } from ".";
 
 function Navigation() {
@@ -73,6 +74,9 @@ function Navigation() {
             </span>
           </span> */}
         </button>
+        {/* todo: Delete later */}
+        <ThemeToggle />
+        {/*  */}
       </div>
     </nav>
   );
