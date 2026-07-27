@@ -1,11 +1,12 @@
 import { GithubSectionData } from "@/lib/types/tech";
-import { getGithubData } from "@/lib/github";
+import { getGithubData } from "@/lib/github/github";
 import { SectionBuilder } from "@/components/layout";
 import { GithubProfile } from "./profile";
 import { GithubStats } from "./stats";
 
 export async function GithubSection() {
   const githubData: GithubSectionData = await getGithubData();
+  console.log(githubData);
   return (
     <SectionBuilder
       className=""
@@ -14,8 +15,8 @@ export async function GithubSection() {
       alignment="center"
     >
       <div className="grid w-full grid-cols-1 gap-2 border-y md:grid-cols-12">
-        <GithubProfile />
-        <GithubStats />
+        <GithubProfile contributions={githubData.contributions} />
+        <GithubStats stats={githubData.stats} />
       </div>
     </SectionBuilder>
   );

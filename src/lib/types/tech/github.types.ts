@@ -2,6 +2,7 @@ import { GithubStatConfig } from "@/components/sections";
 
 export interface GithubStatCardProps {
   variant?: keyof typeof GithubStatConfig;
+  value: GithubStat;
 }
 
 export interface GithubSectionData {

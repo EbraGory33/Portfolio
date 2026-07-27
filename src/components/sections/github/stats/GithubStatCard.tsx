@@ -1,7 +1,10 @@
 import { GithubStatConfig } from "..";
 import { GithubStatCardProps } from "@/lib/types";
 
-export function GithubStatCard({ variant = "followers" }: GithubStatCardProps) {
+export function GithubStatCard({
+  variant = "followers",
+  value,
+}: GithubStatCardProps) {
   const card = GithubStatConfig[variant];
   const Overlay = card.overLay;
   return (
@@ -27,7 +30,7 @@ export function GithubStatCard({ variant = "followers" }: GithubStatCardProps) {
             className={`z-20 mt-auto text-2xl font-bold tracking-tight md:text-3xl ${card.color}`}
             style={{ transform: "none" }}
           >
-            {/* {card.value} */}
+            {value.value}
           </p>
         </div>
       </div>
