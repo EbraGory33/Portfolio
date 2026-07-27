@@ -1,12 +1,22 @@
-// import {} from ".";
-import { PageBuilder, Content } from "@/components/layout";
+import { PageBuilder, Content, BackgroundImage } from "@/components/layout";
+import { Experience } from ".";
+import { GithubSection } from "@/components/sections";
+import { About } from "@/components/pages/home";
 
 export function AboutPage() {
   return (
-    <PageBuilder>
-      <Content className="pt-36">
-        <div>helo</div>
-      </Content>
-    </PageBuilder>
+    <>
+      <BackgroundImage
+        image="/images/backgrounds/blueprint.avif"
+        alt="Blueprint"
+      />
+      <PageBuilder>
+        <Content className="pt-36">
+          <About className="bg-transparent" />
+          <Experience />
+          <GithubSection />
+        </Content>
+      </PageBuilder>
+    </>
   );
 }

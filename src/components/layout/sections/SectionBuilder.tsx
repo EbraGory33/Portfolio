@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 interface SectionHeaderProps {
   header: String;
   headline: String;
+  alignment: "left" | "center";
+  padding?: "med";
 }
 
 interface SectionBuilderProps {
@@ -11,12 +13,19 @@ interface SectionBuilderProps {
   className: String;
   header: String;
   headline: String;
+  alignment: "left" | "center";
+  padding?: "med";
 }
 // TODO: Fix Header (headline)
-function SectionHeader({ header, headline }: SectionHeaderProps) {
+function SectionHeader({
+  header,
+  headline,
+  alignment,
+  padding,
+}: SectionHeaderProps) {
   return (
     <h2
-      className="mb-pagebuilder relative z-2 mx-auto max-w-xl text-center text-5xl font-medium tracking-tight text-balance max-sm:px-5 sm:text-5xl md:text-6xl"
+      className={`${padding == "med" ? "mb-8!" : "mb-pagebuilder"} relative z-2 ${alignment == "center" ? "mx-auto" : alignment == "left" ? "mx-0 lg:text-left" : ""} max-w-xl text-center text-5xl font-medium tracking-tight text-balance max-sm:px-5 sm:text-5xl md:text-6xl`}
       style={{
         textShadow:
           "0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.20)",
@@ -26,7 +35,7 @@ function SectionHeader({ header, headline }: SectionHeaderProps) {
         {header}
       </p>
       <span className="font-instrument-serif inline-block">
-        Curated{" "}
+        {/* Featured{" "}
         <span
           className="animate-gradient-x text-colorfull px-1 pb-1 italic text-shadow-none"
           style={{
@@ -37,7 +46,8 @@ function SectionHeader({ header, headline }: SectionHeaderProps) {
           }}
         >
           work
-        </span>
+        </span> */}
+        {headline}
       </span>
     </h2>
   );
@@ -48,10 +58,18 @@ export function SectionBuilder({
   className,
   header,
   headline,
+  alignment,
+  padding,
 }: SectionBuilderProps) {
   return (
-    <section className={cn("py-pagebuilder relative w-full", className)}>
-      <SectionHeader header={header} headline={headline} />
+    // <section className={cn("py-pagebuilder relative w-full", className)}>
+    <section className={cn("relative w-full", className)}>
+      <SectionHeader
+        header={header}
+        headline={headline}
+        alignment={alignment}
+        padding={padding}
+      />
       {children}
     </section>
   );

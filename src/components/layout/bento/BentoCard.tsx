@@ -23,12 +23,9 @@ export function BentoCard<T extends ElementType = "div">({
 
   return (
     <Component
-      // className={cn(
-      //   "group bg-surface dark:bg-card/15 dark:hover:bg-card/5 ring-border relative flex w-full flex-col justify-between overflow-hidden rounded-xl ring-1 transition-colors duration-300 hover:bg-white",
-      //   className,
-      // )}
       className={cn(
-        "group bg-surface dark:bg-card/15 dark:hover:bg-card/5 ring-border relative flex h-full min-h-72 w-full flex-col justify-between overflow-hidden rounded-xl ring-1 transition-colors duration-300 hover:bg-white",
+        as && "cursor-pointer",
+        "group bg-surface dark:bg-card/15 dark:hover:bg-card/5 ring-border relative flex size-full min-h-72 flex-col justify-between overflow-hidden rounded-xl ring-1 transition-colors duration-300 hover:bg-white",
         className,
       )}
       {...props}
@@ -41,14 +38,14 @@ export function BentoCard<T extends ElementType = "div">({
 
 {
   //   //Selective button
-  //   <div class="absolute right-4 bottom-4 z-20 flex size-9 -translate-y-2 items-center justify-center rounded-2xl border-dashed bg-black/10 opacity-100 transition-all duration-300 ease-out max-md:border md:translate-y-0 md:opacity-0 md:group-hover:-translate-y-2 md:group-hover:opacity-100 dark:bg-white/10">
+  //   <div className="absolute right-4 bottom-4 z-20 flex size-9 -translate-y-2 items-center justify-center rounded-2xl border-dashed bg-black/10 opacity-100 transition-all duration-300 ease-out max-md:border md:translate-y-0 md:opacity-0 md:group-hover:-translate-y-2 md:group-hover:opacity-100 dark:bg-white/10">
   //     <svg
   //       fill="none"
   //       height="24"
   //       viewBox="0 0 24 24"
   //       width="24"
   //       xmlns="http://www.w3.org/2000/svg"
-  //       class="size-[18px] text-neutral-700 dark:text-neutral-200"
+  //       className="size-[18px] text-neutral-700 dark:text-neutral-200"
   //     >
   //       <path
   //         d="M18.5 12L4.99997 12"

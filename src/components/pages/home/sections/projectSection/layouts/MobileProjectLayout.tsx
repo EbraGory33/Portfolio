@@ -1,4 +1,4 @@
-import { Project } from "@/types/project";
+import { Project } from "@/lib/types/project";
 import { ProjectCard } from "..";
 
 interface MobileProjectLayoutProps {

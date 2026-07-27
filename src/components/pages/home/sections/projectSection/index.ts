@@ -1,4 +1,4 @@
-export { Project } from "./Project";
-export { ProjectList } from "./ProjectList";
+export * from "./Project";
 export * from "./layouts";
-export * from "./card";
+export * from "./projectList";
+export * from "./projectSidebar";

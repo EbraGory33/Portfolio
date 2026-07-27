@@ -1,16 +1,19 @@
 import { SectionBuilder } from "@/components/layout";
-import { projects } from "@/data/project";
+import { projects } from "@/lib/data/project";
 import { ProjectList } from ".";
+import { AnimatedLink } from "@/components/ui/animated-link";
 export function Project() {
   return (
     <SectionBuilder
-      className="px-2"
+      className="py-pagebuilder px-2"
       header={"CASE STUDIES"}
-      headline={"Curated Work"}
+      headline={"Featured Work"}
+      alignment="center"
     >
       <ProjectList projects={projects} layout="mobile" />
 
       <ProjectList projects={projects} layout="desktop" />
+      <AnimatedLink href="/projects">See more projects</AnimatedLink>
     </SectionBuilder>
   );
 }

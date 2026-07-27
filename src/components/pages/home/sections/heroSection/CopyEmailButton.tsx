@@ -21,13 +21,13 @@ export function CopyEmailButton() {
           Copied to clipboard
         </span>
         <span className="invisible col-start-1 row-start-1">
-          hello@aayushbharti.in
+          Gory.Ebrahim30@gmail.com
         </span>
         <span
           className="col-start-1 row-start-1"
           style={{ opacity: 1, transform: "none" }}
         >
-          hello@aayushbharti.in
+          Gory.Ebrahim30@gmail.com
         </span>
       </span>
     </button>

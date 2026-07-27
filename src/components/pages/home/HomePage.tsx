@@ -1,4 +1,4 @@
-import { Hero, Info, Project } from ".";
+import { Hero, Info, Project, About } from ".";
 import { PageBuilder, Content } from "@/components/layout";
 
 export function HomePage() {
@@ -9,6 +9,7 @@ export function HomePage() {
         <Content className="">
           <Info />
           <Project />
+          <About />
         </Content>
       </PageBuilder>
     </>
