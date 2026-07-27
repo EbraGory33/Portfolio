@@ -1,7 +1,14 @@
+import { GithubWeek } from "@/lib/types";
 import { GithubFooter } from ".";
-type GithubContributionGraphProps = {};
+type GithubContributionGraphProps = {
+  total: number;
+  calendar: GithubWeek[];
+};
 
-export function GithubContributionGraph({}: GithubContributionGraphProps) {
+export function GithubContributionGraph({
+  total,
+  calendar,
+}: GithubContributionGraphProps) {
   return (
     <article
       className="react-activity-calendar"
