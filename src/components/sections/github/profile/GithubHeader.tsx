@@ -1,7 +1,9 @@
 import { ContributionCount, GithubAvatar, GitHubUser } from ".";
-type GithubHeaderProps = {};
+type GithubHeaderProps = {
+  value: number;
+};
 
-export function GithubHeader({}: GithubHeaderProps) {
+export function GithubHeader({ value }: GithubHeaderProps) {
   return (
     <div className="mb-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -9,7 +11,7 @@ export function GithubHeader({}: GithubHeaderProps) {
         <GitHubUser />
       </div>
       <div className="flex flex-col items-end">
-        <ContributionCount />
+        <ContributionCount value={value} />
       </div>
     </div>
   );

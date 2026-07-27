@@ -12,6 +12,7 @@ export interface GithubSectionData {
 
 export interface GithubContributions {
   total: number;
+  previousCalendarYearTotal: number;
   calendar: GithubWeek[];
 }
 
@@ -22,7 +23,6 @@ export interface GithubWeek {
 export interface GithubContributionDay {
   date: string;
   contributionCount: number;
-  color: string;
 }
 
 export interface GithubStats {

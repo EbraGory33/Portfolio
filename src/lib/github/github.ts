@@ -8,24 +8,40 @@ const headers = {
   Accept: "application/vnd.github+json",
 };
 
+const previousYear = new Date().getFullYear() - 1;
+const from = `${previousYear}-01-01T00:00:00Z`;
+const to = `${previousYear}-12-31T23:59:59Z`;
 const CONTRIBUTIONS_QUERY = `
-query($login: String!) {
+query(
+  $login: String!
+  $from: DateTime!
+  $to: DateTime!
+) {
   user(login: $login) {
-    contributionsCollection {
+    lastYear: contributionsCollection {
       contributionCalendar {
         totalContributions
         weeks {
           contributionDays {
             date
             contributionCount
-            color
           }
         }
+      }
+    }
+
+    contributions2025: contributionsCollection(
+      from: $from
+      to: $to
+    ) {
+      contributionCalendar {
+        totalContributions
       }
     }
   }
 }
 `;
+
 export async function getGithubData(): Promise<GithubSectionData> {
   const [profileResponse, reposResponse, contributionsResponse] =
     await Promise.all([
@@ -55,6 +71,8 @@ export async function getGithubData(): Promise<GithubSectionData> {
           query: CONTRIBUTIONS_QUERY,
           variables: {
             login: GITHUB_USERNAME,
+            from,
+            to,
           },
         }),
         next: {
@@ -87,8 +105,17 @@ export async function getGithubData(): Promise<GithubSectionData> {
     (sum: number, repo: any) => sum + repo.forks_count,
     0,
   );
-  const calendar =
-    contributions.data.user.contributionsCollection.contributionCalendar;
+
+  const calendar = {
+    total:
+      contributions.data.user.lastYear.contributionCalendar.totalContributions,
+
+    previousCalendarYearTotal:
+      contributions.data.user.contributions2025.contributionCalendar
+        .totalContributions,
+
+    calendar: contributions.data.user.lastYear.contributionCalendar.weeks,
+  };
 
   return {
     contributions: calendar,
