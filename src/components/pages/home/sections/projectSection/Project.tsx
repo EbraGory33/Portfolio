@@ -3,6 +3,12 @@ import { projects } from "@/lib/data/project";
 import { ProjectList } from ".";
 import { AnimatedLink } from "@/components/ui/animated-link";
 export function Project() {
+  if (projects.length == 0) {
+    return <></>;
+  }
+  {
+    projects.length == 0 && <></>;
+  }
   return (
     <SectionBuilder
       className="py-pagebuilder px-2"

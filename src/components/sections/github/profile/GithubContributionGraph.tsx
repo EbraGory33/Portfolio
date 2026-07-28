@@ -1,4 +1,5 @@
 import { GithubWeek } from "@/lib/types";
+import { getContributionColor } from "@/lib/github";
 import { GithubFooter } from ".";
 type GithubContributionGraphProps = {
   total: number;
@@ -9,27 +10,75 @@ export function GithubContributionGraph({
   total,
   calendar,
 }: GithubContributionGraphProps) {
-  return (
-    <article
-      className="react-activity-calendar"
+  const CELL = 12;
+  const GAP = 4;
 
-      style={{
-        width: "max-content",
-        maxWidth: "100%",
-        display: "flex",
-        flexDirection: "column",
-        gap: "8px",
-        fontSize: "14px",
-      }}
-    >
+  const weekWidth = CELL + GAP;
+  const height = 130;
+  const width = calendar.length * weekWidth;
+  const months = calendar
+    .map((week, index) => ({
+      index,
+      month: new Date(week.contributionDays[0].date).toLocaleString("default", {
+        month: "short",
+      }),
+    }))
+    .filter((item, i, arr) => i === 0 || item.month !== arr[i - 1].month);
+
+  return (
+    <article className="react-activity-calendar flex w-max max-w-full flex-col gap-2 text-sm 2xl:w-full">
       <div
-        className="react-activity-calendar__scroll-container"
+        className="react-activity-calendar__scroll-container 2xl:flex 2xl:w-full 2xl:justify-center"
         style={{
           maxWidth: "100%",
           overflow: "auto hidden",
           paddingTop: "2px",
         }}
       >
+        {/* <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+          <g>
+            {months.map(({ index, month }) => (
+              <text
+                key={month + index}
+                x={index * weekWidth}
+                y={0}
+                dominantBaseline="hanging"
+                fill="currentColor"
+                className="text-xs"
+              >
+                {month}
+              </text>
+            ))}
+          </g>
+
+          {calendar.map((week, weekIndex) => (
+            <g
+              key={weekIndex}
+              transform={`translate(${weekIndex * weekWidth},0)`}
+            >
+              {week.contributionDays.map((day, dayIndex) => {
+                const level = day.contributionCount;
+
+                return (
+                  <rect
+                    key={day.date}
+                    x={0}
+                    y={22 + dayIndex * 16}
+                    width={12}
+                    height={12}
+                    rx={2}
+                    fill={getContributionColor(level)}
+                    data-date={day.date}
+                    data-level={level}
+                    style={{
+                      stroke: "rgba(255,255,255,.04)",
+                    }}
+                  />
+                );
+              })}
+            </g>
+          ))}
+        </svg> */}
         <svg
           width="844"
           height="130"
