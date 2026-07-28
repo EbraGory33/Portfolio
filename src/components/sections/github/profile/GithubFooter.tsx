@@ -1,4 +1,7 @@
-export function GithubFooter() {
+type GithubFooterProps = {
+  total: number;
+};
+export function GithubFooter({ total }: GithubFooterProps) {
   return (
     <footer
       className="react-activity-calendar__footer"
@@ -10,7 +13,7 @@ export function GithubFooter() {
       }}
     >
       <div className="react-activity-calendar__count">
-        1787 contributions in the last year
+        {total} contributions in the last year
       </div>
       <div
         className="react-activity-calendar__legend-colors"
