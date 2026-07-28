@@ -17,6 +17,7 @@ export function ProjectSidebar({ activeProject }: ProjectSidebarProps) {
       <div className="sticky top-32">
         <div className="flex">
           <AccentLine accent={activeProject.accentColor} />
+
           <div>
             <div>
               {/* SidebarHeader */}
