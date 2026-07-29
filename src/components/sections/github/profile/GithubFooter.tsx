@@ -29,7 +29,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#27272a"
+            fill="#1B1C22"
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -39,7 +39,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#312e81"
+            fill="#4F46E5"
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -49,7 +49,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#4f46e5"
+            fill="#6366F1"
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -59,7 +59,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#818cf8"
+            fill="#818CF8"
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -69,7 +69,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#c7d2fe"
+            fill="#A5B4FC"
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
