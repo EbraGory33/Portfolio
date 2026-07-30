@@ -1,0 +1,185 @@
+---
+title: "Travel Guide"
+description: "A full-stack travel discovery platform that helps users explore destinations, organize trips, and discover places through an intuitive web experience."
+summary: "A MERN stack application built during the Per Scholas Software Engineering program."
+published: "2025-11-01"
+updated: "2026-07-29"
+
+type: "Web Application"
+role: "Full Stack Developer"
+
+tech:
+  - React
+  - Node.js
+  - Express
+  - MongoDB
+  - JavaScript
+  - HTML
+  - CSS
+
+github: "https://github.com/EbraGory33/travel-guide"
+live: ""
+
+featured: true
+
+cover: "/projects/travel-guide/hero.webp"
+thumbnail: "/projects/travel-guide/card.webp"
+---
+
+# Travel Guide
+
+A full-stack travel application designed to make discovering destinations simple and enjoyable. Users can browse locations, learn about destinations, and interact with travel information through a modern responsive interface.
+
+<ProjectHero
+  image="/projects/travel-guide/hero.webp"
+  alt="Travel Guide Homepage"
+/>
+
+---
+
+## Why I Built This
+
+Travel planning usually involves jumping between multiple websites to collect information. I wanted to build a centralized experience where users could browse destinations and interact with travel information inside a single application.
+
+This project was developed during the Per Scholas Software Engineering program and became one of my first complete full-stack applications using the MERN stack.
+
+Along the way I practiced:
+
+- Designing a REST API
+- Building reusable React components
+- Managing application state
+- Connecting a frontend to a backend
+- Working with MongoDB
+- Deploying a complete web application
+
+---
+
+## Features
+
+- Browse destinations
+- Responsive interface
+- RESTful API
+- CRUD functionality
+- MongoDB database
+- Express backend
+- React frontend
+
+<ProjectGallery
+  images={[
+    "/projects/travel-guide/home.webp",
+    "/projects/travel-guide/details.webp",
+    "/projects/travel-guide/mobile.webp",
+  ]}
+/>
+
+---
+
+## Architecture
+
+The application follows a traditional MERN architecture.
+
+```
+React Frontend
+        │
+ REST API (Express)
+        │
+ Business Logic
+        │
+ MongoDB Database
+```
+
+The frontend is responsible for rendering pages and interacting with the backend through API requests.
+
+The backend exposes REST endpoints responsible for handling business logic and communicating with MongoDB.
+
+This separation allowed the frontend and backend to evolve independently during development.
+
+<ProjectImage
+  src="/projects/travel-guide/architecture.webp"
+  alt="Travel Guide Architecture"
+/>
+
+---
+
+## Frontend
+
+The frontend was built with React and focuses on creating a responsive user experience.
+
+Some of the UI goals included:
+
+- Clean navigation
+- Responsive layouts
+- Reusable components
+- Consistent styling
+- Fast page interactions
+
+Rather than placing all UI inside large page files, components were broken into smaller reusable pieces to improve maintainability.
+
+---
+
+## Backend
+
+The backend uses Express to expose REST endpoints consumed by the React frontend.
+
+Responsibilities include:
+
+- Processing requests
+- CRUD operations
+- Database communication
+- Returning structured JSON responses
+
+Keeping API logic separate from presentation made the project easier to extend and debug.
+
+---
+
+## Challenges
+
+One of the biggest lessons during development was understanding how every layer communicates together.
+
+Frontend state, API requests, routing, and database operations all have to remain synchronized.
+
+Building the project also reinforced:
+
+- API design
+- Request/response flow
+- Component organization
+- Database modeling
+- Debugging across multiple layers
+
+---
+
+## What I Learned
+
+This project helped me transition from building isolated frontend interfaces to developing complete full-stack applications.
+
+Some of the biggest takeaways were:
+
+- Structure matters more than size.
+- Reusable components dramatically improve maintainability.
+- Designing APIs before building UI reduces unnecessary refactoring.
+- Separating concerns makes applications easier to extend.
+
+The project also gave me practical experience working across the full request lifecycle—from a user interaction in React all the way to database operations in MongoDB.
+
+---
+
+## Future Improvements
+
+There are several features I'd like to continue adding:
+
+- User authentication
+- Saved destinations
+- Search and filtering
+- Maps integration
+- Reviews and ratings
+- Image optimization
+- Improved accessibility
+- Better mobile experience
+
+---
+
+## Repository
+
+GitHub Repository:
+
+https://github.com/EbraGory33/travel-guide
