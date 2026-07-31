@@ -1,0 +1,293 @@
+import type { ProjectFrontmatter } from "@/lib/mdx";
+
+export function ProjectMeta(project: ProjectFrontmatter) {
+  return (
+    <div className="mt-8 border-y">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 px-4 py-8 md:px-6">
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Type
+            </p>
+            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              Web App
+            </p>
+          </div>
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Role
+            </p>
+            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              Full-stack Developer &amp; Designer
+            </p>
+          </div>
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Built
+            </p>
+            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              Q2 2026
+            </p>
+          </div>
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Updated
+            </p>
+            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              Q2 2026
+            </p>
+          </div>
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Visit
+            </p>
+            <a
+              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
+              href="https://keythm.aayushbharti.in/"
+              rel="noopener noreferrer"
+              target="_blank"
+              data-ph-capture-attribute-link-type="project_visit"
+            >
+              <span className="inline-flex items-center gap-1.5 leading-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                  className="size-3.5"
+                >
+                  <path
+                    d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z"
+                    opacity="0.2"
+                  ></path>
+                  <path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"></path>
+                </svg>
+                keythm.aayushbharti.in
+              </span>
+              <svg
+                aria-hidden="true"
+                className="ml-[0.3em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 [motion-reduce:transition-none] group-hover:translate-y-0 group-hover:opacity-100"
+                fill="none"
+                viewBox="0 0 10 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.004 9.166 9.337.833m0 0v8.333m0-8.333H1.004"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.25"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <div>
+            <p className="mb-1.5 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+              Source
+            </p>
+            <a
+              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
+              href="https://github.com/aayushbharti/keythm"
+              rel="noopener noreferrer"
+              target="_blank"
+              data-ph-capture-attribute-link-type="project_source"
+            >
+              <span className="inline-flex items-center gap-1.5 leading-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                  className="size-3.5"
+                >
+                  <path
+                    d="M208,104v8a48,48,0,0,1-48,48H136a32,32,0,0,1,32,32v40H104V192a32,32,0,0,1,32-32H112a48,48,0,0,1-48-48v-8a49.28,49.28,0,0,1,8.51-27.3A51.92,51.92,0,0,1,76,32a52,52,0,0,1,43.83,24h32.34A52,52,0,0,1,196,32a51.92,51.92,0,0,1,3.49,44.7A49.28,49.28,0,0,1,208,104Z"
+                    opacity="0.2"
+                  ></path>
+                  <path d="M208.3,75.68A59.74,59.74,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58,58,0,0,0,208.3,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.76,41.76,0,0,1,200,104Z"></path>
+                </svg>
+                GitHub
+              </span>
+              <svg
+                aria-hidden="true"
+                className="ml-[0.3em] size-[0.55em] translate-y-1 opacity-0 transition-all duration-300 [motion-reduce:transition-none] group-hover:translate-y-0 group-hover:opacity-100"
+                fill="none"
+                viewBox="0 0 10 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.004 9.166 9.337.833m0 0v8.333m0-8.333H1.004"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.25"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div className="border-t px-4 py-8 md:px-6 lg:border-t-0 lg:border-l">
+          <p className="mb-3 font-mono text-[10px] tracking-wider text-neutral-500 uppercase dark:text-neutral-500">
+            Tech Stack
+          </p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/nextjs.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Next.js
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/react.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  React
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/typescript.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  TypeScript
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/tailwindcss.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Tailwind CSS
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/drizzle.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Drizzle ORM
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/motion.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Motion.dev
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5 dark:invert"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/shadcn-ui.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Shadcn UI
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <span aria-hidden="true" className="h-3 sm:h-3.5"></span>
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  web-audio-api
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <span aria-hidden="true" className="h-3 sm:h-3.5"></span>
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  serwist
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  className="mr-1.5 size-3 sm:size-3.5"
+                  height="14"
+                  loading="lazy"
+                  width="14"
+                  src="./Keythm - Aayush Bharti_files/zod.svg"
+                />
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  Zod
+                </span>
+              </span>
+            </div>
+            <div style={{ opacity: 1, transform: "none" }}>
+              <span className="bg-primary/5 shadow-border flex gap-0 rounded-md px-2 py-1 font-mono sm:px-2.5 sm:py-[5px]">
+                <span aria-hidden="true" className="h-3 sm:h-3.5"></span>
+                <span className="text-[10px] font-medium tracking-wide text-neutral-600 uppercase sm:text-[11px] dark:text-neutral-300">
+                  recharts
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,7 +6,7 @@ interface NavLinkProps {
 }
 export function FooterLink({ name, link }: NavLinkProps) {
   return (
-    <li className="">
+    <li key={name} className="">
       <a
         className="group relative inline-flex items-center px-2 before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:z-1 before:h-0 before:w-full before:origin-center before:bg-white before:mix-blend-difference before:transition-[height] before:duration-300 before:ease-in-out before:content-[''] hover:before:h-[1.4em]"
         href={link}
