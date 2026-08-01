@@ -13,6 +13,7 @@ export * from "./ProjectTableHead";
 export * from "./ProjectTableBody";
 export * from "./ProjectTableRow";
 export * from "./ProjectTableCell";
+export * from "./ProjectSection";
 export * from "./ProjectLink";
 export * from "./ProjectDivider";
 export * from "./ProjectInlineCode";

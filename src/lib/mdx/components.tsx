@@ -13,6 +13,7 @@ import {
   ProjectTableRow,
   ProjectTableCell,
   ProjectLink,
+  ProjectSection,
   ProjectDivider,
   ProjectInlineCode,
 } from "@/components/project";
@@ -23,10 +24,15 @@ import { createCapture } from "./create-capture";
 // export const descriptionCapture = createCapture();
 
 export const mdxComponents = {
-  ProjectHeading,
+  // ProjectHeading,
+  ProjectSection,
+  ProjectParagraph,
   //   h2: ProjectHeading,
   h2: ({ children }: ComponentPropsWithoutRef<"h2">) => (
     <ProjectHeading>{children}</ProjectHeading>
+  ),
+  code: ({ children }: ComponentPropsWithoutRef<"code">) => (
+    <ProjectInlineCode>{children}</ProjectInlineCode>
   ),
 
   hr: ProjectDivider,

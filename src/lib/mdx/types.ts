@@ -25,6 +25,6 @@ export type ProjectFrontmatter = {
 export type Project = {
   slug: string;
   frontmatter: ProjectFrontmatter;
-  // content: ReactElement;
-  content: string;
+  content: ReactElement;
+  // content: string;
 };

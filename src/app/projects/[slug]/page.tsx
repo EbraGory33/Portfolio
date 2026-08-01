@@ -1,8 +1,6 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { PageBuilder, Content, BackgroundImage } from "@/components/layout";
 import { getProject } from "@/lib/mdx/loader";
 import { ProjectHeader, ProjectMeta } from "@/components/project";
-import { mdxComponents } from "@/lib/mdx";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -30,7 +28,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           />
           <ProjectMeta {...project.frontmatter} />
           <article className="prose dark:prose-invert max-w-none">
-            <MDXRemote source={project.content} components={mdxComponents} />
+            <div>{project.content}</div>
           </article>
         </div>
       </PageBuilder>

@@ -26,7 +26,7 @@ export async function getProject(slug: string): Promise<Project> {
   return {
     slug,
     frontmatter: parseFrontmatter(data),
-    content,
-    // content: compiled,
+    // content,
+    content: compiled,
   };
 }
