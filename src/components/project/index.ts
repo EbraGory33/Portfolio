@@ -1,5 +1,6 @@
 export * from "./ProjectTitle";
 export * from "./ProjectHeader";
+export * from "./ProjectHeading";
 export * from "./ProjectParagraph";
 export * from "./ProjectImage";
 export * from "./ProjectCode";
