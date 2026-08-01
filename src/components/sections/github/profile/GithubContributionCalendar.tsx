@@ -16,7 +16,9 @@ export function GithubContributionCalendar({
 
   let months = calendar
     .map((week, index) => {
-      const date = new Date(week.contributionDays[0].date);
+      const date = new Date(
+        week.contributionDays[week.contributionDays.length - 1].date,
+      );
 
       return {
         index,
@@ -32,7 +34,7 @@ export function GithubContributionCalendar({
   ) {
     months = months.slice(1);
   }
-  console.log(months);
+  // console.log(months);
   return (
     <div
       className="react-activity-calendar__scroll-container 2xl:flex 2xl:w-full 2xl:justify-center"

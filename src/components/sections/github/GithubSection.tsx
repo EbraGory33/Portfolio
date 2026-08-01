@@ -6,7 +6,7 @@ import { GithubStats } from "./stats";
 
 export async function GithubSection() {
   const githubData: GithubSectionData = await getGithubData();
-  console.log(githubData);
+  // console.log(githubData);
   return (
     <SectionBuilder
       className=""
