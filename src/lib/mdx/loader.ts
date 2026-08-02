@@ -1,10 +1,12 @@
-import type { Project, ProjectFrontmatter } from "@/lib/mdx/types";
 import fs from "fs/promises";
 import path from "path";
+
+import type { Project, ProjectFrontmatter } from "@/lib/mdx/types";
+
 import {
   compileProject,
-  parseMDX,
   parseFrontmatter,
+  parseMDX,
   PROJECT_DIRECTORY,
   PROJECT_EXTENSION,
 } from ".";

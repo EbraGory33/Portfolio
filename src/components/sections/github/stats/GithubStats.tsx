@@ -1,4 +1,5 @@
 import type { GithubStats } from "@/lib/types";
+
 import { GithubStatCard } from "./GithubStatCard";
 interface GithubStatsProps {
   stats: GithubStats;

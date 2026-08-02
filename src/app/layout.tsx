@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
-import { Outfit, Instrument_Serif } from "next/font/google";
-import { ThemeProvider } from "next-themes";
-import { Header, Footer } from "@/components/layout";
 import "./globals.css";
+
+import type { Metadata } from "next";
+import { Instrument_Serif,Outfit } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+
+import { Footer,Header } from "@/components/layout";
 
 // localstorage : theme light/dark
 const outfit = Outfit({

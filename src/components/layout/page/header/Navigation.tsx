@@ -1,4 +1,5 @@
 import { ThemeToggle } from "@/components/effects/themeToggle/ThemeToggle";
+
 import { NavItems } from ".";
 
 function Navigation() {

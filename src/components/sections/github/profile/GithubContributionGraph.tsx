@@ -1,4 +1,5 @@
 import { GithubWeek } from "@/lib/types";
+
 import { GithubContributionCalendar, GithubFooter } from ".";
 
 type GithubContributionGraphProps = {

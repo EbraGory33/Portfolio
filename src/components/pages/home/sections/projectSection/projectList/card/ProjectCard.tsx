@@ -1,5 +1,7 @@
 import { forwardRef } from "react";
+
 import { Project } from "@/lib/types/project";
+
 import { ProjectLink } from ".";
 
 interface ProjectCardProps {

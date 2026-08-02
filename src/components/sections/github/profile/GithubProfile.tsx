@@ -1,5 +1,6 @@
 import type { GithubContributions } from "@/lib/types";
-import { GithubHeader, GithubContributionGraph } from ".";
+
+import { GithubContributionGraph,GithubHeader } from ".";
 
 interface GithubProfileProps {
   contributions: GithubContributions;

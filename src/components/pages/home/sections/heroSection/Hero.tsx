@@ -1,9 +1,9 @@
 import {
-  HeroBackground,
   HeadingBackground,
+  HeroActions,
+  HeroBackground,
   HeroHeading,
   HeroIntro,
-  HeroActions,
 } from ".";
 
 export function Hero() {

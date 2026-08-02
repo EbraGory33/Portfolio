@@ -1,6 +1,7 @@
 import { SectionBuilder } from "@/components/layout";
-import { AboutContent, AboutVisual } from ".";
 import { cn } from "@/lib/utils";
+
+import { AboutContent, AboutVisual } from ".";
 
 type AboutProps = {
   className?: string;

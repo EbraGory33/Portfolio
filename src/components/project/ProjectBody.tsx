@@ -1,4 +1,4 @@
-export function ProjectParagraph({ children }: { children: React.ReactNode }) {
+export function ProjectBody({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="px-4 py-8 md:px-6 lg:col-span-8 lg:py-16">

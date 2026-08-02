@@ -1,5 +1,6 @@
-import { TECHS, type TechName } from "@/lib/types/tech";
 import Image from "next/image";
+
+import { type TechName,TECHS } from "@/lib/types/tech";
 
 interface TechBadgeProps {
   tech: TechName;

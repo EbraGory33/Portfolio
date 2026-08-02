@@ -1,5 +1,5 @@
-export { Header, Footer, PageBuilder, PageGrid } from "./page";
-export { Content, Container, Divider } from "./structure";
-export { SectionBuilder } from "./sections";
-export { BentoGrid, BentoGridItem, BentoCard } from "./bento";
 export { BackgroundImage } from "./BackgroundImage";
+export { BentoCard,BentoGrid, BentoGridItem } from "./bento";
+export { Footer, Header, PageBuilder, PageGrid } from "./page";
+export { SectionBuilder } from "./sections";
+export { Container, Content, Divider } from "./structure";

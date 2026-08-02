@@ -1,9 +1,10 @@
 import { Project } from "@/lib/types/project";
+
 import {
   AccentLine,
-  SidebarHeader,
   ProjectDetails,
   ProjectFeatures,
+  SidebarHeader,
   TechStack,
 } from ".";
 

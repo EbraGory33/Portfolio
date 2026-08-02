@@ -1,4 +1,5 @@
 import { Project } from "@/lib/types/project";
+
 import { ProjectCard } from "..";
 
 interface MobileProjectLayoutProps {

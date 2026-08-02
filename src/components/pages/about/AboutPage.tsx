@@ -1,7 +1,8 @@
-import { PageBuilder, Content, BackgroundImage } from "@/components/layout";
-import { Experience } from ".";
-import { GithubSection } from "@/components/sections";
+import { BackgroundImage,Content, PageBuilder } from "@/components/layout";
 import { About } from "@/components/pages/home";
+import { GithubSection } from "@/components/sections";
+
+import { Experience } from ".";
 
 export function AboutPage() {
   return (

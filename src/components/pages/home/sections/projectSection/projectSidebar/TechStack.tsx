@@ -1,4 +1,5 @@
 import { type TechName } from "@/lib/types/tech";
+
 import { TechBadge } from ".";
 
 interface TechStackProps {

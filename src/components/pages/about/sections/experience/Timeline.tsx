@@ -1,7 +1,7 @@
 "use client";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { RefObject } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 interface TimelineProps {
   containerRef: RefObject<HTMLDivElement | null>;

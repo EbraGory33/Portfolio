@@ -1,5 +1,6 @@
-import { GithubStatConfig } from "..";
 import { GithubStatCardProps } from "@/lib/types";
+
+import { GithubStatConfig } from "..";
 
 export function GithubStatCard({
   variant = "followers",

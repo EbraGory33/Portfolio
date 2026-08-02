@@ -2,6 +2,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+
 import { Project } from "@/lib/types/project";
 
 export function useActiveProject(projects: Project[]) {

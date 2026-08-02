@@ -1,25 +1,18 @@
 import { compileMDX } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+
 import { mdxComponents } from "./components";
-import type { ProjectFrontmatter } from "./types";
-import { createCapture } from "./create-capture";
 import { remarkSections } from "./plugins";
+import type { ProjectFrontmatter } from "./types";
 
-export const titleCapture = createCapture();
-// const subtitleCapture = createCapture();
-export const descriptionCapture = createCapture();
-
-export async function compileProject(
-  source: string,
-  //   frontmatter: ProjectFrontmatter,
-) {
+export async function compileProject(source: string) {
   return compileMDX<ProjectFrontmatter>({
     source,
-    components: mdxComponents,
+    components: mdxComponents(),
 
     options: {
-      // parseFrontmatter: false,
       mdxOptions: {
-        remarkPlugins: [remarkSections],
+        remarkPlugins: [remarkSections, remarkGfm],
       },
     },
   });

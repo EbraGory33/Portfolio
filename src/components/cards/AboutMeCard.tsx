@@ -1,6 +1,7 @@
-import { BentoCard } from "@/components/layout";
-import { CardFooter } from "@/components/cards";
 import Link from "next/link";
+
+import { CardFooter } from "@/components/cards";
+import { BentoCard } from "@/components/layout";
 
 function Graphic() {
   return (

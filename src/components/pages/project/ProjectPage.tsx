@@ -1,5 +1,6 @@
 // TODO:
-import { PageBuilder, Content, BackgroundImage } from "@/components/layout";
+import { BackgroundImage,Content, PageBuilder } from "@/components/layout";
+
 import { Project } from ".";
 
 export function ProjectPage() {

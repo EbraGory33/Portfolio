@@ -1,6 +1,6 @@
-import { PageBuilder, Content, BackgroundImage } from "@/components/layout";
-import { getProject } from "@/lib/mdx/loader";
+import { BackgroundImage,Content, PageBuilder } from "@/components/layout";
 import { ProjectHeader, ProjectMeta } from "@/components/project";
+import { getProject } from "@/lib/mdx/loader";
 
 interface ProjectPageProps {
   params: Promise<{

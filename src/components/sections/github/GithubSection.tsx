@@ -1,6 +1,7 @@
-import { GithubSectionData } from "@/lib/types/tech";
-import { getGithubData } from "@/lib/github/github";
 import { SectionBuilder } from "@/components/layout";
+import { getGithubData } from "@/lib/github/github";
+import { GithubSectionData } from "@/lib/types/tech";
+
 import { GithubProfile } from "./profile";
 import { GithubStats } from "./stats";
 

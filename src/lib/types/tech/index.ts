@@ -1,2 +1,2 @@
-export * from "./tech";
 export * from "./github.types";
+export * from "./tech";

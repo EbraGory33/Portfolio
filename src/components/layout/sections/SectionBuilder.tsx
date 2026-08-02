@@ -1,18 +1,19 @@
 import { ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  header: String;
-  headline: String;
+  header: string;
+  headline: string;
   alignment: "left" | "center";
   padding?: "med";
 }
 
 interface SectionBuilderProps {
   children: ReactNode;
-  className: String;
-  header: String;
-  headline: String;
+  className: string;
+  header: string;
+  headline: string;
   alignment: "left" | "center";
   padding?: "med";
 }

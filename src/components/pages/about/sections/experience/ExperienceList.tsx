@@ -1,6 +1,8 @@
 "use client";
 import { useRef } from "react";
+
 import { Experience } from "@/lib/types/experience";
+
 import { ExperienceCard, Timeline } from ".";
 interface ExperienceListProps {
   experiences: Experience[];

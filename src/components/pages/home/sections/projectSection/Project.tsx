@@ -1,7 +1,8 @@
 import { SectionBuilder } from "@/components/layout";
-import { projects } from "@/lib/data/project";
-import { ProjectList } from ".";
 import { AnimatedLink } from "@/components/ui/animated-link";
+import { projects } from "@/lib/data/project";
+
+import { ProjectList } from ".";
 export function Project() {
   if (projects.length == 0) {
     return <></>;

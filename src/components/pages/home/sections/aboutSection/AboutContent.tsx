@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaInstagram,FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 export function AboutContent() {
   return (

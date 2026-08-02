@@ -1,5 +1,6 @@
-import { Hero, Info, Project, About } from ".";
-import { PageBuilder, Content } from "@/components/layout";
+import { Content,PageBuilder } from "@/components/layout";
+
+import { About,Hero, Info, Project } from ".";
 
 export function HomePage() {
   return (

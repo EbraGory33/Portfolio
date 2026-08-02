@@ -1,6 +1,8 @@
 // TODO:
 import Link from "next/link";
+
 import { Project } from "@/lib/types/project";
+
 import { ProjectFrame } from ".";
 
 interface ProjectLinkProps {

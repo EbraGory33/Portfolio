@@ -1,2 +1,2 @@
-export * from "./sections";
 export { ProjectPage } from "./ProjectPage";
+export * from "./sections";

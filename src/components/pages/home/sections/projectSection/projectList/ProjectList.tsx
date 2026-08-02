@@ -1,7 +1,8 @@
 "use client";
 import { useActiveProject } from "@/lib/hooks";
 import { Project } from "@/lib/types";
-import { MobileProjectLayout, DesktopProjectLayout, ProjectSidebar } from "..";
+
+import { DesktopProjectLayout, MobileProjectLayout, ProjectSidebar } from "..";
 
 interface ProjectListProps {
   projects: Project[];
