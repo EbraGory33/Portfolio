@@ -12,7 +12,8 @@ export async function GET() {
 
     return NextResponse.json(
       {
-        message: "Failed to fetch GitHub data.",
+        message: `${error}`,
+        // error,
       },
       {
         status: 500,

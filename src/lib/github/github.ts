@@ -82,14 +82,24 @@ export async function getGithubData(): Promise<GithubSectionData> {
     ]);
 
   if (!profileResponse.ok) {
-    throw new Error("Failed to fetch GitHub profile.");
+    throw new Error(
+      `Failed to fetch GitHub profile for "${GITHUB_USERNAME}" (${profileResponse.status} ${profileResponse.statusText}).\n` +
+        `Response: ${await profileResponse.text()}`,
+    );
   }
 
   if (!reposResponse.ok) {
-    throw new Error("Failed to fetch GitHub repositories.");
+    throw new Error(
+      `Failed to fetch repositories for "${GITHUB_USERNAME}" (${reposResponse.status} ${reposResponse.statusText}).\n` +
+        `Response: ${await reposResponse.text()}`,
+    );
   }
+
   if (!contributionsResponse.ok) {
-    throw new Error("Failed to fetch GitHub contributions.");
+    throw new Error(
+      `Failed to fetch GitHub contributions for "${GITHUB_USERNAME}" (${contributionsResponse.status} ${contributionsResponse.statusText}).\n` +
+        `Response: ${await contributionsResponse.text()}`,
+    );
   }
 
   const profile = await profileResponse.json();
