@@ -14,27 +14,41 @@ export function GithubContributionCalendar({
   const height = 130;
   const width = calendar.length * weekWidth;
 
-  let months = calendar
-    .map((week, index) => {
-      const date = new Date(
-        week.contributionDays[week.contributionDays.length - 1].date,
-      );
+  const firstSunday = new Date(calendar[0].contributionDays[0].date);
+  const months: {
+    index: number;
+    label: string;
+  }[] = [];
 
-      return {
-        index,
-        label: date.toLocaleString("default", { month: "short" }),
-        key: `${date.getFullYear()}-${date.getMonth()}`,
-      };
-    })
-    .filter((month, i, arr) => i === 0 || month.key !== arr[i - 1].key);
+  let previousMonth = -1;
 
-  if (
-    months.length > 1 &&
-    months[0].label === months[months.length - 1].label
-  ) {
-    months = months.slice(1);
+  for (let weekIndex = 0; weekIndex < calendar.length; weekIndex++) {
+    const sunday = new Date(firstSunday);
+    sunday.setDate(firstSunday.getDate() + weekIndex * 7);
+
+    if (sunday.getMonth() !== previousMonth) {
+      previousMonth = sunday.getMonth();
+
+      months.push({
+        index: weekIndex,
+        label: sunday.toLocaleString("default", {
+          month: "short",
+        }),
+      });
+    }
   }
-  // console.log(months);
+
+  const last = months.at(-1);
+
+  if (last && months.length > 1 && months[0].label === last.label) {
+    if (calendar.length - (last.index + 1) >= 1) {
+      months.shift();
+    } else {
+      months.pop();
+    }
+  }
+
+  // console.log("months :", months);
   return (
     <div
       className="react-activity-calendar__scroll-container 2xl:flex 2xl:w-full 2xl:justify-center"
