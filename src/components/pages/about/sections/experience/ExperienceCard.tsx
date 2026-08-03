@@ -1,7 +1,7 @@
-import { BriefcaseBusiness,MapPin } from "lucide-react";
+import { BriefcaseBusiness, MapPin } from "lucide-react";
 import Image from "next/image";
 
-import { TechStack } from "@/components/pages/home";
+import { TechStack } from "@/components/tech";
 import { Experience } from "@/lib/types/experience";
 
 interface ExperienceCardProps {

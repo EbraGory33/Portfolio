@@ -1,5 +1,5 @@
 // TODO:
-import { BackgroundImage,Content, PageBuilder } from "@/components/layout";
+import { BackgroundImage, Content, PageBuilder } from "@/components/layout";
 
 import { Project } from ".";
 

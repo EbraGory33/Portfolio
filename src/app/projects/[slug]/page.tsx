@@ -1,4 +1,4 @@
-import { BackgroundImage,Content, PageBuilder } from "@/components/layout";
+import { BackgroundImage, Content, PageBuilder } from "@/components/layout";
 import { ProjectHeader, ProjectMeta } from "@/components/project";
 import { getProject } from "@/lib/mdx/loader";
 
@@ -11,8 +11,7 @@ interface ProjectPageProps {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = await getProject(slug);
-  console.log(project.slug);
-  console.log("Frontmatter:", project.frontmatter.type);
+  // console.log("Frontmatter:", project.frontmatter);
   return (
     <>
       <BackgroundImage

@@ -1,12 +1,6 @@
 import { Project } from "@/lib/types/project";
-
-import {
-  AccentLine,
-  ProjectDetails,
-  ProjectFeatures,
-  SidebarHeader,
-  TechStack,
-} from ".";
+import { TechStack } from "@/components/tech";
+import { AccentLine, ProjectDetails, ProjectFeatures, SidebarHeader } from ".";
 
 interface ProjectSidebarProps {
   activeProject: Project;

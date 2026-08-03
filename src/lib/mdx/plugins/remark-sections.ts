@@ -49,7 +49,7 @@ function createSection(children: Content[]): Content {
     const heading = children[0] as Content;
     const body = children.slice(1);
     children = [heading, createBody(body)];
-    console.dir(heading, { depth: null });
+    // console.dir(heading, { depth: null });
   }
   const content = {
     type: "mdxJsxFlowElement",
@@ -60,7 +60,7 @@ function createSection(children: Content[]): Content {
       _mdxExplicitJsx: true,
     },
   } as Content;
-  console.dir(content, { depth: null });
+  // console.dir(content, { depth: null });
 
   return content;
 }
@@ -87,7 +87,6 @@ export function remarkSections() {
     let currentSection: Content[] = [];
 
     for (const node of tree.children) {
-      // console.dir(node, { depth: null });
       // Found a section boundary
       if (node.type === "thematicBreak") {
         // Wrap everything we've collected

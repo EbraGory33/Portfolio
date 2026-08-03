@@ -7,4 +7,3 @@ export * from "./ProjectContent";
 export * from "./ProjectFrame";
 export * from "./ProjectImage";
 export * from "./ProjectLink";
-// export { TechStack } from "../../projectSidebar";
