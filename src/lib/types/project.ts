@@ -1,26 +1,67 @@
-import { type TechName } from "@/lib/types/tech";
+import { type TechName } from "@/lib/types";
+import { ReactElement } from "react";
 
-export interface Project {
-  id: string;
+export type ProjectFrontmatter = {
   title: string;
-  slug: string;
-
-  category: string;
-  year: string;
-
   description: string;
-  detail: string;
+  summary: string;
 
-  features: string[];
+  published: string;
+  updated?: string;
 
-  accentColor: string;
-  backgroundGradient: string;
+  type?: string;
+  role?: string;
 
-  technologies: TechName[];
+  tech: TechName[];
 
-  previewImages: string[];
+  Highlights: string[];
 
-  href: string;
+  github?: string;
+  live?: string;
 
-  featured: boolean;
+  featured?: boolean;
+
+  cover: string;
+  thumbnail: string;
+  images?: string[];
+};
+
+// export interface Project {
+//   id: string;
+//   title: string;
+//   slug: string;
+
+//   category: string;
+//   year: string;
+
+//   description: string;
+//   detail: string;
+
+//   features: string[];
+
+//   accentColor: string;
+//   backgroundGradient: string;
+
+//   technologies: TechName[];
+
+//   previewImages: string[];
+
+//   href: string;
+
+//   featured: boolean;
+// }
+
+// export type Project = {
+//   slug: string;
+//   frontmatter: ProjectFrontmatter;
+//   content?: ReactElement;
+// };
+export interface Project {
+  slug: string;
+  frontmatter: ProjectFrontmatter;
+  content?: ReactElement;
+}
+
+export interface ProjectDataProps {
+  projects: Project[];
 }

@@ -1,15 +1,19 @@
 import { SectionBuilder } from "@/components/layout";
 import { AnimatedLink } from "@/components/ui/animated-link";
-import { projects } from "@/lib/data/project";
-
 import { ProjectList } from ".";
-export function Project() {
+import { Project as ProjectData } from "@/lib/types";
+// import { projects } from "@/lib/data/project";
+
+interface ProjectProps {
+  projects: ProjectData[];
+}
+export async function Project({ projects }: ProjectProps) {
   if (projects.length == 0) {
     return <></>;
   }
-  {
-    projects.length == 0 && <></>;
-  }
+  // {
+  //   projects.length == 0 && <></>;
+  // }
   return (
     <SectionBuilder
       className="py-pagebuilder px-2"

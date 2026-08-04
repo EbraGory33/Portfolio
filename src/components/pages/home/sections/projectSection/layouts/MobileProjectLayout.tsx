@@ -11,7 +11,7 @@ export function MobileProjectLayout({ projects }: MobileProjectLayoutProps) {
     <div className="gap-pagebuilder flex flex-col lg:hidden">
       {projects.map((project, index) => (
         <ProjectCard
-          key={project.id}
+          key={project.slug}
           index={index}
           project={project}
           layout={"mobile"}

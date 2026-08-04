@@ -6,7 +6,7 @@ interface SectionHeaderProps {
   header: string;
   headline: string;
   alignment: "left" | "center";
-  padding?: "med";
+  padding?: "med" | "big" | string;
 }
 
 interface SectionBuilderProps {
@@ -15,7 +15,7 @@ interface SectionBuilderProps {
   header: string;
   headline: string;
   alignment: "left" | "center";
-  padding?: "med";
+  padding?: "med" | "big" | string;
 }
 // TODO: Fix Header (headline)
 function SectionHeader({
@@ -26,7 +26,7 @@ function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <h2
-      className={`${padding == "med" ? "mb-8!" : "mb-pagebuilder"} relative z-2 ${alignment == "center" ? "mx-auto" : alignment == "left" ? "mx-0 lg:text-left" : ""} max-w-xl text-center text-5xl font-medium tracking-tight text-balance max-sm:px-5 sm:text-5xl md:text-6xl`}
+      className={`${padding == "med" ? "mb-8!" : padding == "big" ? "mb-pagebuilder" : padding} relative z-2 ${alignment == "center" ? "mx-auto" : alignment == "left" ? "mx-0 lg:text-left" : ""} max-w-xl text-center text-5xl font-medium tracking-tight text-balance max-sm:px-5 sm:text-5xl md:text-6xl`}
       style={{
         textShadow:
           "0px 4px 8px rgba(255,255,255,.05),0px 8px 30px rgba(255,255,255,.20)",

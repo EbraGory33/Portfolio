@@ -1,15 +1,21 @@
-import { Content,PageBuilder } from "@/components/layout";
+import { Content, PageBuilder } from "@/components/layout";
 
-import { About,Hero, Info, Project } from ".";
+import { About, Hero, Info, Project } from ".";
 
-export function HomePage() {
+import { Project as ProjectData } from "@/lib/types";
+
+interface PageProps {
+  projects: ProjectData[];
+}
+
+export function HomePage({ projects }: PageProps) {
   return (
     <>
       <Hero />
       <PageBuilder>
         <Content className="">
           <Info />
-          <Project />
+          <Project projects={projects} />
           <About />
         </Content>
       </PageBuilder>

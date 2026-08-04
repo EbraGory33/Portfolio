@@ -1,4 +1,5 @@
-import { BackgroundImage, Content, PageBuilder } from "@/components/layout";
+import { notFound } from "next/navigation";
+import { BackgroundImage, PageBuilder } from "@/components/layout";
 import { ProjectHeader, ProjectMeta } from "@/components/project";
 import { getProject } from "@/lib/mdx/loader";
 
@@ -11,15 +12,22 @@ interface ProjectPageProps {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = await getProject(slug);
-  // console.log("Frontmatter:", project.frontmatter);
+  // TODO: Generate a custom 404 page component
+  if (!project) {
+    return notFound();
+  }
   return (
     <>
-      <BackgroundImage
+      {/* <BackgroundImage
         image="/images/backgrounds/blueprint.avif"
         alt="Blueprint"
-      />
+      /> */}
 
       <PageBuilder>
+        <BackgroundImage
+          image="/images/backgrounds/blueprint.avif"
+          alt="Blueprint"
+        />
         <div className="relative col-span-1 min-w-0">
           <ProjectHeader
             title={project.frontmatter.title}

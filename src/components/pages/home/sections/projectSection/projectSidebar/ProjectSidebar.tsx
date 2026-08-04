@@ -1,33 +1,40 @@
 import { Project } from "@/lib/types/project";
 import { TechStack } from "@/components/tech";
+import { background } from "@/lib/data";
 import { AccentLine, ProjectDetails, ProjectFeatures, SidebarHeader } from ".";
 
 interface ProjectSidebarProps {
+  activeIndex: number;
   activeProject: Project;
 }
 
-export function ProjectSidebar({ activeProject }: ProjectSidebarProps) {
+export function ProjectSidebar({
+  activeIndex,
+  activeProject,
+}: ProjectSidebarProps) {
   return (
     <div className="hidden py-4 lg:sticky lg:block lg:w-[40%] lg:pl-8">
       <div className="sticky top-32">
         <div className="flex">
-          <AccentLine accent={activeProject.accentColor} />
+          <AccentLine
+            accent={background[activeIndex % background.length].accent}
+          />
 
           <div>
             <div>
               {/* SidebarHeader */}
-              <SidebarHeader title={activeProject.title} />
+              <SidebarHeader title={activeProject.frontmatter.title} />
 
               {/* ProjectDetails */}
-              <ProjectDetails detail={activeProject.detail} />
+              <ProjectDetails detail={activeProject.frontmatter.description} />
 
               {/* ProjectFeatures */}
               <ProjectFeatures
-                accent={activeProject.accentColor}
-                features={activeProject.features}
+                color={background[activeIndex % background.length].color}
+                features={activeProject.frontmatter.Highlights}
               />
 
-              <TechStack technologies={activeProject.technologies} />
+              <TechStack technologies={activeProject.frontmatter.tech} />
             </div>
           </div>
         </div>

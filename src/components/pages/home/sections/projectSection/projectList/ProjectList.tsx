@@ -10,7 +10,8 @@ interface ProjectListProps {
 }
 
 export function ProjectList({ projects, layout }: ProjectListProps) {
-  const { activeProject, registerProject } = useActiveProject(projects);
+  const { activeIndex, activeProject, registerProject } =
+    useActiveProject(projects);
   // const [activeProject, setActiveProject] = useState(projects[0]);
   return layout == "mobile" ? (
     <MobileProjectLayout projects={projects} />
@@ -22,7 +23,7 @@ export function ProjectList({ projects, layout }: ProjectListProps) {
         registerProject={registerProject}
         // setActiveProject={setActiveProject}
       />
-      <ProjectSidebar activeProject={activeProject} />
+      <ProjectSidebar activeIndex={activeIndex} activeProject={activeProject} />
     </div>
   ) : null;
 }

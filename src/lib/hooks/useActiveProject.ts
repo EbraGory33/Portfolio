@@ -6,8 +6,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Project } from "@/lib/types/project";
 
 export function useActiveProject(projects: Project[]) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeProject, setActiveProject] = useState(projects[0]);
-
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const registerProject = useCallback(
@@ -26,14 +26,16 @@ export function useActiveProject(projects: Project[]) {
             const projectId =
               visibleEntry.target.getAttribute("data-project-id");
 
-            const project = projects.find((p) => p.id === projectId);
+            const project = projects.find((p) => p.slug === projectId);
+            const index = projects.findIndex((p) => p.slug === projectId);
 
             if (project) {
               setActiveProject(project);
+              setActiveIndex(index);
             }
           },
           {
-            threshold: [0.25, 0.5, 0.75],
+            threshold: 0.75,
             rootMargin: "-20% 0px -20% 0px",
           },
         );
@@ -53,6 +55,7 @@ export function useActiveProject(projects: Project[]) {
   }, []);
 
   return {
+    activeIndex,
     activeProject,
     registerProject,
   };
