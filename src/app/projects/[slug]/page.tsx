@@ -26,7 +26,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <PageBuilder>
         <BackgroundImage
           image="/images/backgrounds/blueprint.avif"
-          alt="Blueprint"
+          alt={`Project Cover - ${project.frontmatter.title}`}
         />
         <div className="relative col-span-1 min-w-0">
           <ProjectHeader

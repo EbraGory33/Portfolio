@@ -2,14 +2,18 @@
 import { useActiveProject } from "@/lib/hooks";
 import { Project } from "@/lib/types";
 
-import { DesktopProjectLayout, MobileProjectLayout, ProjectSidebar } from "..";
+import { DesktopProjectLayout, MobileProjectLayout } from ".";
+import { ProjectSidebar } from "./sidebar";
 
-interface ProjectListProps {
+interface FeaturedProjectListProps {
   projects: Project[];
   layout: "mobile" | "desktop";
 }
 
-export function ProjectList({ projects, layout }: ProjectListProps) {
+export function FeaturedProjectList({
+  projects,
+  layout,
+}: FeaturedProjectListProps) {
   const { activeIndex, activeProject, registerProject } =
     useActiveProject(projects);
   // const [activeProject, setActiveProject] = useState(projects[0]);

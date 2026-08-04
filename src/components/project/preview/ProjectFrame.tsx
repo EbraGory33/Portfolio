@@ -1,6 +1,6 @@
 // TODO:
 import Link from "next/link";
-import { ProjectBackground, ProjectContent, ProjectImage } from ".";
+import { ProjectBackground, ProjectContent, PreviewImage } from ".";
 
 interface ProjectFrameProps {
   id: string;
@@ -29,7 +29,7 @@ export function ProjectFrame({
 
         <ProjectContent description={description} layout={layout} />
 
-        <ProjectImage id={id} image={image} />
+        <PreviewImage id={id} image={image} />
       </div>
     </Link>
   ) : layout == "desktop" ? (
@@ -42,7 +42,7 @@ export function ProjectFrame({
 
       <ProjectContent description={description} layout={layout} />
 
-      <ProjectImage id={id} image={image} />
+      <PreviewImage id={id} image={image} />
     </div>
   ) : (
     <></>

@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 
 import { mdxComponents } from "./components";
 import { remarkSections } from "./plugins";
-import type { ProjectFrontmatter } from "./types";
+import type { ProjectFrontmatter } from "@/lib/types";
 
 export async function compileProject(source: string) {
   return compileMDX<ProjectFrontmatter>({

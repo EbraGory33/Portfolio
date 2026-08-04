@@ -1,11 +1,12 @@
 import { Content, PageBuilder } from "@/components/layout";
 
-import { About, Hero, Info, Project } from ".";
+import { About, Hero, Info } from ".";
+import { FeaturedProjectsSection } from "@/components/project/featured";
 
-import { Project as ProjectData } from "@/lib/types";
+import { Project } from "@/lib/types";
 
 interface PageProps {
-  projects: ProjectData[];
+  projects: Project[];
 }
 
 export function HomePage({ projects }: PageProps) {
@@ -15,7 +16,7 @@ export function HomePage({ projects }: PageProps) {
       <PageBuilder>
         <Content className="">
           <Info />
-          <Project projects={projects} />
+          <FeaturedProjectsSection projects={projects} />
           <About />
         </Content>
       </PageBuilder>

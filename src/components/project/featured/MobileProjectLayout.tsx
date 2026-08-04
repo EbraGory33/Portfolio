@@ -1,6 +1,6 @@
 import { Project } from "@/lib/types/project";
 
-import { ProjectCard } from "..";
+import { ProjectCard } from "@/components/project";
 
 interface MobileProjectLayoutProps {
   projects: Project[];

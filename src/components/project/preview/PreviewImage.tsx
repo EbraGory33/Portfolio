@@ -4,7 +4,7 @@ interface ProjectImageProps {
   id: string;
   image: string;
 }
-export function ProjectImage({ id, image }: ProjectImageProps) {
+export function PreviewImage({ id, image }: ProjectImageProps) {
   return (
     <div className="absolute top-14 right-0 left-0 z-10 flex w-full flex-col items-center justify-center md:top-20 lg:top-28">
       {/* TODO: Implement other image transitions */}

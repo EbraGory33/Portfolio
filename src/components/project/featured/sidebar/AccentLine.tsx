@@ -1,11 +1,6 @@
-import { Project } from "@/lib/types/project";
-
 interface AccentLineProps {
   accent: string;
 }
-// interface AccentLineProps {
-//   accent: "blue" | "green" | "cyan" | "pink" | "orange";
-// }
 
 export function AccentLine({ accent }: AccentLineProps) {
   return (

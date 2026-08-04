@@ -8,7 +8,7 @@ import {
 
 import type { ProjectDataProps } from "@/lib/types";
 
-import { Project } from ".";
+import { ProjectCatalog } from "@/components/project";
 
 // export function ProjectPage(projects: ProjectData[]
 export function ProjectPage({ projects }: ProjectDataProps) {
@@ -32,7 +32,7 @@ export function ProjectPage({ projects }: ProjectDataProps) {
             padding="big"
             className="pt-38 pb-32"
           >
-            <Project projects={projects} />
+            <ProjectCatalog projects={projects} />
           </SectionBuilder>
         </Content>
       </PageBuilder>

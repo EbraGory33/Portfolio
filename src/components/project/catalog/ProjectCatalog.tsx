@@ -1,7 +1,7 @@
-import { ProjectLink } from "@/components/pages/home/sections/projectSection/projectList/card/ProjectLink";
+import { ProjectLink } from "@/components/project";
 import type { ProjectDataProps } from "@/lib/types";
 
-export function Project({ projects }: ProjectDataProps) {
+export function ProjectCatalog({ projects }: ProjectDataProps) {
   return (
     <div className="relative px-3 md:px-4">
       <div
@@ -9,8 +9,8 @@ export function Project({ projects }: ProjectDataProps) {
         className="absolute top-0 bottom-0 left-1/2 hidden -translate-x-1/2 lg:block"
       >
         <div className="h-full w-px border-l border-dashed"></div>
-        <div className="absolute top-0 -left-px h-18 w-[3px] bg-linear-to-b from-neutral-50 to-transparent dark:from-neutral-950"></div>
-        <div className="absolute bottom-0 -left-px h-18 w-[3px] bg-linear-to-t from-neutral-50 to-transparent dark:from-neutral-950"></div>
+        <div className="absolute top-0 -left-px h-18 w-0.75 bg-linear-to-b from-neutral-50 to-transparent dark:from-neutral-950"></div>
+        <div className="absolute bottom-0 -left-px h-18 w-0.75 bg-linear-to-t from-neutral-50 to-transparent dark:from-neutral-950"></div>
       </div>
       <div
         className="no-js-fix grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2 lg:gap-y-0"

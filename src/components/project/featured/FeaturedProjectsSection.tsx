@@ -1,13 +1,15 @@
 import { SectionBuilder } from "@/components/layout";
 import { AnimatedLink } from "@/components/ui/animated-link";
-import { ProjectList } from ".";
+import { FeaturedProjectList } from ".";
 import { Project as ProjectData } from "@/lib/types";
 // import { projects } from "@/lib/data/project";
 
-interface ProjectProps {
+interface FeaturedProjectsSectionProps {
   projects: ProjectData[];
 }
-export async function Project({ projects }: ProjectProps) {
+export async function FeaturedProjectsSection({
+  projects,
+}: FeaturedProjectsSectionProps) {
   if (projects.length == 0) {
     return <></>;
   }
@@ -21,9 +23,9 @@ export async function Project({ projects }: ProjectProps) {
       headline={"Featured Work"}
       alignment="center"
     >
-      <ProjectList projects={projects} layout="mobile" />
+      <FeaturedProjectList projects={projects} layout="mobile" />
 
-      <ProjectList projects={projects} layout="desktop" />
+      <FeaturedProjectList projects={projects} layout="desktop" />
       <AnimatedLink href="/projects">See more projects</AnimatedLink>
     </SectionBuilder>
   );

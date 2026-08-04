@@ -1,4 +1,4 @@
-import type { ProjectFrontmatter } from "@/lib/mdx";
+import type { ProjectFrontmatter } from "@/lib/types";
 import { TechStack } from "@/components/tech";
 
 export function ProjectMeta(project: ProjectFrontmatter) {
