@@ -1,7 +1,7 @@
 import { Content, PageBuilder } from "@/components/layout";
 
 import { About, Hero, Info } from ".";
-import { FeaturedProjectsSection } from "@/components/project/featured";
+import { FeaturedProjectsSection } from "@/components/project";
 
 import { Project } from "@/lib/types";
 

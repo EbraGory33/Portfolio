@@ -44,6 +44,21 @@ I write one MDX file. The site turns it into a rendered page, a plain Markdown e
 
 Everything else exists to support that pipeline. OAuth so the guestbook works. PostgreSQL so entries persist. Resend so the contact form sends real emails. PostHog so I know what people actually read. None of it is decorative — every dependency earns its place.
 
+> Warning
+
+
+```ts title="packages/shared-types/src/course.ts"
+export const createCourseInput = z.object({
+  courseName: z.string().min(3),
+  courseDescription: z.string().min(10),
+  price: z.number().min(0),
+  tag: z.array(z.string()),
+  category: z.string(),
+  instructions: z.array(z.string()),
+});
+
+export type CreateCourseInput = z.infer<typeof createCourseInput>;
+```
 ---
 
 ![Portfolio homepage — hero section with 3D globe, shader background, and navigation](/projects/aayushbharti/screen1.webp)
@@ -62,7 +77,7 @@ Three layers, deliberate boundaries.
 
 Client state is scoped to three Zustand stores (sign-in modal, contact drawer, guestbook with optimistic deletes) and a Cmd+K command palette that indexes every page at module load for instant fuzzy search.
 
-```
+```filetree
 app/
   page.tsx — Homepage (hero, globe, projects, skills)
   blog/
