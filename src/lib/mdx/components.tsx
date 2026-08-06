@@ -1,10 +1,4 @@
 import type { ComponentPropsWithoutRef } from "react";
-import {
-  Children,
-  isValidElement,
-  type ComponentPropsWithRef,
-  type ReactElement,
-} from "react";
 
 import {
   ProjectBody,
@@ -14,9 +8,9 @@ import {
   ProjectHeading,
   ProjectImage,
   ProjectInlineCode,
-  ProjectLink,
-  ProjectList,
-  ProjectListItem,
+  // ProjectLink,
+  // ProjectList,
+  // ProjectListItem,
   ProjectSection,
   ProjectTable,
   ProjectTableBody,
@@ -24,6 +18,7 @@ import {
   ProjectTableHead,
   ProjectTableRow,
 } from "@/components/project";
+import { ContentBlock } from "@/components/mdx";
 
 export function mdxComponents() {
   let sectionNumber = 1;
@@ -44,29 +39,11 @@ export function mdxComponents() {
 
     hr: ProjectDivider,
 
-    pre: function CodeBlock({ children }: ComponentPropsWithRef<"pre">) {
-      // const code = Children.only(children);
-      const code = Children.only(children) as ReactElement<{
-        className?: string;
-        children: string;
-      }>;
-
-      if (!isValidElement(code)) {
-        return <pre>{children}</pre>;
-      }
-      console.log(code.props.className);
-      console.log(code.props);
-      console.log(code);
-
-      return <pre>{children}</pre>;
-    },
-
-    //   pre: function CodeBlock({ children }: ComponentPropsWithRef<"pre">) {
-    //     console.log(children);
-
-    //     const code = Children.only(children);
-    //     if (code) console.log(code.props);
-    //     return <pre>{children}</pre>;
-    //   },
+    pre: ContentBlock,
   };
 }
+
+// // CallOuts later
+// <div class="not-prose my-6 rounded-2xl border border-neutral-200 bg-neutral-200/50 p-1 dark:border-neutral-800 dark:bg-neutral-900/50">
+//   <div class="relative overflow-hidden rounded-xl border border-neutral-200/80 bg-[#F6F6F8] shadow-xs dark:border-neutral-800 dark:bg-transparent"></div>
+// </div>;

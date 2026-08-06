@@ -47,7 +47,7 @@ Everything else exists to support that pipeline. OAuth so the guestbook works. P
 > Warning
 
 
-```ts title="packages/shared-types/src/course.ts"
+```ts packages/shared-types/src/course.ts
 export const createCourseInput = z.object({
   courseName: z.string().min(3),
   courseDescription: z.string().min(10),
@@ -59,6 +59,9 @@ export const createCourseInput = z.object({
 
 export type CreateCourseInput = z.infer<typeof createCourseInput>;
 ```
+
+
+
 ---
 
 ![Portfolio homepage — hero section with 3D globe, shader background, and navigation](/projects/aayushbharti/screen1.webp)

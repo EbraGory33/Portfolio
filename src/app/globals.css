@@ -731,6 +731,18 @@ body {
       animation: spin 60s linear infinite;
     }
   }
+  /* .code-content pre {
+    margin: 0;
+    background: transparent !important;
+  } */
+
+  .shiki span {
+    color: var(--shiki-light, inherit);
+  }
+
+  .dark .shiki span {
+    color: var(--shiki-dark, inherit);
+  }
 }
 
 /* ==========================================================================

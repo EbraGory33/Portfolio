@@ -60,7 +60,7 @@ function createSection(children: Content[]): Content {
       _mdxExplicitJsx: true,
     },
   } as Content;
-  // console.dir(content, { depth: null });
+  console.dir(content, { depth: null });
 
   return content;
 }
