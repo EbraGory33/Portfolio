@@ -1,12 +1,12 @@
 "use client";
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 interface CopyButtonProps {
   value: string;
   className?: string;
-  size?: "big" | "med";
   variant?: "default" | "code";
   children?: (copied: boolean) => React.ReactNode;
 }
@@ -14,7 +14,6 @@ interface CopyButtonProps {
 export function CopyButton({
   value,
   className,
-  size,
   variant,
   children,
 }: CopyButtonProps) {

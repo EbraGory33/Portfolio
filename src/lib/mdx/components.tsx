@@ -1,8 +1,9 @@
 import type { ComponentPropsWithoutRef } from "react";
 
+import { ContentBlock } from "@/components/mdx";
 import {
   ProjectBody,
-  ProjectCallout,
+  // ProjectCallout,
   ProjectCode,
   ProjectDivider,
   ProjectHeading,
@@ -12,13 +13,12 @@ import {
   // ProjectList,
   // ProjectListItem,
   ProjectSection,
-  ProjectTable,
-  ProjectTableBody,
-  ProjectTableCell,
-  ProjectTableHead,
-  ProjectTableRow,
+  // ProjectTable,
+  // ProjectTableBody,
+  // ProjectTableCell,
+  // ProjectTableHead,
+  // ProjectTableRow,
 } from "@/components/project";
-import { ContentBlock } from "@/components/mdx";
 
 export function mdxComponents() {
   let sectionNumber = 1;

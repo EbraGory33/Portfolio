@@ -1,6 +1,7 @@
-type GithubAvatarProps = {};
+// type GithubAvatarProps = {};
 
-export function GithubAvatar({}: GithubAvatarProps) {
+// export function GithubAvatar({}: GithubAvatarProps) {
+export function GithubAvatar() {
   return (
     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
       <svg

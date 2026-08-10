@@ -1,6 +1,7 @@
 // TODO:
 import Link from "next/link";
-import { ProjectBackground, ProjectContent, PreviewImage } from ".";
+
+import { PreviewImage,ProjectBackground, ProjectContent } from ".";
 
 interface ProjectFrameProps {
   id: string;

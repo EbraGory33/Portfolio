@@ -11,7 +11,7 @@ export function ProjectImage({ src, alt }: ProjectImageProps) {
       data-block-type="media"
       role="img"
     >
-      <img
+      {/* <img
         alt={alt}
         loading="lazy"
         decoding="async"
@@ -27,6 +27,13 @@ export function ProjectImage({ src, alt }: ProjectImageProps) {
           inset: "0px",
           color: "transparent",
         }}
+      /> */}
+      <Image
+        alt={alt}
+        fill
+        className="absolute inset-0 size-full object-cover"
+        sizes="(max-width: 1400px) 100vw, 1366px"
+        src={src}
       />
     </div>
   );

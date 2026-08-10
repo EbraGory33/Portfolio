@@ -4,7 +4,8 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react";
-import { FileTree, CodeBlock } from ".";
+
+import { CodeBlock, FileTree } from ".";
 
 type CodeElementProps = {
   className?: string;
@@ -16,10 +17,7 @@ type CodeElementProps = {
 function getSource(children: ReactNode) {
   return typeof children === "string" ? children : null;
 }
-export function ContentBlock({
-  children,
-  ...props
-}: ComponentPropsWithoutRef<"pre">) {
+export function ContentBlock({ children }: ComponentPropsWithoutRef<"pre">) {
   const codeElement = Children.only(children) as ReactElement<CodeElementProps>;
 
   const language = codeElement.props.lang;

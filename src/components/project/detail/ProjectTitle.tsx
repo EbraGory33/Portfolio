@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-interface ProjectTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+type ProjectTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export function ProjectTitle({
   className,

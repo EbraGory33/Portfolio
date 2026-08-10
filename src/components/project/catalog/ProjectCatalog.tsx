@@ -18,6 +18,7 @@ export function ProjectCatalog({ projects }: ProjectDataProps) {
       >
         {projects.map((project, index) => (
           <div
+            key={project.slug}
             className={`${index % 2 === 0 && index !== 0 ? "mt-12" : index % 2 != 0 ? "mt-48" : ""} group no-js-fix relative flex flex-col`}
             style={{ opacity: 1, transform: "none" }}
           >

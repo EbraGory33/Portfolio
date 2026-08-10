@@ -1,7 +1,8 @@
 import { SectionBuilder } from "@/components/layout";
 import { AnimatedLink } from "@/components/ui/animated-link";
-import { FeaturedProjectList } from ".";
 import { Project as ProjectData } from "@/lib/types";
+
+import { FeaturedProjectList } from ".";
 // import { projects } from "@/lib/data/project";
 
 interface FeaturedProjectsSectionProps {

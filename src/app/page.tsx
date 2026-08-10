@@ -1,5 +1,5 @@
-import { getAllProject } from "@/lib/mdx";
 import { HomePage } from "@/components/pages";
+import { getAllProject } from "@/lib/mdx";
 // import { projects as test } from "@/lib/data/project";
 export default async function Home() {
   const projects = await getAllProject();

@@ -1,3 +1,4 @@
+export * from "./list";
 export * from "./ProjectBody";
 export * from "./ProjectCallout";
 export * from "./ProjectCode";
@@ -6,5 +7,4 @@ export * from "./ProjectHeading";
 export * from "./ProjectImage";
 export * from "./ProjectInlineCode";
 export * from "./ProjectSection";
-export * from "./list";
 export * from "./table";

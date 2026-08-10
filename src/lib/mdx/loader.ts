@@ -40,7 +40,7 @@ export async function getProject(slug: string): Promise<Project | null> {
   const filePath = path.join(
     process.cwd(),
     PROJECT_DIRECTORY,
-    `${slug + PROJECT_EXTENSION}`,
+    `${slug}${PROJECT_EXTENSION}`,
   );
   // if (!fs.existsSync(filePath)) return null;
   try {
@@ -56,6 +56,7 @@ export async function getProject(slug: string): Promise<Project | null> {
       content: compiled,
     };
   } catch (error) {
+    console.log(error);
     return null;
   }
 }

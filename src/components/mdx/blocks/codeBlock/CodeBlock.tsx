@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { CodeHeader, CodeContent } from ".";
+
+import { CodeContent,CodeHeader } from ".";
 interface CodeBlockProps {
   children: string;
   lang: string;

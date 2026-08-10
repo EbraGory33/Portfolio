@@ -4,8 +4,7 @@ import { getAllProject } from "@/lib/mdx/loader";
 
 export default async function Home() {
   const Projects = await getAllProject();
-  console.log("Projects: ", Projects);
+  // console.log("Projects: ", Projects);
   return <ProjectPage projects={Projects} />;
   // return <ProjectPage projects={test} />;
-  // return ProjectPage(Projects);
 }

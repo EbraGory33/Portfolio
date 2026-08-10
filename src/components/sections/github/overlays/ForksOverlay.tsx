@@ -9,8 +9,8 @@ export function ForksOverlay() {
           fill="none"
           height="24"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeWidth="2"
           viewBox="0 0 20 24"
           width="20"
         >
@@ -28,8 +28,8 @@ export function ForksOverlay() {
           fill="none"
           height="24"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeWidth="2"
           viewBox="0 0 20 24"
           width="20"
         >
@@ -47,8 +47,8 @@ export function ForksOverlay() {
           fill="none"
           height="24"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeWidth="2"
           viewBox="0 0 20 24"
           width="20"
         >
@@ -66,8 +66,8 @@ export function ForksOverlay() {
           fill="none"
           height="24"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeWidth="2"
           viewBox="0 0 20 24"
           width="20"
         >

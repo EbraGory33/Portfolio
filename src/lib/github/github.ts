@@ -1,4 +1,4 @@
-import { GithubSectionData } from "@/lib/types/tech";
+import { GithubSectionData, GithubRepository } from "@/lib/types/tech";
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME!;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
@@ -103,18 +103,15 @@ export async function getGithubData(): Promise<GithubSectionData> {
   }
 
   const profile = await profileResponse.json();
-  const repos = await reposResponse.json();
+  const repos = (await reposResponse.json()) as GithubRepository[];
   const contributions = await contributionsResponse.json();
 
   const totalStars = repos.reduce(
-    (sum: number, repo: any) => sum + repo.stargazers_count,
+    (sum, repo) => sum + repo.stargazers_count,
     0,
   );
 
-  const totalForks = repos.reduce(
-    (sum: number, repo: any) => sum + repo.forks_count,
-    0,
-  );
+  const totalForks = repos.reduce((sum, repo) => sum + repo.forks_count, 0);
 
   const calendar = {
     total:

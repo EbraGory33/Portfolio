@@ -16,7 +16,6 @@ export function CodeHeader({ path, code }: CodeHeaderProps) {
       )}
       <CopyButton
         variant="code"
-        size="med"
         value={code}
         className="absolute top-2 right-2 z-10 shrink-0 rounded-sm p-1.5 text-neutral-400 transition-opacity duration-200 ease-out active:scale-90"
       />

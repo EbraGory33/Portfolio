@@ -1,12 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import { ChevronRight, File, Folder, FolderOpen } from "lucide-react";
+import { useMemo, useState } from "react";
 
+import type { FileTreeNode, FileTreeProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import { parseFileTree } from "./parseFileTree";
-import type { FileTreeNode, FileTreeProps } from "@/lib/types";
 
 export function FileTree({
   children,

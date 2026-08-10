@@ -1,5 +1,6 @@
-import { type TechName } from "@/lib/types";
 import { ReactElement } from "react";
+
+import { type TechName } from "@/lib/types";
 
 export type ProjectFrontmatter = {
   title: string;

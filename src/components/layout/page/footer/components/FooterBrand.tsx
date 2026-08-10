@@ -9,8 +9,8 @@ export function FooterBrand() {
           <Terminal className="size-10 bg-black text-white dark:bg-white dark:text-black" />
         </Link>
         <p className="w-60 text-base leading-5 text-neutral-500 dark:text-neutral-400">
-          I'm Ebrahim - a software engineer, freelancer &amp; problem solver.
-          Thanks for visiting my site!
+          I&apos;m Ebrahim - a software engineer, freelancer &amp; problem
+          solver. Thanks for visiting my site!
         </p>
       </div>
     </div>

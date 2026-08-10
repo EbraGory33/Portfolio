@@ -14,7 +14,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>
@@ -31,7 +31,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>
@@ -48,7 +48,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>
@@ -65,7 +65,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>
@@ -82,7 +82,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>
@@ -99,7 +99,7 @@ export function FollowersOverlay() {
             opacity="0.3"
             r="7"
             stroke="currentColor"
-            stroke-width="1.5"
+            strokeWidth="1.5"
           ></circle>
         </svg>
       </div>

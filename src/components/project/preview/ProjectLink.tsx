@@ -1,11 +1,11 @@
 // TODO: find where goes
 import Link from "next/link";
 
-import { Project } from "@/lib/types/project";
-
-import { ProjectFrame, ProjectCardHeader } from ".";
 import { TechStack } from "@/components/tech";
 import { background } from "@/lib/data";
+import { Project } from "@/lib/types/project";
+
+import { ProjectCardHeader,ProjectFrame } from ".";
 
 interface ProjectLinkProps {
   project: Project;

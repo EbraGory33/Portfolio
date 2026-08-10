@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
+
 import { BackgroundImage, PageBuilder } from "@/components/layout";
 import { ProjectHeader, ProjectMeta } from "@/components/project";
-import { getProject } from "@/lib/mdx/loader";
+import { getProject, getAllProject } from "@/lib/mdx/loader";
 
 interface ProjectPageProps {
   params: Promise<{

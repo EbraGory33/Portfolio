@@ -1,3 +1,3 @@
 export * from "./CodeBlock";
-export * from "./CodeHeader";
 export * from "./CodeContent";
+export * from "./CodeHeader";

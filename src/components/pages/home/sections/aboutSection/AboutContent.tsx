@@ -1,25 +1,26 @@
-import { FaGithub, FaInstagram,FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 export function AboutContent() {
   return (
     <div className="relative z-5 mx-auto flex max-w-130 flex-col gap-y-8 text-center text-base font-light tracking-wider text-black/80 lg:mx-0 lg:text-left lg:text-lg dark:text-neutral-300">
       <p>
-        I'm Ebrahim Gory, a software engineer who loves building things and
-        figuring out how they work. Whether it's React, Next.js, Django, or
-        FastAPI, I'm happiest when I'm solving problems and turning ideas into
-        products people enjoy using.
+        I&apos;m Ebrahim Gory, a software engineer who loves building things and
+        figuring out how they work. Whether it&apos;s React, Next.js, Django, or
+        FastAPI, I&apos;m happiest when I&apos;m solving problems and turning
+        ideas into products people enjoy using.
       </p>
 
       <p>
-        What defines me most is persistence. I don't see "I don't know how" as a
-        reason to stop—just a starting point. If I can't build it today, I'll
-        learn what I need and come back tomorrow until I can.
+        What defines me most is persistence. I don&apos;t see &quot;I don&apos;t
+        know how&quot; as a reason to stop—just a starting point. If I
+        can&apos;t build it today, I&apos;ll learn what I need and come back
+        tomorrow until I can.
       </p>
 
       <p>
         For me, software has always been about curiosity. Every project is a
-        chance to learn something new, push my limits, and build something I'm
-        proud of.
+        chance to learn something new, push my limits, and build something
+        I&apos;m proud of.
       </p>
 
       <div className="mx-auto -mt-4 flex w-fit -translate-x-3 gap-2 lg:mx-0">

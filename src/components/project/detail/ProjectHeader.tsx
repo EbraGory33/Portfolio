@@ -1,4 +1,4 @@
-import { ChevronRight, LinkIcon } from "lucide-react";
+import { ChevronRight, ChevronDown, LinkIcon } from "lucide-react";
 import Link from "next/link";
 
 export function ProjectHeader({
@@ -56,22 +56,7 @@ export function ProjectHeader({
         >
           <LinkIcon className="size-3.5" />
           <span>Copy URL</span>
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-3.5 transition-transform duration-200 group-data-popup-open:rotate-180"
-          >
-            <path
-              d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            ></path>
-          </svg>
+          <ChevronDown className="size-3.5 transition-transform duration-200 group-data-popup-open:rotate-180" />
         </button>
       </div>
     </header>

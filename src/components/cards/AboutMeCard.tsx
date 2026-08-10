@@ -1,4 +1,6 @@
-import Link from "next/link";
+import Image from "next/image";
+// Todo:
+// import Link from "next/link";
 
 import { CardFooter } from "@/components/cards";
 import { BentoCard } from "@/components/layout";
@@ -33,23 +35,19 @@ function Graphic() {
                   className="stroke-neutral-300 transition-colors delay-200 duration-500 group-hover:stroke-indigo-400 dark:stroke-neutral-700 dark:group-hover:stroke-indigo-400"
                   height="114.5"
                   rx="57.25"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   width="114.5"
                   x="16.75"
                   y="16.75"
                 ></rect>
               </svg>
-              <img
+              <Image
+                // TODO:
+                src="/NothingYet"
                 alt="Ebrahim Gory"
-                loading="lazy"
-                width="96"
-                height="96"
-                decoding="async"
-                data-nimg="1"
+                width={96}
+                height={96}
                 className="absolute top-1/2 left-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-neutral-200 transition-colors delay-100 duration-500 group-hover:border-indigo-400 dark:border-neutral-800"
-                srcSet="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faayush.41oeh0lfqz1w0.webp&amp;w=96&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faayush.41oeh0lfqz1w0.webp&amp;w=256&amp;q=75 2x"
-                src=""
-                style={{ color: "transparent" }}
               />
             </div>
           </span>

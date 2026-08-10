@@ -5,10 +5,8 @@ import {
   PageBuilder,
   SectionBuilder,
 } from "@/components/layout";
-
-import type { ProjectDataProps } from "@/lib/types";
-
 import { ProjectCatalog } from "@/components/project";
+import type { ProjectDataProps } from "@/lib/types";
 
 // export function ProjectPage(projects: ProjectData[]
 export function ProjectPage({ projects }: ProjectDataProps) {

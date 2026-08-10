@@ -1,7 +1,5 @@
 import type { Content, Image, Paragraph, Root } from "mdast";
 
-let sectionNumber = 1;
-
 function isImageParagraph(node: Content): node is Paragraph {
   return (
     node.type === "paragraph" &&
@@ -60,7 +58,7 @@ function createSection(children: Content[]): Content {
       _mdxExplicitJsx: true,
     },
   } as Content;
-  console.dir(content, { depth: null });
+  // console.dir(content, { depth: null });
 
   return content;
 }

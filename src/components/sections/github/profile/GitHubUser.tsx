@@ -1,6 +1,8 @@
-type GitHubUserProps = {};
+// TODO:
+// type GitHubUserProps = {};
 
-export function GitHubUser({}: GitHubUserProps) {
+// export function GitHubUser({}: GitHubUserProps) {
+export function GitHubUser() {
   return (
     <div>
       <a

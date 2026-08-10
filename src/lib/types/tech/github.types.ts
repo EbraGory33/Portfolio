@@ -1,5 +1,10 @@
 import { GithubStatConfig } from "@/components/sections";
 
+export interface GithubRepository {
+  forks_count: number;
+  stargazers_count: number;
+}
+
 export interface GithubStatCardProps {
   variant?: keyof typeof GithubStatConfig;
   value: GithubStat;
