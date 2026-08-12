@@ -99,7 +99,7 @@ export function GithubContributionCalendar({
                   data-date={day.date}
                   data-level={level}
                   style={{
-                    stroke: "rgba(255,255,255,.04)",
+                    stroke: "var(--github-contribution-stroke)",
                   }}
                 />
               );

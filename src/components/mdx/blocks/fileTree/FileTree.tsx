@@ -83,7 +83,7 @@ export function FileTree({
         </button>
 
         {isOpen ? (
-          <div className="relative ml-[11px] border-l border-neutral-200/80 dark:border-neutral-700/60">
+          <div className="relative ml-2.75 border-l border-neutral-200/80 dark:border-neutral-700/60">
             <div className="ml-2 flex flex-col gap-0.5 py-0.5">
               {node.children.map(renderNode)}
             </div>

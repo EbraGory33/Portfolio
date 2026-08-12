@@ -15,7 +15,7 @@ export function ConnectButton() {
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
-          className="size-[18px] text-white transition-all duration-400 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-x-6 group-hover:opacity-0 dark:text-black"
+          className="size-4.5 text-white transition-all duration-400 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-x-6 group-hover:opacity-0 dark:text-black"
         >
           <path
             d="M18.5 12L4.99997 12"
@@ -38,7 +38,7 @@ export function ConnectButton() {
           viewBox="0 0 24 24"
           width="24"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute size-[18px] -translate-x-6 text-white opacity-0 transition-all delay-75 duration-400 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-x-0 group-hover:opacity-100 dark:text-black"
+          className="absolute size-4.5 -translate-x-6 text-white opacity-0 transition-all delay-75 duration-400 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:translate-x-0 group-hover:opacity-100 dark:text-black"
         >
           <path
             d="M18.5 12L4.99997 12"

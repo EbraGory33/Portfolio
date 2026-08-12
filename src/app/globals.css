@@ -16,7 +16,6 @@
 
 /* Alternative selector */
 /* @custom-variant dark (&:where(.dark, .dark *)); */
-
 /* Tailwind Theme Extensions */
 :root {
   /* --------------------------------------------------------------------------
@@ -159,6 +158,18 @@
     transparent,
     rgba(99, 102, 241, 0.2)
   );
+
+  /* --------------------------------------------------------------------------
+   * GitHub contribution Color
+   * -------------------------------------------------------------------------- */
+
+  --github-contribution-color-0: #f5f5f5;
+  --github-contribution-color-1: #a5b4fc;
+  --github-contribution-color-2: #818cf8;
+  --github-contribution-color-3: #6366f1;
+  --github-contribution-color-4: #4f46e5;
+
+  --github-contribution-stroke: rgb(23 23 23 / 0.06);
 }
 .dark {
   /* Surface */
@@ -246,6 +257,14 @@
     transparent,
     rgba(255, 255, 255, 0.05)
   );
+
+  /* GitHub contribution Color */
+
+  --github-contribution-color-0: #1b1c22;
+  --github-contribution-color-1: #4f46e5;
+  --github-contribution-color-2: #6366f1;
+  --github-contribution-color-3: #818cf8;
+  --github-contribution-color-4: #a5b4fc;
 }
 
 @theme {

@@ -46,7 +46,7 @@ export function ProjectMeta(project: ProjectFrontmatter) {
               Visit
             </p>
             <a
-              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
+              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-in-out before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
               href={project.live}
               rel="noopener noreferrer"
               target="_blank"
@@ -78,7 +78,7 @@ export function ProjectMeta(project: ProjectFrontmatter) {
               Source
             </p>
             <a
-              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
+              className="group relative inline-flex items-center text-sm font-medium text-blue-600 before:pointer-events-none before:absolute before:top-[1.5em] before:left-0 before:h-[0.05em] before:w-full before:origin-right before:scale-x-0 before:bg-current before:transition-transform before:duration-300 before:ease-in-out before:content-[''] hover:text-blue-700 hover:before:origin-left hover:before:scale-x-100 dark:text-blue-400 dark:hover:text-blue-300"
               href={project.github}
               rel="noopener noreferrer"
               target="_blank"

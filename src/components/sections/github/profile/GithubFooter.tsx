@@ -1,3 +1,5 @@
+import { getContributionColor } from "@/lib/github";
+
 type GithubFooterProps = {
   total: number;
 };
@@ -29,7 +31,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#1B1C22"
+            fill={getContributionColor(0)}
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -39,7 +41,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#4F46E5"
+            fill={getContributionColor(2)}
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -49,7 +51,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#6366F1"
+            fill={getContributionColor(5)}
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -59,7 +61,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#818CF8"
+            fill={getContributionColor(10)}
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}
@@ -69,7 +71,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
           <rect
             width="12"
             height="12"
-            fill="#A5B4FC"
+            fill={getContributionColor(11)}
             rx="2"
             ry="2"
             style={{ stroke: "rgba(255, 255, 255, 0.04)" }}

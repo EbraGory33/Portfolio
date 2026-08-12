@@ -48,7 +48,8 @@ export async function getGithubData(): Promise<GithubSectionData> {
       fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
         headers,
         next: {
-          revalidate: 60 * 30,
+          revalidate: 300,
+          // revalidate: 60 * 30,
         },
       }),
 
@@ -57,7 +58,8 @@ export async function getGithubData(): Promise<GithubSectionData> {
         {
           headers,
           next: {
-            revalidate: 60 * 30,
+            revalidate: 300,
+            // revalidate: 60 * 30,
           },
         },
       ),
@@ -76,7 +78,8 @@ export async function getGithubData(): Promise<GithubSectionData> {
           },
         }),
         next: {
-          revalidate: 60 * 30,
+          // revalidate: 60 * 30,
+          revalidate: 300,
         },
       }),
     ]);
