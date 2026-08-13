@@ -1,8 +1,151 @@
+"use client";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/effects/themeToggle/ThemeToggle";
+import { MobileNavTrigger, NavGreeting, NavItems } from ".";
 
-import { NavItems } from ".";
+type NavPhase = "greeting" | "transitioning" | "ready";
 
 function Navigation() {
+  const [phase, setPhase] = useState<NavPhase>("greeting");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const transitionTimer = window.setTimeout(() => {
+      setPhase("transitioning");
+    }, 900);
+
+    const readyTimer = window.setTimeout(() => {
+      setPhase("ready");
+    }, 1150);
+
+    return () => {
+      window.clearTimeout(transitionTimer);
+      window.clearTimeout(readyTimer);
+    };
+  }, []);
+
+  const isGreetingVisible = phase === "greeting";
+  const isReady = phase === "ready";
+
+  return (
+    <nav className="container flex items-start py-1.5">
+      <div className="mx-auto flex items-start gap-3.5">
+        <div className="relative flex justify-center">
+          <div
+            aria-hidden="true"
+            className={[
+              "pointer-events-none invisible h-10 shrink-0",
+              "w-[190px]",
+              "transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              isReady ? "lg:w-[480px]" : "lg:w-[190px]",
+            ].join(" ")}
+          />
+
+          <div
+            id="js-nav-content"
+            className={[
+              "shadow-border absolute top-0 left-1/2 flex h-[42px]",
+              "min-h-10 -translate-x-1/2 items-start justify-center px-1",
+              "overflow-visible rounded-[22px]",
+              "bg-white/90 shadow-[0_10px_30px_-14px_rgba(0,0,0,0.22),0_3px_8px_-4px_rgba(0,0,0,0.08)]",
+              "transition-[width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              "dark:bg-neutral-800/90 dark:shadow-none",
+              "w-[190px]",
+              isReady ? "lg:w-[480px]" : "lg:w-[190px]",
+            ].join(" ")}
+            style={{
+              clipPath: "inset(-44px -32px -32px round 22px)",
+            }}
+          >
+            <div className="relative flex h-full w-full items-center justify-center">
+              <div
+                className={[
+                  "absolute inset-0 flex items-center justify-center",
+                  "transition-[opacity,transform] duration-200 ease-out",
+                  isGreetingVisible
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none -translate-y-1 opacity-0",
+                ].join(" ")}
+              >
+                <NavGreeting />
+              </div>
+
+              <div
+                className={[
+                  "absolute inset-0 flex items-center justify-center lg:hidden",
+                  "transition-[opacity,transform] duration-250 ease-out",
+                  isReady
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-1 opacity-0",
+                ].join(" ")}
+              >
+                <MobileNavTrigger
+                  expanded={isMobileMenuOpen}
+                  onClick={() => {
+                    setIsMobileMenuOpen((open) => !open);
+                  }}
+                />
+              </div>
+
+              <div
+                className={[
+                  "absolute inset-x-1 top-1 hidden lg:block",
+                  "transition-[opacity,transform] duration-250 ease-out",
+                  isReady
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-1 opacity-0",
+                ].join(" ")}
+              >
+                <NavItems />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          aria-label="Open search (⌘K)"
+          className="shadow-border relative mt-0.5 hidden size-9 cursor-pointer items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-[0_10px_30px_-14px_rgba(0,0,0,0.22),0_3px_8px_-4px_rgba(0,0,0,0.08)] transition-all duration-150 hover:text-neutral-900 active:scale-95 lg:inline-flex dark:bg-neutral-800/90 dark:text-white/85 dark:shadow-none dark:hover:text-white"
+          type="button"
+        >
+          {/* Keep the existing search SVG here. */}
+        </button>
+
+        <ThemeToggle />
+      </div>
+
+      <div
+        id="mobile-navigation-menu"
+        hidden={!isMobileMenuOpen}
+        className="lg:hidden"
+      >
+        {/* Functional mobile menu content goes here. */}
+      </div>
+    </nav>
+  );
+}
+
+function Navigation1() {
+  const [phase, setPhase] = useState<NavPhase>("greeting");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const transitionTimer = window.setTimeout(() => {
+      setPhase("transitioning");
+    }, 900);
+
+    const readyTimer = window.setTimeout(() => {
+      setPhase("ready");
+    }, 1150);
+
+    return () => {
+      window.clearTimeout(transitionTimer);
+      window.clearTimeout(readyTimer);
+    };
+  }, []);
+
+  const isGreetingVisible = phase === "greeting";
+  const isReady = phase === "ready";
+
   return (
     <nav className="container flex items-start py-1.5">
       <div className="mx-auto flex items-start gap-3.5">
