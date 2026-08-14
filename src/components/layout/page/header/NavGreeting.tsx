@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Greeting = {
   icon: string;
@@ -11,20 +11,20 @@ type Greeting = {
 function getGreeting(hour: number): Greeting {
   if (hour < 12) {
     return {
-      icon: "☀️",
+      icon: "🌅",
       message: "Good Morning",
     };
   }
 
   if (hour < 18) {
     return {
-      icon: "☀️",
+      icon: "🌇",
       message: "Good Afternoon",
     };
   }
 
   return {
-    icon: "🌙",
+    icon: "🌃",
     message: "Good Evening",
   };
 }
@@ -48,28 +48,43 @@ export function NavGreeting() {
   }
 
   return (
-    <div
+    <motion.div
       className={[
         "absolute inset-0 flex items-center justify-center",
         "transition-[opacity,transform] duration-200 ease-out",
       ].join(" ")}
-      style={{ opacity: 1, transform: "none" }}
+      initial={{
+        opacity: 0,
+        transform: "translateY(6px) scale(0.97)",
+      }}
+      animate={{
+        opacity: 1,
+        transform: "translateY(0px) scale(1)",
+        transitionEnd: {
+          transform: "none",
+        },
+      }}
+      exit={{
+        opacity: 0,
+        transform: "translateY(-6px) scale(0.97)",
+      }}
+
+      transition={{
+        duration: 0.2,
+        ease: [0.22, 1, 0.36, 1],
+      }}
     >
       <p
         aria-live="polite"
         className="flex items-center justify-center gap-2 px-2.5 py-1 text-sm font-medium whitespace-nowrap text-neutral-700 select-none dark:text-white/80"
       >
-        <span aria-hidden="true">{greeting.icon}</span>
-        <span>{greeting.message}</span>
+        <span aria-hidden="true" className="text-base">
+          {greeting.icon}
+        </span>
+        <span className="text-base font-light whitespace-nowrap text-neutral-700 select-none dark:text-white">
+          {greeting.message}
+        </span>
       </p>
-    </div>
+    </motion.div>
   );
 }
-
-<div
-  className={[
-    "absolute inset-0 flex items-center justify-center",
-    "transition-[opacity,transform] duration-200 ease-out",
-    "translate-y-0 opacity-100",
-  ].join(" ")}
-></div>;

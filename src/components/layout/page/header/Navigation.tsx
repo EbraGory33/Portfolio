@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/effects/themeToggle/ThemeToggle";
 import { NavGreeting, MobileNav, DesktopNav } from ".";
 import { Search } from "lucide-react";
@@ -87,7 +87,7 @@ export function Navigation() {
               width: isGreetingVisible ? 190 : desktopTarget ? 472 : 190,
             }}
             transition={{
-              duration: 0.45,
+              // duration: 0.45,
               ease: [0.22, 1, 0.36, 1],
             }}
           />
@@ -95,7 +95,10 @@ export function Navigation() {
           {/* <!-- Actual navbar --> */}
           <motion.div
             // deal with the shadow: shadow-[0_10px_30px_-14px_rgba(0,0,0,0.22),0_3px_8px_-4px_rgba(0,0,0,0.08)]
-            className="shadow-border absolute top-0 left-1/2 flex min-h-10 -translate-x-1/2 items-start justify-center bg-white/90 px-1 dark:bg-neutral-800/90 dark:shadow-none"
+            className={[
+              "shadow-border absolute top-0 left-1/2 flex min-h-10 -translate-x-1/2 items-start justify-center bg-white/90 dark:bg-neutral-800/90 dark:shadow-none",
+              isGreetingVisible ? "px-0" : "px-1",
+            ].join(" ")}
             id="js-nav-content"
 
             style={{
@@ -108,17 +111,19 @@ export function Navigation() {
               width: isGreetingVisible ? 190 : desktopTarget ? 472 : 190,
             }}
             transition={{
-              duration: 0.45,
+              // duration: 0.45,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            {isGreetingVisible ? (
-              <NavGreeting />
-            ) : renderDesktop ? (
-              <DesktopNav />
-            ) : (
-              <MobileNav />
-            )}
+            <AnimatePresence mode="wait">
+              {isGreetingVisible ? (
+                <NavGreeting key="greeting" />
+              ) : renderDesktop ? (
+                <DesktopNav key="desktop" />
+              ) : (
+                <MobileNav key="mobile" />
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
 
