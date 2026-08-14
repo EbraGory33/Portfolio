@@ -14,9 +14,7 @@ export async function FeaturedProjectsSection({
   if (projects.length == 0) {
     return <></>;
   }
-  // {
-  //   projects.length == 0 && <></>;
-  // }
+
   return (
     <SectionBuilder
       className="py-pagebuilder px-2"

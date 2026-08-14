@@ -3,20 +3,20 @@ type MobileNavTriggerProps = {
   onClick: () => void;
 };
 
-function MobileNavTrigger({ expanded, onClick }: MobileNavTriggerProps) {
+export function MobileNavTrigger({ expanded, onClick }: MobileNavTriggerProps) {
   return (
     <button
-      type="button"
       aria-label={expanded ? "Close menu" : "Open menu"}
       aria-expanded={expanded}
       aria-controls="mobile-navigation-menu"
       className="flex min-w-46 cursor-pointer items-center justify-between gap-2 px-2.5 py-1 select-none"
-      draggable={false}
+      draggable="false"
+      style={{ opacity: 1, transform: "none" }}
       onClick={onClick}
     >
       <svg
         aria-hidden="true"
-        className="size-6 rounded-full"
+        className="size-6 rounded-full pt-0.5"
         viewBox="0 0 24 24"
       >
         {/* Your existing logo mark or approved logo path goes here. */}
@@ -34,5 +34,3 @@ function MobileNavTrigger({ expanded, onClick }: MobileNavTriggerProps) {
     </button>
   );
 }
-
-export { MobileNavTrigger };
