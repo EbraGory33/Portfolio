@@ -2,10 +2,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { navigationContentMotion } from "./constant";
-import { MobileNavTrigger } from ".";
+import { MenuNavTrigger } from "@/components/menu";
 export function MobileNav() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <motion.div
       className="mt-0.5"
@@ -15,12 +13,7 @@ export function MobileNav() {
       exit="exit"
       transition={navigationContentMotion.transition}
     >
-      <MobileNavTrigger
-        expanded={isMobileMenuOpen}
-        onClick={() => {
-          setIsMobileMenuOpen((open) => !open);
-        }}
-      />
+      <MenuNavTrigger variant="mobile" />
     </motion.div>
   );
 }

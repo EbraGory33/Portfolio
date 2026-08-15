@@ -1,12 +1,10 @@
+// Todo: Delete File and move into menu nav
 "use client";
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useThemeToggle } from "@/lib/hooks";
 
 export const ThemeToggle = () => {
-  const { resolvedTheme, setTheme } = useTheme();
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
+  const { toggleTheme } = useThemeToggle();
 
   return (
     <button

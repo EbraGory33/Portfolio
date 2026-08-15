@@ -1,12 +1,21 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, RefObject } from "react";
 
-export function useDesktopBreakpoint() {
+type ActiveIndicator = {
+  left: number;
+  width: number;
+};
+
+export function useActiveIndicator(
+  navListRef: RefObject<HTMLUListElement | null>,
+) {
   const pathname = usePathname();
 
-  const [activeIndicator, setActiveIndicator] =
-    useState<ActiveIndicator | null>(null);
+  const [activeIndicator, setActiveIndicator] = useState<ActiveIndicator>({
+    left: 0,
+    width: 0,
+  });
 
   useEffect(() => {
     const navList = navListRef.current;
@@ -19,7 +28,7 @@ export function useDesktopBreakpoint() {
       );
 
       if (!activeItem) {
-        setActiveIndicator(null);
+        setActiveIndicator({ left: 0, width: 0 });
         return;
       }
 
@@ -38,4 +47,6 @@ export function useDesktopBreakpoint() {
       resizeObserver.disconnect();
     };
   }, [pathname, navListRef]);
+
+  return activeIndicator;
 }
