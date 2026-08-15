@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { navigationContentMotion } from "./constant";
 
 type Greeting = {
   icon: string;
@@ -53,26 +54,11 @@ export function NavGreeting() {
         "absolute inset-0 flex items-center justify-center",
         "transition-[opacity,transform] duration-200 ease-out",
       ].join(" ")}
-      initial={{
-        opacity: 0,
-        transform: "translateY(6px) scale(0.97)",
-      }}
-      animate={{
-        opacity: 1,
-        transform: "translateY(0px) scale(1)",
-        transitionEnd: {
-          transform: "none",
-        },
-      }}
-      exit={{
-        opacity: 0,
-        transform: "translateY(-6px) scale(0.97)",
-      }}
-
-      transition={{
-        duration: 0.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      variants={navigationContentMotion}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={navigationContentMotion.transition}
     >
       <p
         aria-live="polite"
