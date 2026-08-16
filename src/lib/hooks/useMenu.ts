@@ -4,7 +4,7 @@ import { createContext, useContext } from "react";
 
 export type MenuContextValue = {
   expanded: boolean;
-  toggleMenu: () => void;
+  openMenu: () => void;
   closeMenu: () => void;
 };
 

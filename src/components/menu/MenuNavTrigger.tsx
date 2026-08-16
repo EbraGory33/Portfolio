@@ -7,7 +7,7 @@ type MenuNavTriggerProps = {
 };
 
 export function MenuNavTrigger({ variant }: MenuNavTriggerProps) {
-  const { expanded, toggleMenu } = useMenu();
+  const { expanded, openMenu } = useMenu();
 
   if (variant === "mobile")
     return (
@@ -18,7 +18,7 @@ export function MenuNavTrigger({ variant }: MenuNavTriggerProps) {
         className="flex min-w-46 cursor-pointer items-center justify-between gap-2 px-2.5 py-1 select-none"
         draggable="false"
         style={{ opacity: 1, transform: "none" }}
-        onClick={toggleMenu}
+        onClick={openMenu}
       >
         <svg
           aria-hidden="true"
@@ -45,7 +45,7 @@ export function MenuNavTrigger({ variant }: MenuNavTriggerProps) {
         aria-label="Open menu (⌘K)"
         className="shadow-border relative mt-0.5 hidden size-9 cursor-pointer items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-[0_10px_30px_-14px_rgba(0,0,0,0.22),0_3px_8px_-4px_rgba(0,0,0,0.08)] transition-all delay-0 duration-150 hover:text-neutral-900 active:scale-95 lg:inline-flex dark:bg-neutral-800/90 dark:text-white/85 dark:shadow-none dark:hover:text-white"
         type="button"
-        onClick={toggleMenu}
+        onClick={openMenu}
       >
         <Search className="size-4.5" />
         {/* <Command className="size-4.5" /> */}

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Menu } from "@/components/menu";
 import { MenuContext } from "@/lib/hooks/useMenu";
+import { Menu } from "@/components/menu";
+import { Menu as TestMenu } from "@/components/menu/Menu copy";
 
 export function MenuProvider({ children }: { children: React.ReactNode }) {
   const [expanded, setExpanded] = useState(false);
 
-  const toggleMenu = () => {
+  const openMenu = () => {
     setExpanded((expanded) => !expanded);
   };
 
@@ -19,13 +20,14 @@ export function MenuProvider({ children }: { children: React.ReactNode }) {
     <MenuContext.Provider
       value={{
         expanded,
-        toggleMenu,
+        openMenu,
         closeMenu,
       }}
     >
       {children}
 
-      {expanded && <Menu />}
+      <Menu />
+      {/* <TestMenu /> */}
     </MenuContext.Provider>
   );
 }
