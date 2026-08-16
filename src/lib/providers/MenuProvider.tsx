@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { MenuContext } from "@/lib/hooks/useMenu";
 import { Menu } from "@/components/menu";
-import { Menu as TestMenu } from "@/components/menu/Menu copy";
 
 export function MenuProvider({ children }: { children: React.ReactNode }) {
   const [expanded, setExpanded] = useState(false);
@@ -27,7 +26,6 @@ export function MenuProvider({ children }: { children: React.ReactNode }) {
       {children}
 
       <Menu />
-      {/* <TestMenu /> */}
     </MenuContext.Provider>
   );
 }
