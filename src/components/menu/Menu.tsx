@@ -1,3 +1,18 @@
+import {
+  MessageCircle,
+  Moon,
+  Search,
+  Sun,
+  X,
+  Home,
+  User,
+  Folder,
+  FileText,
+  BookOpen,
+  Laptop,
+  Trophy,
+  Link,
+} from "lucide-react";
 import { useMenu, useThemeToggle } from "@/lib/hooks";
 import {
   Drawer,
@@ -9,14 +24,28 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
+  CommandEmpty,
 } from "@/components/ui/command";
+import { InputGroup } from "../ui/input-group";
 
+const pages = [
+  { value: "home", label: "Home", icon: Home },
+  { value: "about", label: "About", icon: User },
+  { value: "projects", label: "Projects", icon: Folder },
+  { value: "blog", label: "Blog", icon: FileText },
+  { value: "guestbook", label: "Guestbook", icon: BookOpen },
+  { value: "uses", label: "Uses", icon: Laptop },
+  { value: "attribution", label: "Attribution", icon: Trophy },
+  { value: "links", label: "Links", icon: Link },
+];
 export function Menu() {
   const { expanded, closeMenu } = useMenu();
   const { toggleTheme } = useThemeToggle();
@@ -28,145 +57,54 @@ export function Menu() {
         <DrawerDescription className="sr-only">
           Search pages, blog posts, projects, and more.
         </DrawerDescription>
-        {/* TODO AREA */}
+
         {/* top search/actions block */}
+
         <div className="pointer-events-auto relative flex h-13 shrink-0 items-center gap-2.5">
-          <div className="focus-within:ring-primary/20 relative h-11 flex-1 rounded-2xl bg-white/70 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 focus-within:ring-2 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
-            <div
-              className="absolute inset-0 flex items-center gap-2.5 px-4"
-              style={{ opacity: 1 }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-                className="size-5 shrink-0 text-neutral-500 dark:text-white/55"
-              >
-                <path
-                  d="M192,112a80,80,0,1,1-80-80A80,80,0,0,1,192,112Z"
-                  opacity="0.2"
-                ></path>
-                <path d="M229.66,218.34,179.6,168.28a88.21,88.21,0,1,0-11.32,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-              </svg>
-              <input
-                aria-activedescendant="home"
-                aria-controls="command-list"
-                aria-expanded="true"
-                aria-label="Search"
-                className="flex-1 bg-transparent text-sm text-neutral-900 outline-none placeholder:text-neutral-600 placeholder:transition-opacity placeholder:duration-300 dark:text-white dark:placeholder:text-white/60"
-                placeholder="Search pages, posts, projects..."
-                role="combobox"
-                value=""
-              />
-            </div>
-          </div>
-          <button
+          <Command
+            className={[
+              "focus-within:ring-primary/20 h-11 flex-1 justify-center rounded-2xl! bg-white/70 p-0! shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 focus-within:ring-2 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]",
+              "**:data-[slot=command-input-wrapper]:p-0",
+              "**:data-[slot=command-input-wrapper]:px-4",
+              "**:data-[slot=input-group]:gap-2.5!",
+              "**:data-[slot=input-group]:border-none",
+              "**:data-[slot=input-group-addon]:py-0!",
+              "**:data-[slot=input-group-addon]:pl-0!",
+              "**:data-[slot=input-group-addon]:[&_svg]:opacity-75!",
+            ].join(" ")}
+          >
+            <CommandInput
+              placeholder="Search pages, posts, projects..."
+              className="h-11 border-0"
+            />
+          </Command>
+          <Button
+            variant="ghost"
+            size="icon"
             aria-label="Reach out"
-            className="flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
-            type="button"
+            className="size-11 shrink-0 cursor-pointer rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
           >
-            <span
-              className="flex items-center justify-center"
-              style={{ opacity: 1 }}
-            >
-              <span className="relative inline-flex size-5 items-center justify-center">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 inline-flex items-center justify-center"
-                  style={{
-                    opacity: 1,
-                    filter: "blur(0px)",
-                    transform: "scale(0.800144) rotate(15.9885deg)",
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                    className="size-5"
-                  >
-                    <path
-                      d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z"
-                      opacity="0.2"
-                    ></path>
-                    <path d="M128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-4-1.08,7.85,7.85,0,0,0-2.53.42L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Zm12-88a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm-44,0a12,12,0,1,1-12-12A12,12,0,0,1,96,128Zm88,0a12,12,0,1,1-12-12A12,12,0,0,1,184,128Z"></path>
-                  </svg>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 inline-flex items-center justify-center"
-                  style={{
-                    opacity: 0,
-                    filter: "blur(3px)",
-                    transform: "scale(0.999847) rotate(-0.0122782deg)",
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="1em"
-                    height="1em"
-                    fill="currentColor"
-                    viewBox="0 0 256 256"
-                    className="size-5"
-                  >
-                    <path
-                      d="M223.94,174.08A48.33,48.33,0,0,1,176,216,136,136,0,0,1,40,80,48.33,48.33,0,0,1,81.92,32.06a8,8,0,0,1,8.3,4.8l21.13,47.2a8,8,0,0,1-.66,7.53L89.32,117a7.93,7.93,0,0,0-.54,7.81c8.27,16.93,25.77,34.22,42.75,42.41a7.92,7.92,0,0,0,7.83-.59l25-21.3a8,8,0,0,1,7.59-.69l47.16,21.13A8,8,0,0,1,223.94,174.08Z"
-                      opacity="0.2"
-                    ></path>
-                    <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path>
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </button>
-          <button
+            <MessageCircle className="size-5" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             aria-label="Toggle theme"
-            className="shadow-border flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 outline-none hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
-            type="button"
             onClick={toggleTheme}
+            className="size-11 shrink-0 cursor-pointer rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-              className="dark:hidden"
-            >
-              <path d="M116,36V20a12,12,0,0,1,24,0V36a12,12,0,0,1-24,0Zm80,92a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM48,128a12,12,0,0,0-12-12H20a12,12,0,0,0,0,24H36A12,12,0,0,0,48,128Zm80,80a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V220A12,12,0,0,0,128,208Zm108-92H220a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z"></path>
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-              className="hidden dark:block"
-            >
-              <path d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z"></path>
-            </svg>
-          </button>
-          <button
+            <Sun className="size-5 dark:hidden" />
+            <Moon className="hidden size-5 dark:block" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             aria-label="Close"
-            className="flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
-            type="button"
+            className="size-11 shrink-0 cursor-pointer rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
             onClick={closeMenu}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-              className="size-5"
-            >
-              <path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
-            </svg>
-          </button>
+            <X className="size-5" />
+          </Button>
         </div>
 
         {/* results block */}
@@ -641,197 +579,77 @@ export function Menu() {
                     </button>
                   </div>
                 </section>
-                <section
-                  aria-label="Legal"
-                  className="px-2 pt-1.5"
-
-                  style={{
-                    opacity: 1,
-                    transform: "translate3d(0px, 0px, 0px)",
-                  }}
-                >
-                  <h3 className="flex items-center gap-2 px-2 pt-1 pb-1.5 text-xs font-normal tracking-wide text-neutral-600 dark:text-white/60">
-                    Legal
-                    <span className="h-px flex-1 bg-neutral-200 dark:bg-white/[0.08]"></span>
-                  </h3>
-                  <div className="grid grid-cols-2 gap-1">
-                    <button
-                      aria-selected="false"
-                      className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/[0.1] dark:hover:text-white"
-                      data-selected="false"
-                      id="privacy"
-                      role="option"
-                      type="button"
-                    >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/[0.06] dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="1em"
-                          height="1em"
-                          fill="currentColor"
-                          viewBox="0 0 256 256"
-                          className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white"
-                        >
-                          <path
-                            d="M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z"
-                            opacity="0.2"
-                          ></path>
-                          <path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path>
-                        </svg>
-                      </div>
-                      <span className="flex-1 truncate leading-snug">
-                        Privacy Policy
-                      </span>
-                    </button>
-                    <button
-                      aria-selected="false"
-                      className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/[0.1] dark:hover:text-white"
-                      data-selected="false"
-                      id="terms"
-                      role="option"
-                      type="button"
-                    >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/[0.06] dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="1em"
-                          height="1em"
-                          fill="currentColor"
-                          viewBox="0 0 256 256"
-                          className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white"
-                        >
-                          <path
-                            d="M56,88l32,80c0,17.67-20,24-32,24s-32-6.33-32-24ZM200,56l-32,80c0,17.67,20,24,32,24s32-6.33,32-24Z"
-                            opacity="0.2"
-                          ></path>
-                          <path d="M239.43,133l-32-80h0a8,8,0,0,0-9.16-4.84L136,62V40a8,8,0,0,0-16,0V65.58L54.26,80.19A8,8,0,0,0,48.57,85h0v.06L16.57,165a7.92,7.92,0,0,0-.57,3c0,23.31,24.54,32,40,32s40-8.69,40-32a7.92,7.92,0,0,0-.57-3L66.92,93.77,120,82V208H104a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16H136V78.42L187,67.1,160.57,133a7.92,7.92,0,0,0-.57,3c0,23.31,24.54,32,40,32s40-8.69,40-32A7.92,7.92,0,0,0,239.43,133ZM56,184c-7.53,0-22.76-3.61-23.93-14.64L56,109.54l23.93,59.82C78.76,180.39,63.53,184,56,184Zm144-32c-7.53,0-22.76-3.61-23.93-14.64L200,77.54l23.93,59.82C222.76,148.39,207.53,152,200,152Z"></path>
-                        </svg>
-                      </div>
-                      <span className="flex-1 truncate leading-snug">
-                        Terms of Use
-                      </span>
-                    </button>
-                  </div>
-                </section>
-                <section
-                  aria-label="Discover"
-                  className="px-2 pt-1.5"
-                  style={{
-                    opacity: 1,
-                    transform: "translate3d(0px, 0px, 0px)",
-                  }}
-                >
-                  <h3 className="flex items-center gap-2 px-2 pt-1 pb-1.5 text-xs font-normal tracking-wide text-neutral-600 dark:text-white/60">
-                    Discover
-                    <span className="h-px flex-1 bg-neutral-200 dark:bg-white/[0.08]"></span>
-                  </h3>
-                  <div className="grid grid-cols-2 gap-1">
-                    <button
-                      aria-selected="false"
-                      className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/[0.1] dark:hover:text-white"
-                      data-selected="false"
-                      id="rss"
-                      role="option"
-                      type="button"
-                    >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/[0.06] dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="1em"
-                          height="1em"
-                          fill="currentColor"
-                          viewBox="0 0 256 256"
-                          className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white"
-                        >
-                          <path
-                            d="M216,200H56V40A160,160,0,0,1,216,200Z"
-                            opacity="0.2"
-                          ></path>
-                          <path d="M106.91,149.09A71.53,71.53,0,0,1,128,200a8,8,0,0,1-16,0,56,56,0,0,0-56-56,8,8,0,0,1,0-16A71.53,71.53,0,0,1,106.91,149.09ZM56,80a8,8,0,0,0,0,16A104,104,0,0,1,160,200a8,8,0,0,0,16,0A120,120,0,0,0,56,80Zm118.79,1.21A166.89,166.89,0,0,0,56,32a8,8,0,0,0,0,16A151,151,0,0,1,163.48,92.52,151,151,0,0,1,208,200a8,8,0,0,0,16,0A166.9,166.9,0,0,0,174.79,81.21ZM60,184a12,12,0,1,0,12,12A12,12,0,0,0,60,184Z"></path>
-                        </svg>
-                      </div>
-                      <span className="flex-1 truncate leading-snug">
-                        Blog RSS
-                      </span>
-                      <svg
-                        fill="none"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/50 dark:group-hover:text-white/70"
-                      >
-                        <path
-                          d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        ></path>
-                      </svg>
-                    </button>
-                    <button
-                      aria-selected="false"
-                      className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/[0.1] dark:hover:text-white"
-                      data-selected="false"
-                      id="sitemap"
-                      role="option"
-                      type="button"
-                    >
-                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/[0.06] dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="1em"
-                          height="1em"
-                          fill="currentColor"
-                          viewBox="0 0 256 256"
-                          className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white"
-                        >
-                          <path
-                            d="M64,112v32a8,8,0,0,1-8,8H24a8,8,0,0,1-8-8V112a8,8,0,0,1,8-8H56A8,8,0,0,1,64,112ZM208,40H160a8,8,0,0,0-8,8V96a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V48A8,8,0,0,0,208,40Zm0,112H160a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152Z"
-                            opacity="0.2"
-                          ></path>
-                          <path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"></path>
-                        </svg>
-                      </div>
-                      <span className="flex-1 truncate leading-snug">
-                        Sitemap
-                      </span>
-                      <svg
-                        fill="none"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/50 dark:group-hover:text-white/70"
-                      >
-                        <path
-                          d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div>
-                </section>
               </div>
             </div>
           </div>
         </div>
         {/* End OF TODO AREA */}
-        <Command>
-          <CommandInput placeholder="Search..." />
+        {/* TODO AREA */}
 
-          <CommandList>
-            <CommandGroup heading="Pages">
-              <CommandItem>Home</CommandItem>
-              <CommandItem>About</CommandItem>
-              <CommandItem>Projects</CommandItem>
+        <Command className="pointer-events-auto h-[min(430px,58dvh)] rounded-3xl border-0 bg-white/70 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
+          <CommandList className="max-h-none flex-1 px-2 py-2">
+            <CommandEmpty>No results found.</CommandEmpty>
+
+            <CommandGroup heading="Recent">
+              <CommandItem value="keythm">
+                <Search className="size-4" />
+                <span>Keythm</span>
+              </CommandItem>
             </CommandGroup>
 
-            <CommandGroup heading="Connect">dh</CommandGroup>
+            <CommandSeparator />
+
+            <CommandGroup heading="Pages">
+              <div className="grid grid-cols-2 gap-1">
+                <CommandItem value="home" className="rounded-xl">
+                  <Home className="size-4" />
+                  <span>Home</span>
+                </CommandItem>
+
+                <CommandItem value="about" className="rounded-xl">
+                  <User className="size-4" />
+                  <span>About</span>
+                </CommandItem>
+
+                <CommandItem value="projects" className="rounded-xl">
+                  <Folder className="size-4" />
+                  <span>Projects</span>
+                </CommandItem>
+
+                <CommandItem value="blog" className="rounded-xl">
+                  <FileText className="size-4" />
+                  <span>Blog</span>
+                </CommandItem>
+
+                <CommandItem value="guestbook" className="rounded-xl">
+                  <BookOpen className="size-4" />
+                  <span>Guestbook</span>
+                </CommandItem>
+
+                <CommandItem value="uses" className="rounded-xl">
+                  <Laptop className="size-4" />
+                  <span>Uses</span>
+                </CommandItem>
+
+                <CommandItem value="attribution" className="rounded-xl">
+                  <Trophy className="size-4" />
+                  <span>Attribution</span>
+                </CommandItem>
+
+                <CommandItem value="links" className="rounded-xl">
+                  <Link className="size-4" />
+                  <span>Links</span>
+                </CommandItem>
+              </div>
+            </CommandGroup>
+
+            <CommandSeparator />
+
+            <CommandGroup heading="Connect">
+              <div className="grid grid-cols-3 gap-1">
+                {/* connect items */}
+              </div>
+            </CommandGroup>
           </CommandList>
         </Command>
       </DrawerContent>
