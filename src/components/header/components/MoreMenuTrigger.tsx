@@ -1,6 +1,14 @@
-export function MoreMenuTrigger() {
+import { morePages } from "@/lib/data";
+type MoreMenuTriggerProps = {
+  active: boolean;
+};
+export function MoreMenuTrigger({ active }: MoreMenuTriggerProps) {
   return (
-    <li className="relative list-none">
+    <li
+      key="More"
+      className="relative list-none"
+      aria-current={active ? "page" : undefined}
+    >
       <button
         aria-expanded="false"
         aria-haspopup="true"

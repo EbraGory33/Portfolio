@@ -2,23 +2,7 @@
 import { usePathname } from "next/navigation";
 import { useMenu, useThemeToggle } from "@/lib/hooks";
 import Link from "next/link";
-import {
-  MessageCircle,
-  Moon,
-  Sun,
-  X,
-  Home,
-  User,
-  Folder,
-  FileText,
-  BookOpen,
-  Laptop,
-  Trophy,
-  Link as LinkIcon,
-  ArrowUpRight,
-} from "lucide-react";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { MessageCircle, Moon, Sun, X, ArrowUpRight } from "lucide-react";
 import {
   Drawer,
   DrawerContent,
@@ -32,33 +16,11 @@ import {
   CommandInput,
   CommandList,
   CommandEmpty,
+  CommandItem,
 } from "@/components/ui/command";
 
-const pages = [
-  { value: "home", link: "/", icon: Home },
-  { value: "about", link: "/about", icon: User },
-  { value: "projects", link: "/projects", icon: Folder },
-  { value: "blog", link: "/blog", icon: FileText },
-  { value: "guestbook", link: "/guestbook", icon: BookOpen },
-  { value: "uses", link: "/uses", icon: Laptop },
-  { value: "attribution", link: "/attribution", icon: Trophy },
-  { value: "links", link: "/links", icon: LinkIcon },
-];
-const socials = [
-  {
-    value: "Linkedin",
-    link: "https://linkedin.com/in/ebrahim-gory/",
-    icon: FaLinkedin,
-  },
-  { value: "Github", link: "https://github.com/ebragory33", icon: FaGithub },
-  {
-    value: "Instagram",
-    link: "https://instagram.com/webstudios.dev/",
-    icon: FaInstagram,
-  },
+import { pages, socials } from "@/lib/data";
 
-  { value: "X (Twitter)", link: "https://x.com/SWEbra24", icon: FaXTwitter },
-];
 export function Menu() {
   const { expanded, closeMenu } = useMenu();
   const { toggleTheme } = useThemeToggle();
@@ -124,6 +86,37 @@ export function Menu() {
 
         <Command className="pointer-events-auto h-[min(430px,58dvh)] overflow-hidden rounded-3xl! border bg-white/70 p-0! shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
           <CommandList className="max-h-none flex-1 pt-2 pb-4">
+            {/* TODO: */}
+            {/* <div
+              aria-label="Search results"
+              className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto pt-2 pb-1"
+              id="command-list"
+              role="listbox"
+            >
+              <div className="px-3 pt-2 pb-1">
+                <div className="flex items-center justify-between px-1 pb-1.5">
+                  <span className="text-xs tracking-wide text-neutral-600 dark:text-white/60">
+                    Recent
+                  </span>
+                  <button
+                    aria-label="Clear recent searches"
+                    className="cursor-pointer text-xs text-neutral-600 transition-colors hover:text-neutral-900 dark:text-white/60 dark:hover:text-white"
+                    type="button"
+                  >
+                    Clear
+                  </button>
+                </div>
+                <div className="flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
+                  <button
+                    aria-label="Go to Keythm"
+                    className="hover:border-primary/30 dark:hover:border-primary/30 shrink-0 cursor-pointer rounded-lg border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:border-white/15 dark:text-white/60 dark:hover:text-white"
+                    type="button"
+                  >
+                    Keythm
+                  </button>
+                </div>
+              </div>
+            </div> */}
             <CommandGroup
               heading={
                 <div className="flex items-center gap-2">
@@ -196,6 +189,7 @@ export function Menu() {
                   const Icon = social.icon;
                   return (
                     <a
+                      key={social.value}
                       href={social.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -205,7 +199,7 @@ export function Menu() {
                         <Icon className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white" />
                       </div>
                       <span className="flex-1 truncate leading-snug">
-                        {social.value}
+                        {social.label}
                       </span>
                       <ArrowUpRight className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/40 dark:group-hover:text-white/70" />
                     </a>
@@ -218,37 +212,4 @@ export function Menu() {
       </DrawerContent>
     </Drawer>
   );
-}
-
-{
-  /* <div
-              aria-label="Search results"
-              className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto pt-2 pb-1"
-              id="command-list"
-              role="listbox"
-            >
-              <div className="px-3 pt-2 pb-1">
-                <div className="flex items-center justify-between px-1 pb-1.5">
-                  <span className="text-xs tracking-wide text-neutral-600 dark:text-white/60">
-                    Recent
-                  </span>
-                  <button
-                    aria-label="Clear recent searches"
-                    className="cursor-pointer text-xs text-neutral-600 transition-colors hover:text-neutral-900 dark:text-white/60 dark:hover:text-white"
-                    type="button"
-                  >
-                    Clear
-                  </button>
-                </div>
-                <div className="flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
-                  <button
-                    aria-label="Go to Keythm"
-                    className="hover:border-primary/30 dark:hover:border-primary/30 shrink-0 cursor-pointer rounded-lg border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:border-white/15 dark:text-white/60 dark:hover:text-white"
-                    type="button"
-                  >
-                    Keythm
-                  </button>
-                </div>
-              </div>
-            </div> */
 }

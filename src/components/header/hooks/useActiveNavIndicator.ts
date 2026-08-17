@@ -1,6 +1,6 @@
 "use client";
-import { usePathname } from "next/navigation";
 import { useEffect, useState, RefObject } from "react";
+import { usePathname } from "next/navigation";
 
 type ActiveIndicator = {
   left: number;
@@ -11,9 +11,6 @@ export function useActiveIndicator(
   navListRef: RefObject<HTMLUListElement | null>,
 ) {
   const pathname = usePathname();
-  const activePathname = `/${pathname.split("/")[1]}`;
-  console.log(pathname);
-  console.log(activePathname);
 
   const [activeIndicator, setActiveIndicator] = useState<ActiveIndicator>({
     left: 0,
@@ -27,7 +24,7 @@ export function useActiveIndicator(
 
     const updateActiveIndicator = () => {
       const activeItem = navList.querySelector<HTMLElement>(
-        `[data-nav-id="${activePathname}"]`,
+        '[aria-current="page"]',
       );
 
       if (!activeItem) {

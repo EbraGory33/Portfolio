@@ -7,41 +7,37 @@ import {
   MoreMenuTrigger,
   ConnectButon,
 } from "./components";
-import {
-  navItems,
-  baseClasses,
-  activeClasses,
-  inactiveClasses,
-} from "./constant";
+import { baseClasses, activeClasses, inactiveClasses } from "./constant";
+import { primaryPages, morePages } from "@/lib/data";
 
 export function NavItems() {
   const pathname = usePathname();
+  const activePathname = `/${pathname.split("/")[1]}`;
   const navListRef = useRef<HTMLUListElement>(null);
-
   return (
     <div className="relative flex items-center">
       {navListRef && <NavActiveIndicator navListRef={navListRef} />}
 
       <ul ref={navListRef} className="relative flex items-center">
-        {navItems.map((item) => (
+        {[...primaryPages].map((item) => (
           <li
-            key={item.href}
+            key={item.value}
             className="relative list-none"
-            data-nav-id={item.href}
+            aria-current={activePathname === item.link ? "page" : undefined}
           >
             <Link
-              href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
+              href={item.link}
               className={[
                 baseClasses,
-                pathname === item.href ? activeClasses : inactiveClasses,
+                pathname === item.link ? activeClasses : inactiveClasses,
               ].join(" ")}
             >
-              {item.name}
+              {item.label}
             </Link>
           </li>
         ))}
-        <MoreMenuTrigger />
+
+        <MoreMenuTrigger active={morePages.has(activePathname)} />
         <ConnectButon />
       </ul>
     </div>
