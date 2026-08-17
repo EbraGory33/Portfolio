@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { useMenu, useThemeToggle } from "@/lib/hooks";
 import Link from "next/link";
 import {
   MessageCircle,
@@ -14,8 +15,10 @@ import {
   Laptop,
   Trophy,
   Link as LinkIcon,
+  ArrowUpRight,
 } from "lucide-react";
-import { useMenu, useThemeToggle } from "@/lib/hooks";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   Drawer,
   DrawerContent,
@@ -40,6 +43,21 @@ const pages = [
   { value: "uses", link: "/uses", icon: Laptop },
   { value: "attribution", link: "/attribution", icon: Trophy },
   { value: "links", link: "/links", icon: LinkIcon },
+];
+const socials = [
+  {
+    value: "Linkedin",
+    link: "https://linkedin.com/in/ebrahim-gory/",
+    icon: FaLinkedin,
+  },
+  { value: "Github", link: "https://github.com/ebragory33", icon: FaGithub },
+  {
+    value: "Instagram",
+    link: "https://instagram.com/webstudios.dev/",
+    icon: FaInstagram,
+  },
+
+  { value: "X (Twitter)", link: "https://x.com/SWEbra24", icon: FaXTwitter },
 ];
 export function Menu() {
   const { expanded, closeMenu } = useMenu();
@@ -217,55 +235,39 @@ export function Menu() {
             >
               <div className="grid grid-cols-3 gap-1">
                 {/* connect items */}
-                {/* {pages.map((page) => { */}
-                {Array.from({ length: 20 }).map((_, index) => {
+                {socials.map((social) => {
+                  const Icon = social.icon;
                   return (
-                    <>
-                      <button
-                        aria-selected="false"
-                        className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/[0.1] dark:hover:text-white"
-                        data-selected="false"
-                        id="gh"
-                        role="option"
-                        type="button"
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group focus-visible:ring-primary/30 flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm text-neutral-700 transition-all duration-150 outline-none hover:bg-neutral-200/50 hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-1 dark:text-white/70 dark:hover:bg-white/10 dark:hover:text-white"
+                    >
+                      <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/6 dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
+                        <Icon className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white" />
+                      </div>
+                      <span className="flex-1 truncate leading-snug">
+                        {social.value}
+                      </span>
+                      <ArrowUpRight className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/40 dark:group-hover:text-white/70" />
+                      {/* <svg
+                        fill="none"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/50 dark:group-hover:text-white/70"
                       >
-                        <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-neutral-100 ring-1 ring-neutral-200/60 transition-all duration-150 group-hover:bg-white group-hover:shadow-sm group-hover:ring-neutral-300/60 dark:bg-white/[0.07] dark:ring-white/[0.06] dark:group-hover:bg-white/15 dark:group-hover:ring-white/15">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            fill="currentColor"
-                            viewBox="0 0 256 256"
-                            className="size-3.5 text-neutral-500 transition-all duration-150 group-hover:text-neutral-800 dark:text-white/60 dark:group-hover:text-white"
-                          >
-                            <path
-                              d="M208,104v8a48,48,0,0,1-48,48H136a32,32,0,0,1,32,32v40H104V192a32,32,0,0,1,32-32H112a48,48,0,0,1-48-48v-8a49.28,49.28,0,0,1,8.51-27.3A51.92,51.92,0,0,1,76,32a52,52,0,0,1,43.83,24h32.34A52,52,0,0,1,196,32a51.92,51.92,0,0,1,3.49,44.7A49.28,49.28,0,0,1,208,104Z"
-                              opacity="0.2"
-                            ></path>
-                            <path d="M208.3,75.68A59.74,59.74,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58,58,0,0,0,208.3,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.76,41.76,0,0,1,200,104Z"></path>
-                          </svg>
-                        </div>
-                        <span className="flex-1 truncate leading-snug">
-                          GitHub
-                        </span>
-                        <svg
-                          fill="none"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/50 dark:group-hover:text-white/70"
-                        >
-                          <path
-                            d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
-                          ></path>
-                        </svg>
-                      </button>
-                    </>
+                        <path
+                          d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                        ></path>
+                      </svg> */}
+                    </a>
                   );
                 })}
               </div>
