@@ -73,8 +73,6 @@ export function Menu() {
           Search pages, blog posts, projects, and more.
         </DrawerDescription>
 
-        {/* top search/actions block */}
-
         <div className="pointer-events-auto relative flex h-13 shrink-0 items-center gap-2.5">
           <Command
             className={[
