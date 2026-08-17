@@ -44,7 +44,6 @@ const pages = [
 export function Menu() {
   const { expanded, closeMenu } = useMenu();
   const { toggleTheme } = useThemeToggle();
-  const isActive = true;
   const pathname = usePathname();
   const activePathname = `/${pathname.split("/")[1]}`;
   return (
@@ -161,7 +160,7 @@ export function Menu() {
               <div className="grid grid-cols-2 gap-1">
                 {pages.map((page) => {
                   const Icon = page.icon;
-                  const isActive = pathname === page.link;
+                  const isActive = activePathname === page.link;
                   return (
                     <Link href={page.link} onClick={closeMenu}>
                       <Button
