@@ -99,7 +99,9 @@ export function Menu() {
             aria-label="Reach out"
             className="size-11 shrink-0 cursor-pointer rounded-2xl bg-white/70 text-neutral-600 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 hover:bg-white/80 hover:text-neutral-900 dark:bg-neutral-900/70 dark:text-white/60 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)] dark:hover:bg-white/15 dark:hover:text-white"
           >
-            <MessageCircle className="size-5" />
+            <a href="mailto:gory.ebrahim30@gmail.com?subject=Reaching%20out%20via%20your%20portfolio">
+              <MessageCircle className="size-5" />
+            </a>
           </Button>
           <Button
             variant="ghost"
@@ -123,49 +125,7 @@ export function Menu() {
         </div>
 
         <Command className="pointer-events-auto h-[min(430px,58dvh)] overflow-hidden rounded-3xl! border bg-white/70 p-0! shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
-          {/* <CommandList className="max-h-none flex-1 pt-2 pb-4"> */}
-          <CommandList className="max-h-none min-h-0 flex-1 overflow-x-hidden overflow-y-auto pt-2 pb-4">
-            {/* <CommandEmpty>No results found.</CommandEmpty> */}
-
-            {/* <CommandGroup heading="Recent">
-              <CommandItem value="keythm">
-                <span>Keythm</span>
-              </CommandItem>
-            </CommandGroup>
-            
-
-            <CommandSeparator /> */}
-            {/* <div
-              aria-label="Search results"
-              className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto pt-2 pb-1"
-              id="command-list"
-              role="listbox"
-            >
-              <div className="px-3 pt-2 pb-1">
-                <div className="flex items-center justify-between px-1 pb-1.5">
-                  <span className="text-xs tracking-wide text-neutral-600 dark:text-white/60">
-                    Recent
-                  </span>
-                  <button
-                    aria-label="Clear recent searches"
-                    className="cursor-pointer text-xs text-neutral-600 transition-colors hover:text-neutral-900 dark:text-white/60 dark:hover:text-white"
-                    type="button"
-                  >
-                    Clear
-                  </button>
-                </div>
-                <div className="flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
-                  <button
-                    aria-label="Go to Keythm"
-                    className="hover:border-primary/30 dark:hover:border-primary/30 shrink-0 cursor-pointer rounded-lg border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:border-white/15 dark:text-white/60 dark:hover:text-white"
-                    type="button"
-                  >
-                    Keythm
-                  </button>
-                </div>
-              </div>
-            </div> */}
-
+          <CommandList className="max-h-none flex-1 pt-2 pb-4">
             <CommandGroup
               heading={
                 <div className="flex items-center gap-2">
@@ -223,7 +183,6 @@ export function Menu() {
                 })}
               </div>
             </CommandGroup>
-
             <CommandGroup
               heading={
                 <div className="flex items-center gap-2">
@@ -251,22 +210,6 @@ export function Menu() {
                         {social.value}
                       </span>
                       <ArrowUpRight className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/40 dark:group-hover:text-white/70" />
-                      {/* <svg
-                        fill="none"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="size-3 shrink-0 text-neutral-500 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-600 dark:text-white/50 dark:group-hover:text-white/70"
-                      >
-                        <path
-                          d="M9 6.65032C9 6.65032 15.9383 6.10759 16.9154 7.08463C17.8924 8.06167 17.3496 15 17.3496 15M16.5 7.5L6.5 17.5"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="1.5"
-                        ></path>
-                      </svg> */}
                     </a>
                   );
                 })}
@@ -277,4 +220,37 @@ export function Menu() {
       </DrawerContent>
     </Drawer>
   );
+}
+
+{
+  /* <div
+              aria-label="Search results"
+              className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto pt-2 pb-1"
+              id="command-list"
+              role="listbox"
+            >
+              <div className="px-3 pt-2 pb-1">
+                <div className="flex items-center justify-between px-1 pb-1.5">
+                  <span className="text-xs tracking-wide text-neutral-600 dark:text-white/60">
+                    Recent
+                  </span>
+                  <button
+                    aria-label="Clear recent searches"
+                    className="cursor-pointer text-xs text-neutral-600 transition-colors hover:text-neutral-900 dark:text-white/60 dark:hover:text-white"
+                    type="button"
+                  >
+                    Clear
+                  </button>
+                </div>
+                <div className="flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
+                  <button
+                    aria-label="Go to Keythm"
+                    className="hover:border-primary/30 dark:hover:border-primary/30 shrink-0 cursor-pointer rounded-lg border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:border-white/15 dark:text-white/60 dark:hover:text-white"
+                    type="button"
+                  >
+                    Keythm
+                  </button>
+                </div>
+              </div>
+            </div> */
 }
