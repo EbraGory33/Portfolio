@@ -8,16 +8,10 @@ import {
 import { ProjectCatalog } from "@/components/project";
 import type { ProjectDataProps } from "@/lib/types";
 
-// export function ProjectPage(projects: ProjectData[]
 export function ProjectPage({ projects }: ProjectDataProps) {
   return (
     <>
-      {/* <BackgroundImage
-        image="/images/backgrounds/blueprint.avif"
-        alt="Blueprint"
-      /> */}
       <PageBuilder>
-        {/* <Content className="py-36"> */}
         <Content className="pt-38 pb-32">
           <BackgroundImage
             image="/images/backgrounds/blueprint.avif"

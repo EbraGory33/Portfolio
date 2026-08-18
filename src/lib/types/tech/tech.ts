@@ -1,100 +1,54 @@
-// export const TECHS = {
-//   "NEXT.JS": {
-//     icon: "/icons/nextjs.svg",
-//   },
-//   REACT: {
-//     icon: "/icons/react.svg",
-//   },
-//   TYPESCRIPT: {
-//     icon: "/icons/typescript.svg",
-//   },
-//   "TAILWIND CSS": {
-//     icon: "/icons/tailwindcss.svg",
-//   },
-//   "NODE.JS": {
-//     icon: "/icons/nodejs.svg",
-//   },
-//   "DRIZZLE ORM": {
-//     icon: "/icons/drizzle.svg",
-//   },
-//   "MOTION.DEV": {
-//     icon: "/icons/motion.svg",
-//   },
-//   "SHADCN UI": {
-//     icon: "/icons/shadcn.svg",
-//   },
-//   "Web-Audio-API": {
-//     icon: "/icons/webaudioapi.svg",
-//   },
-//   Serwist: {
-//     icon: "/icons/serwist.svg",
-//   },
-//   ZOD: {
-//     icon: "/icons/zod.svg",
-//   },
-//   RECHARTS: {
-//     icon: "/icons/recharts.svg",
-//   },
-//   - React
-//   - NODE.JS
-//   - Express
-//   - MongoDB
-//   - JavaScript
-//   - HTML
-//   - CSS
-// } as const;
-
 export const TECHS = {
   "NEXT.JS": {
-    icon: "/icons/nextjs.svg",
+    icon: "devicon:nextjs",
   },
   REACT: {
-    icon: "/icons/react.svg",
+    icon: "devicon:react",
   },
   TYPESCRIPT: {
-    icon: "/icons/typescript.svg",
+    icon: "devicon:typescript",
   },
   "TAILWIND CSS": {
-    icon: "/icons/tailwindcss.svg",
+    icon: "devicon:tailwindcss",
   },
   "NODE.JS": {
-    icon: "/icons/nodejs.svg",
+    icon: "devicon:nodejs",
   },
   "DRIZZLE ORM": {
-    icon: "/icons/drizzle.svg",
+    icon: "simple-icons:drizzle",
   },
   "MOTION.DEV": {
-    icon: "/icons/motion.svg",
+    icon: "simple-icons:framer",
   },
   "SHADCN UI": {
-    icon: "/icons/shadcn.svg",
+    icon: "simple-icons:shadcnui",
   },
   "WEB AUDIO API": {
-    icon: "/icons/webaudioapi.svg",
+    icon: "mdi:waveform",
   },
   SERWIST: {
-    icon: "/icons/serwist.svg",
+    icon: "mdi:progress-wrench",
   },
   ZOD: {
-    icon: "/icons/zod.svg",
+    icon: "simple-icons:zod",
   },
   RECHARTS: {
-    icon: "/icons/recharts.svg",
+    icon: "lucide:chart-no-axes-combined",
   },
   EXPRESS: {
-    icon: "/icons/express.svg",
+    icon: "simple-icons:express",
   },
   MONGODB: {
-    icon: "/icons/mongodb.svg",
+    icon: "devicon:mongodb",
   },
   JAVASCRIPT: {
-    icon: "/icons/javascript.svg",
+    icon: "devicon:javascript",
   },
   HTML: {
-    icon: "/icons/html.svg",
+    icon: "devicon:html5",
   },
   CSS: {
-    icon: "/icons/css.svg",
+    icon: "devicon:css3",
   },
 } as const;
 

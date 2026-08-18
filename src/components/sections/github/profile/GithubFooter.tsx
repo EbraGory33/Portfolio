@@ -1,4 +1,4 @@
-import { getContributionColor } from "@/lib/github";
+import { getContributionColor } from "@/lib/data";
 
 type GithubFooterProps = {
   total: number;

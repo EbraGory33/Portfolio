@@ -1,4 +1,4 @@
-import { getContributionColor } from "@/lib/github";
+import { getContributionColor } from "@/lib/data";
 import { GithubWeek } from "@/lib/types";
 
 type GithubContributionCalendarProps = {

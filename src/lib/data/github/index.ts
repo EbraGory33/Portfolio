@@ -1,2 +1,2 @@
 export * from "./contribution";
-export * from "./github";
+export * from "./getGithub";

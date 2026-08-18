@@ -1,5 +1,5 @@
 import { SectionBuilder } from "@/components/layout";
-import { getGithubData } from "@/lib/github/github";
+import { getGithubData } from "@/lib/data/github/getGithub";
 import { GithubSectionData } from "@/lib/types/tech";
 
 import { GithubProfile } from "./profile";

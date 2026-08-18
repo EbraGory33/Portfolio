@@ -9,7 +9,7 @@ export function useGreetingPhase() {
   useEffect(() => {
     const readyTimer = window.setTimeout(() => {
       setPhase("ready");
-    }, 5000);
+    }, 2000);
 
     return () => {
       window.clearTimeout(readyTimer);

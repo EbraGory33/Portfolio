@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getGithubData } from "@/lib/github/github";
+import { getGithubData } from "@/lib/data";
 
 export async function GET() {
   try {
