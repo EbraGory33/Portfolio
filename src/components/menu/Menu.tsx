@@ -131,9 +131,8 @@ export function Menu() {
                   const Icon = page.icon;
                   const isActive = activePathname === page.link;
                   return (
-                    <Link href={page.link} onClick={closeMenu}>
+                    <Link key={page.value} href={page.link} onClick={closeMenu}>
                       <Button
-                        key={page.value}
                         className={[
                           "group focus-visible:ring-primary/30 h-auto w-full justify-start gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm font-medium transition-all duration-150 outline-none focus-visible:ring-2 focus-visible:ring-offset-1",
                           isActive

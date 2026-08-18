@@ -7,6 +7,7 @@ import {
   Laptop,
   Trophy,
   Link,
+  Hammer,
 } from "lucide-react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -34,11 +35,18 @@ export const pages = [
     nav: "primary",
   },
   {
+    value: "skills",
+    label: "Skills",
+    link: "/skills",
+    icon: Hammer,
+    nav: "primary",
+  },
+  {
     value: "blog",
     label: "Blog",
     link: "/blog",
     icon: FileText,
-    nav: "primary",
+    nav: "more",
   },
   {
     value: "guestbook",
