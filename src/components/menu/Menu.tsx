@@ -49,7 +49,8 @@ export function Menu() {
             ].join(" ")}
           >
             <CommandInput
-              placeholder="Search pages, posts, projects..."
+              placeholder="Under construction..."
+              // placeholder="Search pages, posts, projects..."
               className="h-11 border-0"
             />
           </Command>
@@ -84,7 +85,7 @@ export function Menu() {
           </Button>
         </div>
 
-        <Command className="pointer-events-auto h-[min(430px,58dvh)] overflow-hidden rounded-3xl! border bg-white/70 p-0! shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
+        <Command className="pointer-events-auto max-h-[min(430px,58dvh)] overflow-hidden rounded-3xl! border bg-white/70 p-0! shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_0_0_1px_rgba(255,255,255,0.5),0_12px_32px_-12px_rgba(0,0,0,0.25)] backdrop-blur-2xl backdrop-saturate-150 dark:bg-neutral-900/70 dark:shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.07),0_12px_32px_-12px_rgba(0,0,0,0.6)]">
           <CommandList className="max-h-none flex-1 pt-2 pb-4">
             {/* TODO: */}
             {/* <div
@@ -106,7 +107,7 @@ export function Menu() {
                     Clear
                   </button>
                 </div>
-                <div className="flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
+                <div className="flex gap-1.5 overflow-x-auto mask-[linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
                   <button
                     aria-label="Go to Keythm"
                     className="hover:border-primary/30 dark:hover:border-primary/30 shrink-0 cursor-pointer rounded-lg border border-dashed border-neutral-300 px-2.5 py-1 text-xs text-neutral-600 transition-colors duration-200 hover:text-neutral-900 dark:border-white/15 dark:text-white/60 dark:hover:text-white"

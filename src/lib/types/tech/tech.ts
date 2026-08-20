@@ -53,3 +53,14 @@ export const TECHS = {
 } as const;
 
 export type TechName = keyof typeof TECHS;
+
+export const TECH_ROWS = [
+  // Frontend / UI
+  ["NEXT.JS", "REACT", "TYPESCRIPT", "TAILWIND CSS", "SHADCN UI", "MOTION.DEV"],
+
+  // Backend / Data
+  ["NODE.JS", "EXPRESS", "MONGODB", "DRIZZLE ORM", "ZOD", "SERWIST"],
+
+  // Web / Core / Libraries
+  ["JAVASCRIPT", "HTML", "CSS", "WEB AUDIO API", "RECHARTS"],
+] satisfies TechName[][];

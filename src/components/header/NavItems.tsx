@@ -11,12 +11,16 @@ import { baseClasses, activeClasses, inactiveClasses } from "./constant";
 import { primaryPages, morePages } from "@/lib/data";
 
 export function NavItems() {
+  const navListRef = useRef<HTMLUListElement>(null);
   const pathname = usePathname();
   const activePathname = `/${pathname.split("/")[1]}`;
-  const navListRef = useRef<HTMLUListElement>(null);
+  const isKnownRoute =
+    primaryPages.some((item) => item.link === activePathname) ||
+    morePages.has(activePathname);
+
   return (
     <div className="relative flex items-center">
-      {navListRef && <NavActiveIndicator navListRef={navListRef} />}
+      {isKnownRoute && <NavActiveIndicator navListRef={navListRef} />}
 
       <ul ref={navListRef} className="relative flex items-center">
         {[...primaryPages].map((item) => (

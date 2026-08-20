@@ -41,45 +41,43 @@ export const pages = [
     icon: Hammer,
     nav: "primary",
   },
-  {
-    value: "blog",
-    label: "Blog",
-    link: "/blog",
-    icon: FileText,
-    nav: "more",
-  },
-  {
-    value: "guestbook",
-    label: "Guestbook",
-    link: "/guestbook",
-    icon: BookOpen,
-    nav: "more",
-  },
-  {
-    value: "uses",
-    label: "Uses",
-    link: "/uses",
-    icon: Laptop,
-    nav: "more",
-  },
-  {
-    value: "attribution",
-    label: "Attribution",
-    link: "/attribution",
-    icon: Trophy,
-    nav: "more",
-  },
-  {
-    value: "links",
-    label: "Links",
-    link: "/links",
-    icon: Link,
-    nav: "more",
-  },
+  // {
+  //   value: "blog",
+  //   label: "Blog",
+  //   link: "/blog",
+  //   icon: FileText,
+  //   nav: "more",
+  // },
+  // {
+  //   value: "guestbook",
+  //   label: "Guestbook",
+  //   link: "/guestbook",
+  //   icon: BookOpen,
+  //   nav: "more",
+  // },
+  // {
+  //   value: "uses",
+  //   label: "Uses",
+  //   link: "/uses",
+  //   icon: Laptop,
+  //   nav: "more",
+  // },
+  // {
+  //   value: "attribution",
+  //   label: "Attribution",
+  //   link: "/attribution",
+  //   icon: Trophy,
+  //   nav: "more",
+  // },
+  // {
+  //   value: "links",
+  //   label: "Links",
+  //   link: "/links",
+  //   icon: Link,
+  //   nav: "more",
+  // },
 ];
-export const primaryPages = new Set(
-  pages.filter((page) => page.nav === "primary"),
-);
+export const primaryPages = pages.filter((page) => page.nav === "primary");
 
 export const morePages = new Map(
   pages.filter((page) => page.nav === "more").map((page) => [page.link, page]),

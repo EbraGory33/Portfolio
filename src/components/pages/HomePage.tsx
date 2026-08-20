@@ -2,7 +2,7 @@ import { Content, PageBuilder } from "@/components/layout";
 import { FeaturedProjectsSection } from "@/components/project";
 import { Project } from "@/lib/types";
 
-import { About, Hero, Info } from ".";
+import { About, Hero, Info } from "./home";
 
 interface PageProps {
   projects: Project[];

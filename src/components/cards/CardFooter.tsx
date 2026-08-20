@@ -8,6 +8,7 @@ interface CardFooterProps {
   description?: ReactNode;
   className?: string;
   align?: "left" | "center";
+  overlay?: boolean;
 }
 
 export function CardFooter({
@@ -15,13 +16,14 @@ export function CardFooter({
   description,
   className,
   align = "left",
+  overlay = false,
 }: CardFooterProps) {
   return (
     <div
       className={cn(
         "pointer-events-none z-10 flex flex-col gap-1 p-5",
         align === "center" && "w-full text-center",
-        //  className=" absolute top-0 left-0"
+        overlay && "absolute top-0 left-0 w-full",
         className,
       )}
     >

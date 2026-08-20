@@ -3,7 +3,7 @@ import { BentoCard } from "@/components/layout";
 
 export function ProjectsCard() {
   return (
-    <BentoCard>
+    <BentoCard link="/projects">
       <CardFooter
         title="WHAT YOU GET"
         description="The stack behind everything I ship"

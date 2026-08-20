@@ -58,7 +58,7 @@ function Graphic() {
 }
 export function AboutMeCard() {
   return (
-    <BentoCard>
+    <BentoCard link="/about">
       <Graphic />
       <CardFooter
         title="MY JOURNEY"
