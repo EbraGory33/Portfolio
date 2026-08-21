@@ -39,7 +39,7 @@ export default function RootLayout({
         // ${coreMono.variable} ${bluuNext.variable}
         className={`${outfit.variable} ${instrumentSerif.variable} relative h-full bg-[#F4F4F4] antialiased selection:bg-black/10 selection:text-black dark:bg-black/25 dark:selection:bg-white/10 dark:selection:text-white`}
       >
-        <ThemeProvider attribute="class" defaultTheme="systme" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <MenuProvider>
             <div
               className="pointer-events-none fixed top-0 left-0 z-40 h-22.5 w-full select-none lg:h-25"

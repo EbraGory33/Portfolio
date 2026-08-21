@@ -7,6 +7,7 @@ export function ProjectsCard() {
       <CardFooter
         title="WHAT YOU GET"
         description="The stack behind everything I ship"
+        overlay={true}
       />
     </BentoCard>
   );
