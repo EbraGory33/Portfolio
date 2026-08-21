@@ -1,58 +1,32 @@
 "use client";
-// import { motion, useMotionValue, useTransform } from "framer-motion";
-import {
-  motion,
-  type MotionValue,
-  useMotionValue,
-  useTime,
-  useTransform,
-} from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { TechBadge } from "@/components/tech";
 import { TECH_ROWS, type TechName } from "@/lib/types";
 
-// function TechRow({
-//   techs,
-//   reverse = false,
-//   magnified = false,
-// }: {
-//   techs: TechName[];
-//   reverse?: boolean;
-//   magnified?: boolean;
-// }) {
-//   //   const duration = magnified ? 28 : 20;
-//   return (
-//     <div className="overflow-hidden">
-//       <motion.div
-//         className="flex w-max"
-//         animate={{
-//           translateX: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
-//         }}
-//         transition={{
-//           duration: 20,
-//           //   duration,
-//           ease: "linear",
-//           repeat: Infinity,
-//         }}
-//       >
-//         <div className="flex shrink-0 gap-3 pr-3">
-//           {techs.map((tech) => (
-//             <TechBadge key={tech} tech={tech} />
-//           ))}
-//         </div>
-
-//         <div className="flex shrink-0 gap-3 pr-3" aria-hidden>
-//           {techs.map((tech) => (
-//             <TechBadge key={`duplicate-${tech}`} tech={tech} />
-//           ))}
-//         </div>
-//       </motion.div>
-//     </div>
-//   );
-// }
-function TechRow({ techs, x }: { techs: TechName[]; x: MotionValue<string> }) {
+function TechRow({
+  techs,
+  reverse = false,
+  magnified = false,
+}: {
+  techs: TechName[];
+  reverse?: boolean;
+  magnified?: boolean;
+}) {
+  //   const duration = magnified ? 28 : 20;
   return (
     <div className="overflow-hidden">
-      <motion.div className="flex w-max" style={{ x }}>
+      <motion.div
+        className="flex w-max"
+        animate={{
+          translateX: reverse ? ["-50%", "0%"] : ["0%", "-50%"],
+        }}
+        transition={{
+          duration: 20,
+          //   duration,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      >
         <div className="flex shrink-0 gap-3 pr-3">
           {techs.map((tech) => (
             <TechBadge key={tech} tech={tech} />
@@ -70,22 +44,6 @@ function TechRow({ techs, x }: { techs: TechName[]; x: MotionValue<string> }) {
 }
 
 export function TechStackOverlay() {
-  const time = useTime();
-
-  const duration = 20_000;
-
-  const leftX = useTransform(time, (t) => {
-    const progress = (t % duration) / duration;
-
-    return `${-50 * progress}%`;
-  });
-
-  const rightX = useTransform(time, (t) => {
-    const progress = (t % duration) / duration;
-
-    return `${-50 + 50 * progress}%`;
-  });
-
   const lensX = useMotionValue(0);
   const lensY = useMotionValue(0);
   const LENS_CENTER_OFFSET = 41.27;
@@ -119,52 +77,32 @@ export function TechStackOverlay() {
               maskImage,
             }}
           >
-            {/* <TechRow techs={TECH_ROWS[0]} />
+            <TechRow techs={TECH_ROWS[0]} />
             <TechRow techs={TECH_ROWS[1]} reverse />
-            <TechRow techs={TECH_ROWS[2]} /> */}
-            <TechRow techs={TECH_ROWS[0]} x={leftX} />
-            <TechRow techs={TECH_ROWS[1]} x={rightX} />
-            <TechRow techs={TECH_ROWS[2]} x={leftX} />
+            <TechRow techs={TECH_ROWS[2]} />
           </motion.div>
           {/* Magnified clipped layer */}
-
           <motion.div
-            // className="pointer-events-none absolute inset-0 z-20 flex h-full flex-col justify-center bg-blue-900 brightness-150 select-none"
             className="pointer-events-none absolute inset-0 z-20 flex h-full flex-col justify-center brightness-150 select-none"
-            style={
-              {
-                //   clipPath,
-              }
-            }
+            style={{
+              clipPath,
+            }}
           >
             <div className="flex h-full w-full flex-col justify-center gap-10 brightness-150">
-              {/* <motion.div style={{ scale: 1.4 }}>
-                <TechRow techs={TECH_ROWS[0]} />
+              <motion.div style={{ scale: 1.4 }}>
                 <TechRow techs={TECH_ROWS[0]} magnified />
               </motion.div>
 
               <motion.div style={{ scale: 1.4 }}>
                 <TechRow techs={TECH_ROWS[1]} reverse magnified />
-                <TechRow techs={TECH_ROWS[1]} reverse />
               </motion.div>
 
               <motion.div style={{ scale: 1.4 }}>
                 <TechRow techs={TECH_ROWS[2]} magnified />
-                <TechRow techs={TECH_ROWS[2]} />
-              </motion.div> */}
-              <motion.div style={{ scale: 1.4 }}>
-                <TechRow techs={TECH_ROWS[0]} x={leftX} />
-              </motion.div>
-
-              <motion.div style={{ scale: 1.4 }}>
-                <TechRow techs={TECH_ROWS[1]} x={rightX} />
-              </motion.div>
-
-              <motion.div style={{ scale: 1.4 }}>
-                <TechRow techs={TECH_ROWS[2]} x={leftX} />
               </motion.div>
             </div>
           </motion.div>
+          {/* Magnified Glass */}
           <motion.div
             drag
             dragMomentum={false}
