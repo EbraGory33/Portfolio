@@ -1,13 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import {
-  animate,
-  motion,
-  MotionValue,
-  useMotionValue,
-  useTransform,
-} from "framer-motion";
-
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { TechBadge } from "@/components/tech";
 import { TECH_ROWS, type TechName } from "@/lib/types";
 
