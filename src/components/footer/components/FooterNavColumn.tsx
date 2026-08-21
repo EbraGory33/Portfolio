@@ -1,25 +1,25 @@
+import { primaryPages } from "@/lib/data";
 import { FooterLink } from ".";
 
 const links = {
-  General: [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Blog", href: "/blog" },
-  ],
-  Specifics: [
-    { name: "Guest Book", href: "/" },
-    { name: "Bucket List", href: "/" },
-    { name: "Uses", href: "/" },
-    { name: "Attribution", href: "/" },
-  ],
-  More: [
-    { name: "Book a call", href: "/" },
-    { name: "Links", href: "/" },
-    { name: "RSS", href: "/" },
-    { name: "Privacy", href: "/" },
-    { name: "Terms", href: "/" },
-  ],
+  General: primaryPages.map((page) => ({
+    name: page.label,
+    href: page.link,
+  })),
+
+  // Specifics: [
+  //   { name: "Guest Book", href: "/" },
+  //   { name: "Bucket List", href: "/" },
+  //   { name: "Uses", href: "/" },
+  //   { name: "Attribution", href: "/" },
+  // ],
+  // More: [
+  //   { name: "Book a call", href: "/" },
+  //   { name: "Links", href: "/" },
+  //   { name: "RSS", href: "/" },
+  //   { name: "Privacy", href: "/" },
+  //   { name: "Terms", href: "/" },
+  // ],
 };
 
 interface NavColumnProps {
