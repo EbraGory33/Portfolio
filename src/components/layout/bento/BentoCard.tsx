@@ -33,7 +33,7 @@ export function BentoCard({
       {children}
       {link && (
         <Link
-          className="absolute right-4 bottom-4 z-20 hidden size-9 -translate-y-2 cursor-pointer items-center justify-center rounded-2xl border border-dashed bg-black/10 transition-all duration-300 ease-out group-hover:flex dark:bg-white/10"
+          className="absolute right-4 bottom-4 z-20 flex size-9 -translate-y-2 cursor-pointer items-center justify-center rounded-2xl border border-dashed bg-black/10 transition-all duration-300 ease-out md:hidden md:group-hover:flex dark:bg-white/10"
           href={link}
         >
           <ArrowRight className="size-4.5 text-neutral-700 dark:text-neutral-200" />
