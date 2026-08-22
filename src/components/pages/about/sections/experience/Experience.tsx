@@ -11,6 +11,7 @@ export function Experience() {
       header={"MY EXPERIENCE"}
       headline={"Career Highlights"}
       alignment="center"
+      padding="big"
     >
       <ExperienceList experiences={experiences} />
     </SectionBuilder>

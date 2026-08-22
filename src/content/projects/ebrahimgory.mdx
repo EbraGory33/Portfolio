@@ -1,12 +1,12 @@
 ---
 title: "EbrahimGory.in"
-description: "A full-stack developer portfolio with a multi-format content pipeline, answer engine optimization, real auth, a real database, and analytics that survive ad blockers. One MDX file publishes to four channels — the site you're reading right now."
-summary: "A portfolio that ships content to humans, crawlers, and LLMs from one source"
+description: "A responsive developer portfolio built with Next.js, React, TypeScript, and Tailwind CSS. It combines a reusable bento-grid interface, file-based MDX project publishing, live GitHub statistics, an interactive WebGL globe, animated career storytelling, and an accessible command-style navigation drawer."
+summary: "A component-driven portfolio that turns project MDX files into responsive case studies"
 published: "Q3 2026"
 updated: "Q3 2026"
 
-type: "Web App"
-role: "Full Stack Developer"
+type: "Web Application"
+role: "Frontend Developer"
 
 tech:
   - NEXT.JS
@@ -14,239 +14,541 @@ tech:
   - TYPESCRIPT
   - TAILWIND CSS
   - NODE.JS
-  - DRIZZLE ORM
   - MOTION.DEV
   - SHADCN UI
-  - WEB AUDIO API
-  - SERWIST
-  - ZOD
-  - RECHARTS
-  - EXPRESS
-  - MONGODB
   - JAVASCRIPT
   - HTML
   - CSS
 
 Highlights:
-    - "Multi-format content pipeline: MDX source renders as HTML, plain Markdown, RSS, and LLM-optimized text indices."
-    - Answer engine optimization with /llms.txt, /llms-full.txt, and per-page .md rewrites for AI crawlers.
-    - PostHog analytics with reverse-proxy ingestion, deferred loading, and custom event tracking.
-    - File-based CMS with gray-matter parsing, Zod schema validation, and React cache() deduplication.
-    - Full auth flow via better-auth with GitHub/Google OAuth, Prisma adapter, and session-aware guestbook.
+  - "File-based project publishing with MDX, gray-matter frontmatter, reusable content components, and dynamic project routes."
+  - "Responsive bento-grid homepage composed from reusable cards, sections, project previews, and layout primitives."
+  - "Live GitHub profile, repository, follower, fork, star, and contribution data from the GitHub REST and GraphQL APIs."
+  - "Interactive WebGL globe with pointer dragging, inertial movement, theme-aware colors, and a New York location marker."
+  - "Animated career timeline driven by scroll progress, springs, and transforms from Motion."
+  - "Accessible command-style navigation drawer with page links, social profiles, contact actions, and light/dark theme controls."
 
-github: "https://github.com/EbraGory33/travel-guide"
+github: "https://github.com/ebragory33"
 live: "/"
 
 featured: true
 
 cover: "/images/project/Portfolio.webp"
-
 thumbnail: "/images/project/Portfolio.webp"
-# images:
-#   - "/projects/travel-guide/screen1.webp"
-#   - "/projects/travel-guide/screen2.webp"
 ---
 
 ## Why I Built This
 
-Most `Q` developer portfolios  are brochures. They solve a presentation problem — make me look hireable — and stop there. I wanted to solve a distribution problem instead.
+Most developer portfolios are assembled as a collection of disconnected sections: an introduction, a list of technologies, a few project links, and a contact button.
 
-I write one MDX file. The site turns it into a rendered page, a plain Markdown endpoint for LLMs, an RSS feed entry, and a searchable text index. **One source, four formats.** Press publish, and humans reading Chrome, AI models ingesting plain text, crawlers indexing structured data, and feed readers polling RSS all get fresh content — from the same pipeline, in the same deploy.
+I wanted this portfolio to feel like a product instead.
 
-Everything else exists to support that pipeline. OAuth so the guestbook works. PostgreSQL so entries persist. Resend so the contact form sends real emails. PostHog so I know what people actually read. None of it is decorative — every dependency earns its place.
+The goal was to create a cohesive interface where every part of my work could be explored through the same visual system. Projects needed to be more than thumbnails. My experience needed to be more than a résumé copied into a webpage. My GitHub activity needed to be current rather than manually maintained. Navigation needed to remain useful without taking attention away from the content.
 
-> Warning
+That led to a portfolio built around reusable layouts, structured content, interactive visualizations, and small details that make the site feel responsive to the person using it.
 
+The result is a portfolio that serves two purposes:
 
-```ts packages/shared-types/src/course.ts
-export const createCourseInput = z.object({
-  courseName: z.string().min(3),
-  courseDescription: z.string().min(10),
-  price: z.number().min(0),
-  tag: z.array(z.string()),
-  category: z.string(),
-  instructions: z.array(z.string()),
-});
-
-export type CreateCourseInput = z.infer<typeof createCourseInput>;
-```
+- It introduces who I am and how I work.
+- It demonstrates the frontend architecture and interaction design I use to build products.
 
 ---
 
-![Portfolio homepage — hero section with 3D globe, shader background, and navigation](/images/project/Portfolio.webp)
+![Ebrahim Gory portfolio homepage](/images/project/Portfolio.webp)
 
 ---
 
 ## Architecture Overview
 
-Three layers, deliberate boundaries.
+The project is organized into four primary layers.
 
-**Content layer** — MDX files on disk, validated by Zod at build time, wrapped in React `cache()` for request-level deduplication. Every content route is statically generated — `revalidate = false`, `dynamicParams = false`. No runtime data fetching. The filesystem is the database.
+**Route layer** — Next.js App Router pages define the public routes for the homepage, about page, project catalog, individual project case studies, skills page, and GitHub API endpoint.
 
-**Application layer** — Next.js App Router with React 19 and the React Compiler. Server actions handle every mutation and return typed result objects instead of throwing — callers own their side effects. No middleware file; routing logic (social redirects, `.md` rewrites, PostHog proxy) lives entirely in `next.config.ts`. Environment variables validated at build time via `@t3-oss/env-nextjs` — empty strings coerce to undefined, missing secrets fail the build before anything ships.
+**Content layer** — Project case studies live as MDX files in the repository. Each file combines YAML frontmatter with long-form Markdown content. The frontmatter supplies titles, descriptions, dates, technology tags, links, highlights, and imagery.
 
-**Infrastructure layer** — PostgreSQL via Prisma, better-auth for OAuth, Resend for transactional email, PostHog via first-party reverse proxy. All `/ingest/*` traffic routes through the app domain — no third-party requests, no ad blocker issues. Discord webhooks fire on form submissions and guestbook entries. Every external service fails silently: a Resend outage doesn't break guestbook submission, a Discord timeout doesn't block the contact form.
+**Component layer** — Reusable components handle layout, navigation, cards, project previews, MDX content, GitHub statistics, the footer, and page-specific sections. Pages are assembled from these primitives instead of duplicating markup.
 
-Client state is scoped to three Zustand stores (sign-in modal, contact drawer, guestbook with optimistic deletes) and a Cmd+K command palette that indexes every page at module load for instant fuzzy search.
+**Data layer** — Local MDX files provide project content, local TypeScript data supplies navigation and experience information, and GitHub data is fetched from the REST and GraphQL APIs.
 
 ```filetree
-app/
-  page.tsx — Homepage (hero, globe, projects, skills)
-  blog/
-    page.tsx — Blog listing with tag filtering
-    [slug]/page.tsx — MDX blog post
-    rss.xml/route.ts — RSS 2.0 feed
-  projects/
-    page.tsx — Projects listing
-    [slug]/page.tsx — MDX case study
-  guestbook/ — Auth-gated entries
-  api/
-    auth/[...all] — better-auth catch-all
-    md/ — Plain Markdown for LLM consumption
-    og/ — Dynamic OG image generation
-  llms.txt/ + llms-full.txt/ — LLM content indices
-content/
-  blog/*.mdx — Blog posts
-  projects/*.mdx — Project case studies
-  experience/*.mdx — Work history
-lib/
+src/
+  app/
+    page.tsx — Homepage route
+    about/
+      page.tsx — About and experience route
+    projects/
+      page.tsx — Project catalog
+      [slug]/
+        page.tsx — Dynamic MDX project route
+    skills/
+      page.tsx — Skills route
+    api/
+      github/
+        route.ts — GitHub data endpoint
   content/
-    mdx.ts — File loaders with gray-matter
-    schema.ts — Zod frontmatter schemas
-    collections.ts — Cached getters
-    toc.ts — Heading extraction
-  seo/
-    json-ld.ts — Structured data generators
-    metadata.ts — Metadata factory
-    site-metadata.ts — Site config
-  auth.ts — better-auth server config
-  prisma.ts — Singleton client with pg adapter
-  posthog.ts — Deferred loader
-  rate-limit.ts — In-memory sliding window
-actions/
-  contact-form-actions.ts — Resend batch emails
-  guestbook-actions.ts — CRUD + Discord webhooks
-  spotify.ts — Now-playing with 3-tier fallback
+    projects/
+      ebrahimgory.mdx — Portfolio case study
+      travel-guide.mdx — Travel Guide case study
+  components/
+    cards/ — Bento cards and interactive overlays
+    layout/ — Page, content, section, and grid primitives
+    mdx/ — Code blocks, file trees, and content wrappers
+    menu/ — Command-style navigation drawer
+    pages/ — Homepage, about, project, and shared sections
+    project/ — Project previews, metadata, and MDX presentation
+    sections/
+      github/ — GitHub profile, graph, statistics, and overlays
+  lib/
+    data/ — Navigation, experience, background, and GitHub data
+    hooks/ — Menu, theme, and project hooks
+    mdx/ — Project loading, parsing, compilation, and plugins
+    providers/ — Shared React context providers
+    types/ — Project, experience, file-tree, and technology types
 ```
 
----
-
-## Content Pipeline
-
-Every piece of content starts as an MDX file. gray-matter extracts frontmatter, Zod validates it against typed schemas, reading-time calculates duration, and `next-mdx-remote/rsc` renders the result with rehype-slug for heading anchors and Shiki for syntax highlighting. Custom MDX components — Callout, Section, Media, FileTree, Steps, CodeBlock, Accordion — extend what Markdown can express without leaving the authoring format.
-
-**Single source, four formats:**
-
-1. **HTML** — the rendered page with custom components and syntax highlighting.
-2. **Plain Markdown** — JSX stripped via regex, served at `/{page}.md` URLs through Next.js rewrites. LLMs get clean Markdown without parsing HTML.
-3. **RSS 2.0** — full-content feed at `/blog/rss.xml` with author metadata and category tags from frontmatter.
-4. **LLM text indices** — `/llms.txt` returns a structured index with links; `/llms-full.txt` inlines every post and project body into one response.
-
-The table of contents extracts h2/h3 headings, skips code blocks, and generates slugs via github-slugger. It renders as a sidebar that tracks the active heading through IntersectionObserver — scroll down, and the sidebar follows.
+This separation keeps route files small while allowing the component and content systems to evolve independently.
 
 ---
 
-## Answer Engine Optimization
+## File-Based Project Publishing
 
-Search is shifting from links to AI-generated answers. If your content can't be parsed by an LLM, it doesn't exist in that world. So every page on this site speaks two languages: rich HTML for humans, clean plaintext for machines.
+Each project starts as an MDX file.
 
-### Structured data
+The file begins with frontmatter describing the project:
 
-Every page emits JSON-LD via type-safe generators built on `schema-dts` — Person and WebSite on the root layout, Article on blog posts, CreativeWork on projects, BreadcrumbList on nested routes. The metadata factory sanitizes titles to 60 chars and descriptions to 155 chars at word boundaries. Google bot directives enable `max-snippet: -1`, `max-image-preview: large`, and `max-video-preview: -1` for rich snippet eligibility.
+```yaml
+---
+title: "Project Name"
+description: "Long-form project description."
+summary: "Short description for project previews"
+published: "Q3 2026"
+updated: "Q3 2026"
 
-### Machine-readable endpoints
+type: "Web Application"
+role: "Frontend Developer"
 
-Every content page has a `.md` counterpart:
+tech:
+  - NEXT.JS
+  - REACT
+  - TYPESCRIPT
 
-| Human URL | Machine URL |
-|---|---|
-| `/blog/some-post` | `/blog/some-post.md` |
-| `/projects/some-project` | `/projects/some-project.md` |
-| `/about` | `/about.md` |
+github: "https://github.com/example/project"
+live: "https://example.com"
 
-These are Next.js rewrites to `/api/md/*` route handlers that strip JSX via regex — imports, self-closing components, block-level tags — and return `text/plain` with frontmatter metadata intact. No HTML parsing required. `/llms.txt` and `/llms-full.txt` provide bulk access, cached at 1hr client-side and 6hr at the edge.
+featured: true
 
-### RSS
+cover: "/images/project/cover.webp"
+thumbnail: "/images/project/thumbnail.webp"
+---
+```
 
-The feed at `/blog/rss.xml` generates standards-compliant RSS 2.0 with full content bodies — not excerpts — plus author metadata, category tags, and post images. Feed readers and AI aggregators that poll RSS get fresh content automatically.
+Below the frontmatter, standard Markdown becomes the body of the case study.
 
-### Traditional SEO
+At runtime, the loader reads the project directory, filters for MDX files, derives each slug from its filename, and parses the frontmatter with `gray-matter`. The project catalog uses this metadata to generate preview cards.
 
-- **Dynamic sitemap** — per-type priorities (blog 0.7, projects 0.6, static 1.0), `published` flag filtering, canonical URLs on every page.
-- **OG images** — dynamically generated at `/api/og` with type-specific layouts. Twitter cards get separate truncation limits because Twitter's preview parser is stricter than OpenGraph.
-- **Security headers** — `X-Frame-Options`, `X-Content-Type-Options`, strict referrer policy, permissions policy disabling camera, mic, and geolocation.
-- **Web manifest** — dynamic PWA metadata with theme colors and icons. Rewrite maps `/manifest.json` to `/manifest.webmanifest` for broad client compatibility.
-- **robots.txt** — dynamic generation, points to the sitemap, allows all crawlers.
+When someone opens an individual project, the dynamic route loads the corresponding MDX file and compiles its body with `next-mdx-remote`.
+
+This provides a simple publishing workflow:
+
+1. Create an MDX file.
+2. Add its frontmatter.
+3. Write the case study.
+4. Add the required images.
+5. The project becomes available to the catalog and dynamic route.
+
+There is no external CMS or separate content API. The content is versioned alongside the components that render it.
 
 ---
 
-## Performance Engineering
+## Custom MDX Rendering
 
-The most expensive things on this site are GPU-bound: a WebGL globe, a shader background, canvas sparkles, and a carousel with autoplay. None of them run off-screen. Every one is gated by IntersectionObserver — mount once, observe always, animate only when visible.
+The project does not render MDX as unstyled HTML.
 
-- **3D globe** (`cobe`) — `useInView` with 200px margin. The `requestAnimationFrame` loop stops entirely when scrolled out. Spring-based pointer drag only calculates while visible.
-- **Shader background** — speed drops to 0 when out of viewport. The GPU fragment shader stays compiled but does zero work.
-- **Canvas sparkles** — raw `IntersectionObserver` (no library) pauses the RAF loop. Canvas stays mounted, draw cycle stops.
-- **Embla carousel** — `useInView` with 100px margin controls autoplay. No transitions fire off-screen.
+A custom component map replaces standard Markdown elements with components created specifically for the project detail layout:
 
-No rogue animation loops burning CPU in the background.
+- `h2` becomes a numbered project heading.
+- Inline `code` uses a dedicated inline-code component.
+- Fenced code blocks render through a reusable content-block system.
+- Images use a project-specific image component.
+- Horizontal rules become styled project dividers.
+- Content is grouped into custom project sections.
 
-### Adaptive rendering
+The compiler also runs a small remark pipeline:
 
-`usePerformanceMode()` reads three signals — core count (`<= 4`), viewport width (`< 768px`), and `prefers-reduced-motion` — and degrades GPU-heavy components accordingly. The shader disables, the globe simplifies. Debounced resize at 150ms keeps it responsive without thrashing.
+- `remark-gfm` adds GitHub-flavored Markdown behavior.
+- A custom section plugin organizes the document into renderable project sections.
+- A custom code-metadata plugin reads information attached to fenced code blocks.
 
-### Load deferral
+For example, a code fence can include a file path:
 
-Nothing loads until it has to.
+```ts src/lib/mdx/loader.ts
+export async function getProject(slug: string) {
+  const filePath = path.join(
+    process.cwd(),
+    PROJECT_DIRECTORY,
+    `${slug}${PROJECT_EXTENSION}`,
+  );
 
-- **PostHog** — singleton with lazy `import()`. First user interaction triggers the download.
-- **Vercel Analytics / SpeedInsights** — `next/dynamic` with SSR disabled.
-- **Motion** — ships only `domAnimation` via `LazyMotion` (~15KB vs ~34KB).
-- **React Compiler** — handles memoization at build time. Zero manual `useMemo` or `useCallback` in the entire codebase.
+  const source = await fs.readFile(filePath, "utf8");
+  const { data, content } = parseMDX(source);
+  const { content: compiled } = await compileProject(content);
 
-### Build-time optimizations
+  return {
+    slug,
+    frontmatter: parseFrontmatter(data),
+    content: compiled,
+  };
+}
+```
 
-- **`inlineCss`** — eliminates render-blocking stylesheets in production.
-- **`removeConsole`** — strips everything except `error`.
-- **`optimizePackageImports`** — tree-shakes lucide-react, date-fns, motion, cobe, embla-carousel-react, and @paper-design/shaders-react.
-- **Images** — served as AVIF/WebP with 1-year cache TTL.
+That metadata can then be presented as part of the code-block interface rather than being displayed as ordinary code.
+
+This system lets case studies stay readable as Markdown while still matching the rest of the application.
 
 ---
 
-## Backend Systems
+## Responsive Bento Interface
 
-Authentication runs through better-auth with GitHub and Google OAuth, backed by a Prisma adapter on PostgreSQL. A single catch-all route at `/api/auth/[...all]` handles every flow. On the client, `signIn`, `signOut`, and `useSession` export with full type inference. PostHog fires `auth_signed_in` with the provider on completion, and `identify()` ties analytics sessions to authenticated users.
+The homepage is organized around a responsive bento grid.
 
-The guestbook is the most complete end-to-end feature. A visitor signs in through the OAuth modal, writes a message (Zod-validated, 5-100 chars), hits a rate limit check (3 per 5 minutes via an in-memory sliding window), and the server action creates the Prisma record, sends a confirmation email through Resend, fires a Discord webhook, and revalidates the page — all in one server action. Deletion is author-only with a 5-second undo toast. Soft deletes via a `published` boolean keep the data intact, and `onDelete: SetNull` preserves entries even if the user account is removed.
+Instead of treating each section as a full-width block, the interface combines focused cards that introduce different parts of the portfolio:
 
-The contact form follows the same pattern: Zod validation, rate limiting (3 per 15 minutes per IP), then `resend.batch.send()` fires two emails in a single API call — owner notification with IP and geolocation from Vercel headers, and a sender thank-you. Discord gets a webhook with a blue embed. Every external call is wrapped so failures never surface to the user.
+- My background and journey
+- Technology stack
+- Project outcomes
+- Location and remote availability
+- Development tools
+
+Each card follows the same composition:
+
+1. A reusable grid item controls its responsive position.
+2. A shared card shell handles surface styling and overflow.
+3. A visual overlay owns the interactive or decorative content.
+4. A shared footer presents the title and supporting description.
+
+The grid changes structure across breakpoints. Cards that occupy a single column on smaller screens can span multiple columns and rows on larger displays.
+
+This allows the homepage to remain compact without turning into a rigid dashboard. Every card can have its own visual identity while still belonging to the same system.
+
+---
+
+## Interactive WebGL Globe
+
+The location card uses `cobe` to render an interactive globe on a canvas.
+
+The globe marks New York and adapts its palette to the active theme. Light and dark modes use different base, glow, map, and marker colors so the visualization feels native to both appearances.
+
+Interaction is handled with pointer events:
+
+- Pressing the canvas begins a drag.
+- Horizontal movement rotates the globe.
+- Vertical movement adjusts its angle.
+- Releasing the pointer preserves momentum.
+- Velocity gradually decays to create inertia.
+- When movement settles, automatic rotation resumes.
+- Vertical rotation is clamped to prevent disorienting angles.
+
+The renderer also limits its device pixel ratio to avoid unnecessarily expensive canvas dimensions on very high-density displays.
+
+```ts
+const globe = createGlobe(canvas, {
+  devicePixelRatio: Math.min(window.devicePixelRatio, 2),
+  width: width * 2,
+  height: width * 2,
+  phi: 0,
+  theta: DEFAULT_THETA,
+  dark: isDark ? 1 : 0,
+  mapSamples: 40000,
+  markers: cities.map((city) => ({
+    id: city.id,
+    location: city.location,
+    size: 0.025,
+  })),
+});
+```
+
+The component listens for window resizing and updates the renderer dimensions whenever the card changes size. On unmount, it cancels the animation frame, removes the listener, and destroys the globe instance.
+
+The result is a small interactive detail that communicates location without relying on a static map screenshot.
+
+---
+
+## Live GitHub Data
+
+The about page includes an open-source section built from live GitHub data.
+
+Three requests run concurrently:
+
+1. The GitHub REST API retrieves profile information.
+2. The repositories endpoint retrieves public repositories.
+3. The GitHub GraphQL API retrieves contribution-calendar data.
+
+The repository response is reduced into aggregate star and fork counts. The profile response supplies follower information. The GraphQL response supplies total contributions and the contribution calendar used by the visual graph.
+
+```ts
+const [profileResponse, reposResponse, contributionsResponse] =
+  await Promise.all([
+    fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, options),
+    fetch(
+      `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
+      options,
+    ),
+    fetch("https://api.github.com/graphql", graphQLOptions),
+  ]);
+```
+
+Every request checks its response before attempting to render the data. When an API request fails, the thrown error includes the username, HTTP status, status text, and response body to make debugging easier.
+
+The completed section presents:
+
+- GitHub profile information
+- Contribution totals
+- Contribution calendar
+- Follower count
+- Combined repository fork count
+- Combined repository star count
+
+The requests use Next.js revalidation, allowing the portfolio to show recent activity without making a new GitHub request on every render.
+
+---
+
+## Scroll-Driven Experience Timeline
+
+The experience section uses a vertical timeline to connect career entries visually.
+
+A profile image moves down the timeline as the reader progresses through the section. The interaction is based on the section's actual scroll position rather than a fixed-duration animation.
+
+Motion's `useScroll` tracks progress from the start of the experience container to its end. `useSpring` smooths the raw value, and `useTransform` converts the normalized progress into a vertical position.
+
+```ts
+const { scrollYProgress } = useScroll({
+  target: containerRef,
+  offset: ["start center", "end center"],
+});
+
+const progress = useSpring(scrollYProgress, {
+  stiffness: 70,
+  damping: 22,
+  mass: 0.9,
+});
+
+const imagePosition = useTransform(progress, [0, 1], ["0%", "100%"]);
+```
+
+The same spring value scales the colored progress line from its top edge.
+
+Because the animation is tied directly to the content container, it continues to work when experience entries change height or when the layout shifts between mobile and desktop breakpoints.
+
+This turns a conventional career list into a visual narrative without hiding the underlying information.
+
+---
+
+## Command-Style Navigation
+
+The site navigation is implemented as a bottom drawer with a command-style interface.
+
+The menu groups navigation into two areas:
+
+- Internal pages such as Home, About, Work, and Skills
+- External profiles such as GitHub, LinkedIn, Instagram, and X
+
+The current route is derived from the pathname and reflected visually in the corresponding menu item. Active links receive a distinct surface, icon treatment, ring, and animated status indicator.
+
+The drawer also includes:
+
+- A direct email action
+- A light/dark theme toggle
+- A close control
+- Screen-reader-only title and description content
+- External-link indicators
+- Focus-visible styles for keyboard navigation
+
+Menu state is kept in a small React context provider. This allows header controls and other descendants to open or close the drawer without coupling them directly to the menu implementation.
+
+Search is visually represented in the command interface, but it is intentionally marked as under construction rather than presented as a completed feature.
+
+---
+
+## Theme System
+
+The application supports light mode, dark mode, and the visitor's system preference through `next-themes`.
+
+The theme provider is mounted in the root layout with `defaultTheme="system"` and `enableSystem`. Components can then read the resolved appearance when they need more than CSS-based dark-mode styling.
+
+Most surfaces use Tailwind's dark variants, while interactive canvas content receives explicit theme-dependent values.
+
+This is particularly important for the globe. A CSS class cannot recolor pixels already rendered into a WebGL canvas, so the globe component reads the resolved theme and rebuilds its renderer with the appropriate color configuration.
+
+The interface therefore maintains the same hierarchy and contrast across both themes instead of treating dark mode as an inverted afterthought.
+
+---
+
+## Project Discovery
+
+Project content is reused in multiple contexts.
+
+The homepage loads all project frontmatter and passes the resulting collection to the featured-project section. The work page uses the same loader to build the complete project catalog. Individual project pages use the filename-derived slug to locate and compile the full case study.
+
+This keeps project metadata consistent:
+
+- Titles come from the MDX frontmatter.
+- Preview descriptions come from the same source.
+- Cover and thumbnail paths remain attached to the project.
+- Technology labels are shared between previews and detail pages.
+- Source and live links appear in the project metadata section.
+- Featured projects can be identified without maintaining another list.
+
+Technology names are restricted to a shared TypeScript registry. The same registry associates each supported technology with an icon, ensuring that project files and visual badges use a common vocabulary.
+
+---
+
+## Component Architecture
+
+The interface is built from small, purpose-specific components.
+
+Layout primitives define the structural vocabulary:
+
+- `PageBuilder` controls page-level width and grid behavior.
+- `Content` constrains the main content region.
+- `SectionBuilder` standardizes section headers and spacing.
+- `BentoGrid` and `BentoGridItem` define responsive card placement.
+- `BackgroundImage` handles decorative page imagery.
+
+Feature components then compose those primitives:
+
+- Homepage sections assemble the hero, information cards, projects, and about content.
+- Project components handle previews, links, metadata, technology tags, and MDX content.
+- GitHub components separate profile information, contribution visualization, statistics, and overlays.
+- Menu components handle navigation, social links, contact actions, and theme controls.
+
+This approach prevents page routes from becoming large presentation files. The routes decide what data to load and which page component to render; the component system owns the interface.
+
+---
+
+## Responsive Design
+
+Responsiveness is treated as part of the architecture rather than a final styling pass.
+
+The bento grid changes its spans and row behavior across mobile, tablet, and desktop layouts. Project cards expose separate mobile and desktop presentations. The experience timeline changes its horizontal position depending on available space. Typography, spacing, and content padding scale across breakpoints.
+
+The project pages also account for long content:
+
+- The central project column uses `min-width: 0` to prevent overflow.
+- Article content uses a full-width prose layout.
+- Metadata shifts from one column to two columns on large screens.
+- Technology badges occupy a dedicated panel on desktop.
+- Decorative backgrounds remain separate from the readable content layer.
+
+The aim is not simply to make the desktop design narrower. Each layout adapts its structure to the space available.
 
 ---
 
 ## Key Decisions
 
-### MDX over a headless CMS
+### MDX over hard-coded project pages
 
-No API latency, no vendor lock-in, no content/code drift. MDX gives React component embedding, git gives versioning, Zod gives schema validation. The tradeoff — non-technical editors can't contribute — is irrelevant for a personal site.
+Every project needs both structured metadata and long-form storytelling.
 
-### better-auth over NextAuth
+A TypeScript object works well for a project card but becomes uncomfortable for an entire case study. A standalone page component provides flexibility but duplicates route and layout code for every project.
 
-Prisma adapter that works with my schema out of the box, a clean plugin system, and full TypeScript inference from server to client. `nextCookies()` handles App Router edge cases transparently.
+MDX sits between those approaches. Frontmatter gives the project catalog predictable metadata, while Markdown provides a practical writing format for the full case study. Custom components preserve the visual system where plain HTML would be too limited.
 
-### Typed results over thrown errors
+### Local content over an external CMS
 
-Server actions return result objects with a success/failure shape instead of throwing. Callers pattern-match and own their response — toasts, form resets, redirects. The type system enforces exhaustive handling. No try/catch chains, no error boundary gymnastics.
+This is a personal portfolio, so editorial collaboration is not a core requirement.
+
+Keeping project content inside the repository provides:
+
+- Git-based revision history
+- No external content API
+- No CMS authentication surface
+- No synchronization between code and content
+- The ability to update a component and its documentation together
+
+The tradeoff is that publishing requires a code deployment. For a developer-owned portfolio, that is a reasonable constraint.
+
+### REST and GraphQL together
+
+GitHub's REST API is well suited to profile and repository information. Contribution calendars are better represented through GitHub's GraphQL schema.
+
+Using both APIs avoids forcing every data requirement through a single interface. The application can request each dataset from the endpoint that represents it most naturally, then normalize the results into one view model for the UI.
+
+### Context for shared menu state
+
+The menu can be opened from outside the drawer component, so keeping its state inside the menu would make external controls difficult to coordinate.
+
+A focused provider exposes only the operations the interface needs: whether the menu is expanded, how to toggle it, and how to close it. This is enough shared state for the feature without introducing a broader state-management dependency.
+
+### Reusable primitives over page-specific markup
+
+The same section spacing, page widths, card structures, metadata rows, and project treatments appear throughout the application.
+
+Extracting these patterns into components keeps the layout consistent and makes later changes less error-prone. It also makes page files easier to understand because their structure reads as composition rather than implementation detail.
+
+---
+
+## Challenges
+
+### Making MDX feel native to the interface
+
+Rendering Markdown was straightforward. Making it look like a deliberate part of the portfolio required more work.
+
+Headings needed numbering, code blocks needed metadata, images needed consistent framing, and document sections needed predictable spacing. The custom MDX component map and remark plugins became the bridge between an author-friendly file and a design-specific result.
+
+### Coordinating canvas state with React state
+
+The globe is managed by an imperative rendering library, while theme changes and component lifecycle are managed by React.
+
+The component needed to create the renderer only after the client mounted, rebuild it when the resolved theme changed, update its dimensions when the window resized, and destroy it cleanly when the component unmounted.
+
+It also needed to keep drag state, momentum, and rotation outside normal React rendering so pointer movement would not trigger a component render on every frame.
+
+### Presenting remote data reliably
+
+The GitHub section combines multiple API responses with different data shapes.
+
+Running the requests concurrently improves latency, but each response still needs independent validation. The resulting REST and GraphQL payloads then have to be reduced into a stable structure that presentation components can consume without understanding the original APIs.
+
+### Maintaining visual consistency across themes
+
+Dark mode affects more than background and text colors. Transparent surfaces, borders, shadows, icons, images, and WebGL rendering all need coordinated values.
+
+Using CSS variants for standard components and explicit configuration for the canvas renderer allowed both themes to share the same design hierarchy without forcing every feature into one styling mechanism.
 
 ---
 
 ## What I Learned
 
-**Content infrastructure outlasts content.** The MDX pipeline, AEO endpoints, and metadata factory pay dividends every time I publish. Write the file, and four formats update. That investment has already saved more time than it took to build.
+**Content architecture changes how quickly a portfolio can grow.** Once the MDX loader, dynamic route, and custom components were in place, adding a project became a writing task rather than a page-development task.
 
-**First-party analytics infrastructure isn't optional.** The PostHog reverse proxy doubled data collection overnight. Third-party domains get blocked by ad blockers, which means biased samples and phantom drop-offs. Routing through the app domain fixed that completely.
+**Reusable components work best when they encode a real design decision.** Components such as the section builder, bento card, project metadata panel, and MDX heading are useful because they preserve consistent behavior, not merely because they reduce line count.
 
-**Performance is a design constraint, not polish.** IntersectionObserver gating, adaptive rendering, and deferred loading shaped the component architecture from day one. Treating performance as a hard requirement — not a "nice to have" — forced better abstractions across the board.
+**Imperative graphics require disciplined cleanup.** Animation frames, event listeners, pointer capture, renderer instances, and canvas dimensions all exist outside React's declarative model. Managing their lifecycle explicitly is essential.
 
-**Auth is the simplest hard problem.** The OAuth flow is trivial. Session management across server components and client hooks, cookie handling in App Router, making sign-in feel instant while three redirects happen behind the scenes — that's where the real complexity lives.
+**Live data should be transformed before it reaches the UI.** The GitHub components do not need to understand separate REST and GraphQL payloads. A dedicated data function performs the requests and converts the responses into the shape the interface needs.
+
+**Responsive design is easier when layout responsibilities are explicit.** Separating page containers, content regions, section builders, grid items, and feature components makes it clearer which layer should own each breakpoint decision.
+
+**A portfolio can demonstrate engineering through its structure.** The case studies show the finished work, but the component system, publishing pipeline, data integration, interaction design, and responsive behavior demonstrate how that work is built.
+
+---
+
+## Future Improvements
+
+The current architecture creates a strong foundation for several additions:
+
+- Runtime validation for MDX frontmatter
+- Generated metadata for individual project routes
+- Search across pages and project content
+- Improved loading and fallback states for GitHub data
+- More complete skills content
+- Additional project media and image galleries
+- Reduced-motion behavior for scroll and canvas interactions
+- Intersection Observer gating for off-screen canvas animation
+- Automated tests for MDX parsing and project loading
+- Accessibility audits for interactive cards and drawer navigation
+- Pagination or filtering as the project collection grows
+
+The important part is that these features can be added without replacing the existing content or layout model. The project already has clear boundaries between routes, content, components, and remote data.
 
 ---

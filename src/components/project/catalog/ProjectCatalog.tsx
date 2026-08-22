@@ -19,7 +19,7 @@ export function ProjectCatalog({ projects }: ProjectDataProps) {
         {projects.map((project, index) => (
           <div
             key={project.slug}
-            className={`${index % 2 === 0 && index !== 0 ? "mt-12" : index % 2 != 0 ? "mt-48" : ""} group no-js-fix relative flex flex-col`}
+            className={`${index === 0 ? "" : index % 2 === 0 ? "lg:mt-12" : "lg:mt-48"} group no-js-fix relative flex flex-col`}
             style={{ opacity: 1, transform: "none" }}
           >
             <div
@@ -38,6 +38,7 @@ export function ProjectCatalog({ projects }: ProjectDataProps) {
                 <div className="size-1 rounded-full bg-neutral-400 transition-colors duration-500 group-hover:bg-neutral-600 dark:bg-neutral-600 dark:group-hover:bg-neutral-300"></div>
               </div>
             </div>
+            {/* <div className="relative z-10 flex flex-col gap-6 lg:gap-8"> */}
             <div className="relative z-10 flex flex-col gap-6 lg:gap-8">
               <ProjectLink project={project} index={index} layout="mobile" />
             </div>

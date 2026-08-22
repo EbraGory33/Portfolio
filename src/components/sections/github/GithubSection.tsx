@@ -14,6 +14,7 @@ export async function GithubSection() {
       header={"OPEN SOURCE"}
       headline={"Code and Contributions"}
       alignment="center"
+      padding="big"
     >
       <div className="grid w-full grid-cols-1 gap-2 border-y md:grid-cols-12">
         <GithubProfile contributions={githubData.contributions} />

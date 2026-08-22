@@ -11,7 +11,7 @@ export function TechStack({ marginTop, technologies }: TechStackProps) {
   return (
     <div>
       {/* TODO: "mt-6"*/}
-      <div className={`flex flex-wrap gap-1.5 sm:gap-2 ${marginTop || ""}`}>
+      <div className={`flex flex-wrap gap-1.5 sm:gap-2 ${marginTop || "mt-6"}`}>
         {technologies.map((tech, index) => (
           <TechBadge key={index} tech={tech} />
         ))}

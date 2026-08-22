@@ -5,7 +5,7 @@ import { TechStack } from "@/components/tech";
 import { background } from "@/lib/data";
 import { Project } from "@/lib/types/project";
 
-import { ProjectCardHeader,ProjectFrame } from ".";
+import { ProjectCardHeader, ProjectFrame } from ".";
 
 interface ProjectLinkProps {
   project: Project;
@@ -30,7 +30,7 @@ export function ProjectLink({ project, index, layout }: ProjectLinkProps) {
         layout="mobile"
         slug={project.slug}
       />
-      <TechStack technologies={project.frontmatter.tech} />
+      <TechStack technologies={project.frontmatter.tech} marginTop="mt-0" />
     </>
   ) : layout == "desktop" ? (
     <Link

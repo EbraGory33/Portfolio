@@ -24,10 +24,10 @@ export function ContentBlock({ children }: ComponentPropsWithoutRef<"pre">) {
   const source = getSource(codeElement.props.children);
   const path = codeElement.props.path;
 
-  console.log("CodeElement: ", codeElement);
-  console.log("Language: ", language);
-  console.log("Source: ", source);
-  console.log("Path: ", path);
+  // console.log("CodeElement: ", codeElement);
+  // console.log("Language: ", language);
+  // console.log("Source: ", source);
+  // console.log("Path: ", path);
 
   if (source) {
     if (language === "filetree") return <FileTree>{source}</FileTree>;

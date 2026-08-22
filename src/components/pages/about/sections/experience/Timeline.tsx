@@ -30,7 +30,7 @@ export function Timeline({ containerRef }: TimelineProps) {
         <div className="absolute inset-y-0 left-1/2 w-1.5 -translate-x-1/2 rounded bg-neutral-200 shadow-[inset_0_2px_1.5px_rgba(165,174,184,0.62)] dark:bg-neutral-800">
           <motion.div
             style={{ height: "100%", scaleY: progress }}
-            className="h-full origin-top rounded-full bg-linear-to-t from-pink-500 via-blue-500 to-transparent"
+            className="h-full origin-top rounded-full bg-linear-to-t from-blue-500 via-purple-500 to-transparent"
           />
         </div>
         {/* Avatar */}
