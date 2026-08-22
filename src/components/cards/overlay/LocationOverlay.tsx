@@ -103,8 +103,6 @@ export function LocationOverlay() {
     let width = canvas.offsetWidth;
     let animationFrame = 0;
 
-    console.log("isDark: ", isDark);
-
     const globe = createGlobe(canvas, {
       devicePixelRatio: Math.min(window.devicePixelRatio, 2),
       width: width * 2,
@@ -209,7 +207,7 @@ export function LocationOverlay() {
       window.removeEventListener("resize", handleResize);
       globe.destroy();
     };
-  }, [isDark]);
+  }, [isDark, mounted]);
 
   function handlePointerDown(e: React.PointerEvent<HTMLCanvasElement>) {
     if (e.button !== 0) return;
