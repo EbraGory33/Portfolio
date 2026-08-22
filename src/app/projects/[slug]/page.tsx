@@ -18,28 +18,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return notFound();
   }
   return (
-    <>
-      {/* <BackgroundImage
-        image="/images/backgrounds/blueprint.avif"
-        alt="Blueprint"
-      /> */}
-
-      <PageBuilder>
-        <BackgroundImage
-          image="/images/backgrounds/blueprint.avif"
-          alt={`Project Cover - ${project.frontmatter.title}`}
+    <PageBuilder>
+      <BackgroundImage
+        image={project.frontmatter.cover}
+        alt={`Project Cover - ${project.frontmatter.title}`}
+      />
+      <div className="relative col-span-1 min-w-0">
+        <ProjectHeader
+          title={project.frontmatter.title}
+          description={project.frontmatter.description}
         />
-        <div className="relative col-span-1 min-w-0">
-          <ProjectHeader
-            title={project.frontmatter.title}
-            description={project.frontmatter.description}
-          />
-          <ProjectMeta {...project.frontmatter} />
-          <article className="prose dark:prose-invert max-w-none">
-            <div>{project.content}</div>
-          </article>
-        </div>
-      </PageBuilder>
-    </>
+        <ProjectMeta {...project.frontmatter} />
+        <article className="prose dark:prose-invert max-w-none">
+          <div>{project.content}</div>
+        </article>
+      </div>
+    </PageBuilder>
   );
 }

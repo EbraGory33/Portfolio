@@ -21,6 +21,7 @@ export async function FeaturedProjectsSection({
       header={"CASE STUDIES"}
       headline={"Featured Work"}
       alignment="center"
+      padding="med"
     >
       <FeaturedProjectList projects={projects} layout="mobile" />
 
