@@ -36,8 +36,7 @@ export function AboutMeOverlay() {
                 ></rect>
               </svg>
               <Image
-                // TODO:
-                src="/NothingYet"
+                src="/images/profile/profile.webp"
                 alt="Ebrahim Gory"
                 width={96}
                 height={96}

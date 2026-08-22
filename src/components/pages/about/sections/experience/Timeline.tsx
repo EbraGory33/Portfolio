@@ -44,7 +44,6 @@ export function Timeline({ containerRef }: TimelineProps) {
             <Image
               src="/images/profile/profile.webp"
               fill
-
               alt="Profile"
               className="object-cover"
             />
