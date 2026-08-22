@@ -1,5 +1,6 @@
 "use client";
 import { useTheme } from "next-themes";
+import { useState } from "react";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 
@@ -10,6 +11,56 @@ const cities = [
     location: [40.7128, -74.006] as [number, number],
   },
 ];
+function CityLabel({ id, name }: { id: string; name: string }) {
+  return (
+    <div
+      style={
+        {
+          position: "absolute",
+          marginBottom: "5px",
+          padding: "1px 4px",
+
+          background: "#fff",
+          color: "#1a1a2e",
+
+          fontFamily: "monospace",
+          fontSize: "0.5rem",
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          whiteSpace: "nowrap",
+
+          pointerEvents: "none",
+
+          opacity: `var(--cobe-visible-${id}, 0)`,
+          filter: `blur(calc((1 - var(--cobe-visible-${id}, 0)) * 8px))`,
+
+          transition: "opacity 0.8s, filter 0.8s",
+
+          positionAnchor: `--cobe-${id}`,
+
+          bottom: "anchor(top)",
+          left: "anchor(center)",
+          translate: "-51%",
+        } as React.CSSProperties
+      }
+    >
+      {name}
+
+      <span
+        style={{
+          position: "absolute",
+          top: "100%",
+          left: "50%",
+          transform: "translate3d(-50%, -1px, 0px)",
+
+          borderWidth: "4px",
+          borderStyle: "solid",
+          borderColor: "#fff transparent transparent",
+        }}
+      />
+    </div>
+  );
+}
 
 // const arcs = [
 //   {
@@ -18,15 +69,21 @@ const cities = [
 //     to: [37.7749, -122.4194] as [number, number],
 //   },
 // ];
-const DEFAULT_THETA = 0.18;
 
 export function LocationOverlay() {
   const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const DEFAULT_THETA = 0.18;
   const phiRef = useRef(0);
-  const thetaRef = useRef(0.18);
+  const thetaRef = useRef(DEFAULT_THETA);
 
   const dragStartRef = useRef<{
     x: number;
@@ -35,8 +92,12 @@ export function LocationOverlay() {
 
   const velocityPhiRef = useRef(0);
   const velocityThetaRef = useRef(0);
+
   useEffect(() => {
+    if (!mounted || !resolvedTheme) return;
+
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     let width = canvas.offsetWidth;
@@ -83,46 +144,44 @@ export function LocationOverlay() {
     });
 
     const animate = () => {
-      //   if (dragStartRef.current === null) {
-      //     phiRef.current += 0.0005;
-      //   }
       const isDragging = dragStartRef.current !== null;
       if (!isDragging) {
-        const hasMomentum =
-          Math.abs(velocityPhiRef.current) > 0.00001 ||
-          Math.abs(velocityThetaRef.current) > 0.00001;
-
-        if (hasMomentum) {
-          // Continue moving after pointer release
+        if (Math.abs(velocityPhiRef.current) > 0.00001) {
           phiRef.current += velocityPhiRef.current;
-          thetaRef.current += velocityThetaRef.current;
-
-          // Friction / momentum decay
           velocityPhiRef.current *= 0.99;
+        } else {
+          velocityPhiRef.current = 0;
+          phiRef.current += 0.0005;
+        }
+        if (Math.abs(velocityThetaRef.current) > 0.00001) {
+          thetaRef.current += velocityThetaRef.current;
           velocityThetaRef.current *= 0.99;
         } else {
-          // Momentum finished — return to normal auto rotation
-          velocityPhiRef.current = 0;
           velocityThetaRef.current = 0;
 
-          phiRef.current += 0.0005;
-          // -----------------------------
-          // Return vertically to default
-          // -----------------------------
-          const thetaDifference = Math.abs(DEFAULT_THETA - thetaRef.current);
+          const thetaDifference = DEFAULT_THETA - thetaRef.current;
+
+          thetaRef.current += thetaDifference * 0.004;
+
           if (Math.abs(thetaDifference) < 0.0001) {
             thetaRef.current = DEFAULT_THETA;
-          }
-
-          if (thetaDifference !== 0) {
-            thetaRef.current += thetaDifference * 0.99;
-            //    Snap when extremely close
           }
         }
       }
 
       // Prevent dragging too far
-      thetaRef.current = Math.max(-0.6, Math.min(0.6, thetaRef.current));
+      const MIN_THETA = -1.1;
+      const MAX_THETA = 1.1;
+
+      if (thetaRef.current < MIN_THETA) {
+        thetaRef.current = MIN_THETA;
+        velocityThetaRef.current = 0;
+      }
+
+      if (thetaRef.current > MAX_THETA) {
+        thetaRef.current = MAX_THETA;
+        velocityThetaRef.current = 0;
+      }
 
       globe.update({
         phi: phiRef.current,
@@ -150,7 +209,7 @@ export function LocationOverlay() {
       window.removeEventListener("resize", handleResize);
       globe.destroy();
     };
-  }, [resolvedTheme]);
+  }, [isDark]);
 
   function handlePointerDown(e: React.PointerEvent<HTMLCanvasElement>) {
     if (e.button !== 0) return;
@@ -215,7 +274,6 @@ export function LocationOverlay() {
 
   return (
     <div className="size-full">
-      {/* <div className="absolute left-1/2 w-sm -translate-x-1/2"> */}
       <div className="absolute -bottom-36 left-1/2 w-sm -translate-x-1/2">
         <div
           aria-hidden="true"
@@ -239,11 +297,6 @@ export function LocationOverlay() {
               transition: "opacity 1.2s",
               borderRadius: "100%",
               touchAction: "none",
-              //   background:
-              //     "radial-gradient(circle, transparent 64%, rgba(40, 120, 255, 0.08) 68%, rgba(20, 100, 255, 0.35) 73%, rgba(0, 90, 255, 0.55) 77%, rgba(30, 120, 255, 0.30) 81%, rgba(80, 160, 255, 0.12) 86%, transparent 92%)",
-
-              //   boxShadow:
-              //     "0 0 10px rgba(0, 100, 255, 0.55), 0 0 25px rgba(0, 110, 255, 0.35), 0 0 55px rgba(30, 130, 255, 0.20)",
               background: isDark
                 ? "radial-gradient(circle, transparent 64%, rgba(255, 255, 255, 0.08) 68%, rgba(255, 255, 255, 0.35) 73%, rgba(255, 255, 255, 0.55) 77%, rgba(255, 255, 255, 0.30) 81%, rgba(255, 255, 255, 0.12) 86%, transparent 92%)"
                 : "radial-gradient(circle, transparent 64%, rgba(40, 120, 255, 0.08) 68%, rgba(20, 100, 255, 0.35) 73%, rgba(0, 90, 255, 0.55) 77%, rgba(30, 120, 255, 0.30) 81%, rgba(80, 160, 255, 0.12) 86%, transparent 92%)",
@@ -259,57 +312,6 @@ export function LocationOverlay() {
           ))}
         </div>
       </div>
-    </div>
-  );
-}
-
-function CityLabel({ id, name }: { id: string; name: string }) {
-  return (
-    <div
-      style={
-        {
-          position: "absolute",
-          marginBottom: "5px",
-          padding: "1px 4px",
-
-          background: "#fff",
-          color: "#1a1a2e",
-
-          fontFamily: "monospace",
-          fontSize: "0.5rem",
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          whiteSpace: "nowrap",
-
-          pointerEvents: "none",
-
-          opacity: `var(--cobe-visible-${id}, 0)`,
-          filter: `blur(calc((1 - var(--cobe-visible-${id}, 0)) * 8px))`,
-
-          transition: "opacity 0.8s, filter 0.8s",
-
-          positionAnchor: `--cobe-${id}`,
-
-          bottom: "anchor(top)",
-          left: "anchor(center)",
-          translate: "-51%",
-        } as React.CSSProperties
-      }
-    >
-      {name}
-
-      <span
-        style={{
-          position: "absolute",
-          top: "100%",
-          left: "50%",
-          transform: "translate3d(-50%, -1px, 0px)",
-
-          borderWidth: "4px",
-          borderStyle: "solid",
-          borderColor: "#fff transparent transparent",
-        }}
-      />
     </div>
   );
 }
