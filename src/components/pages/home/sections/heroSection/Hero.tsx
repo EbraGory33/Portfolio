@@ -1,4 +1,3 @@
-"use client";
 import {
   HeadingBackground,
   HeroActions,
@@ -20,13 +19,6 @@ export function Hero() {
         <HeroIntro />
         {/* Todo: Make HeroActions button functional */}
         <HeroActions />
-        <button
-          onClick={() => {
-            throw new Error("Portfolio Sentry test");
-          }}
-        >
-          Test Sentry
-        </button>
       </div>
       <HeroBackground />
     </section>
