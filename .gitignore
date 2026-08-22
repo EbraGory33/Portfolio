@@ -68,3 +68,5 @@ Thumbs.db
 # local databases (if you add SQLite later)
 *.sqlite
 *.sqlite3
+# Sentry Config File
+.env.sentry-build-plugin
