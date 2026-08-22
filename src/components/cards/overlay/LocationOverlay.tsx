@@ -18,9 +18,11 @@ const cities = [
 //     to: [37.7749, -122.4194] as [number, number],
 //   },
 // ];
+const DEFAULT_THETA = 0.18;
 
 export function LocationOverlay() {
   const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const phiRef = useRef(0);
@@ -40,7 +42,6 @@ export function LocationOverlay() {
     let width = canvas.offsetWidth;
     let animationFrame = 0;
 
-    const isDark = resolvedTheme === "dark";
     console.log("isDark: ", isDark);
 
     const globe = createGlobe(canvas, {
@@ -49,7 +50,7 @@ export function LocationOverlay() {
       height: width * 2,
 
       phi: 0,
-      theta: 0.18,
+      theta: DEFAULT_THETA,
 
       dark: isDark ? 1 : 0,
       diffuse: 1.3,
@@ -97,23 +98,32 @@ export function LocationOverlay() {
           thetaRef.current += velocityThetaRef.current;
 
           // Friction / momentum decay
-          velocityPhiRef.current *= 0.94;
-          velocityThetaRef.current *= 0.94;
+          velocityPhiRef.current *= 0.99;
+          velocityThetaRef.current *= 0.99;
         } else {
           // Momentum finished — return to normal auto rotation
           velocityPhiRef.current = 0;
           velocityThetaRef.current = 0;
 
           phiRef.current += 0.0005;
+          // -----------------------------
+          // Return vertically to default
+          // -----------------------------
+          const thetaDifference = Math.abs(DEFAULT_THETA - thetaRef.current);
+          if (Math.abs(thetaDifference) < 0.0001) {
+            thetaRef.current = DEFAULT_THETA;
+          }
+
+          if (thetaDifference !== 0) {
+            thetaRef.current += thetaDifference * 0.99;
+            //    Snap when extremely close
+          }
         }
       }
-      // Prevent dragging too far over the poles
-      thetaRef.current = Math.max(-1.1, Math.min(1.1, thetaRef.current));
 
-      //   globe.update({
-      //     phi: phiRef.current + dragOffsetRef.current,
-      //     theta: 0.18,
-      //   });
+      // Prevent dragging too far
+      thetaRef.current = Math.max(-0.6, Math.min(0.6, thetaRef.current));
+
       globe.update({
         phi: phiRef.current,
         theta: thetaRef.current,
@@ -173,7 +183,7 @@ export function LocationOverlay() {
     const sensitivity = 250;
 
     const phiDelta = deltaX / sensitivity;
-    const thetaDelta = -deltaY / sensitivity;
+    const thetaDelta = deltaY / sensitivity;
 
     phiRef.current += phiDelta;
     thetaRef.current += thetaDelta;
@@ -204,13 +214,15 @@ export function LocationOverlay() {
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
-      <div className="absolute -bottom-36 left-1/2 w-97.5 -translate-x-1/2">
+    <div className="size-full">
+      {/* <div className="absolute left-1/2 w-sm -translate-x-1/2"> */}
+      <div className="absolute -bottom-36 left-1/2 w-sm -translate-x-1/2">
         <div
           aria-hidden="true"
           className="relative aspect-square select-none"
           style={{
-            contain: "layout style paint",
+            // contain: "layout style paint",
+            contain: "layout style",
           }}
         >
           <canvas
@@ -225,8 +237,20 @@ export function LocationOverlay() {
               cursor: "grab",
               opacity: 1,
               transition: "opacity 1.2s",
-              borderRadius: "50%",
+              borderRadius: "100%",
               touchAction: "none",
+              //   background:
+              //     "radial-gradient(circle, transparent 64%, rgba(40, 120, 255, 0.08) 68%, rgba(20, 100, 255, 0.35) 73%, rgba(0, 90, 255, 0.55) 77%, rgba(30, 120, 255, 0.30) 81%, rgba(80, 160, 255, 0.12) 86%, transparent 92%)",
+
+              //   boxShadow:
+              //     "0 0 10px rgba(0, 100, 255, 0.55), 0 0 25px rgba(0, 110, 255, 0.35), 0 0 55px rgba(30, 130, 255, 0.20)",
+              background: isDark
+                ? "radial-gradient(circle, transparent 64%, rgba(255, 255, 255, 0.08) 68%, rgba(255, 255, 255, 0.35) 73%, rgba(255, 255, 255, 0.55) 77%, rgba(255, 255, 255, 0.30) 81%, rgba(255, 255, 255, 0.12) 86%, transparent 92%)"
+                : "radial-gradient(circle, transparent 64%, rgba(40, 120, 255, 0.08) 68%, rgba(20, 100, 255, 0.35) 73%, rgba(0, 90, 255, 0.55) 77%, rgba(30, 120, 255, 0.30) 81%, rgba(80, 160, 255, 0.12) 86%, transparent 92%)",
+
+              boxShadow: isDark
+                ? "0 0 10px rgba(255, 255, 255, 0.55), 0 0 25px rgba(255, 255, 255, 0.35), 0 0 55px rgba(255, 255, 255, 0.20)"
+                : "0 0 10px rgba(0, 100, 255, 0.55), 0 0 25px rgba(0, 110, 255, 0.35), 0 0 55px rgba(30, 130, 255, 0.20)",
             }}
           />
 
