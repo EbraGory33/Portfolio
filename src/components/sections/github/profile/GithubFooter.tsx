@@ -11,7 +11,7 @@ export function GithubFooter({ total }: GithubFooterProps) {
         display: "flex",
         flexWrap: "wrap",
         gap: "4px 16px",
-        whiteSpace: "nowrap;",
+        whiteSpace: "nowrap",
       }}
     >
       <div className="react-activity-calendar__count">

@@ -20,7 +20,7 @@ export function FollowersOverlay() {
       </div>
       <div
         className="absolute text-pink-400/40 dark:text-pink-300/30"
-        style={{ left: "30%;", top: "18%", transform: "none" }}
+        style={{ left: "30%", top: "18%", transform: "none" }}
       >
         <svg fill="currentColor" height="16" viewBox="0 0 16 16" width="16">
           <circle cx="8" cy="8" r="4"></circle>
@@ -37,7 +37,7 @@ export function FollowersOverlay() {
       </div>
       <div
         className="absolute text-pink-400/40 dark:text-pink-300/30"
-        style={{ left: "75%", top: "20%", transform: "none;" }}
+        style={{ left: "75%", top: "20%", transform: "none" }}
       >
         <svg fill="currentColor" height="16" viewBox="0 0 16 16" width="16">
           <circle cx="8" cy="8" r="4"></circle>
