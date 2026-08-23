@@ -50,6 +50,21 @@ export const TECHS = {
   CSS: {
     icon: "devicon:css3",
   },
+  FIREBASE: {
+    icon: "devicon:firebase",
+  },
+  FIRESTORE: {
+    icon: "devicon:firebase",
+  },
+  "REST APIs": {
+    icon: "mdi:api",
+  },
+  PYTHON: {
+    icon: "devicon:python",
+  },
+  JAVA: {
+    icon: "devicon:java",
+  },
 } as const;
 
 export type TechName = keyof typeof TECHS;
