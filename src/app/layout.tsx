@@ -20,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Ebrahim Gory - Developer, creator, and problem solver",
+  title: "Ebrahim Gory - Engineer, creator, and problem solver",
   description:
-    "Ebrahim Gory is a developer, creator, and problem solver who loves to build things that make people's lives better.",
+    "Ebrahim Gory is a engineer, creator, and problem solver who loves to build things that make people's lives better.",
   icons: {
     icon: "/favicon.ico",
   },

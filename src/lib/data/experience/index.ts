@@ -41,7 +41,7 @@ export const experienceData: Experience[] = [
     date: "Jan 2023 – Apr 2024",
     location: "Remote",
     type: "Contract",
-    title: "Frontend Developer",
+    title: "Frontend Engineer",
     responsibilities: [
       {
         details: "Built Production Websites",

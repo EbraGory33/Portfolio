@@ -5,8 +5,8 @@ export function ProjectsCard() {
   return (
     <BentoCard link="/projects">
       <CardFooter
-        title="WHAT YOU GET"
-        description="The stack behind everything I ship"
+        title="PROJECTS"
+        description="Selected applications I've built"
         overlay={true}
       />
     </BentoCard>

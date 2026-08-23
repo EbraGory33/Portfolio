@@ -11,7 +11,7 @@ export function About({ className }: AboutProps) {
     <section className={cn(className ?? "bg-black/5 dark:bg-[#18191B]/70")}>
       <SectionBuilder
         header={"The word about me"}
-        headline={"SOFTWARE DEVELOPER Built on Persistence"}
+        headline={"SOFTWARE Engineer Built on Persistence"}
         alignment="left"
         padding="med"
         className="py-pagebuilder"

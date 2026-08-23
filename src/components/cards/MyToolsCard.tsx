@@ -6,7 +6,7 @@ export function MyToolsCard() {
     <BentoCard>
       <CardFooter
         title="MY TOOLS"
-        description="Check out my faviorite tools"
+        description="Check out my favorite tools"
         overlay={true}
       />
     </BentoCard>
