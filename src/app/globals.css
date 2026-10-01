@@ -43,9 +43,9 @@
   --surface: #f9f9fa;
   --surface-muted: #eeeef1;
 
-  --color-surface: #ffffff;
-  --color-card: #ffffff;
-  --color-card-hover: #f8fafc;
+  /* --color-surface: #ffffff; */
+  /* --color-card: #ffffff; */
+  /* --color-card-hover: #f8fafc; */
 
   /* --------------------------------------------------------------------------
    * Background
@@ -176,8 +176,8 @@
   --surface: #171717;
   --surface-muted: #0f0f0f;
 
-  --color-surface: #111827;
-  --color-card: rgba(255, 255, 255, 0.08);
+  /* --color-surface: #111827; */
+  /* --color-card: rgba(255, 255, 255, 0.08); */
   --color-card-hover: rgba(255, 255, 255, 0.03);
 
   /* Background */
@@ -205,7 +205,8 @@
   /* Borders */
 
   --border: #262626;
-  --color-border: #404040;
+  /* --color-border: #404040; */
+  --color-border: #262626;
   --color-border-hover: #818cf8;
 
   --hairline: #ffffff24;
