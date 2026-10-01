@@ -7,8 +7,6 @@ import {
 } from "@/components/cards";
 import { BentoGrid, BentoGridItem } from "@/components/layout";
 
-// Todo: Finsh cards
-
 export function Info() {
   return (
     <BentoGrid className="mb-pagebuilder lg:my-pagebuilder">
