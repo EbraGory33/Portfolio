@@ -149,42 +149,42 @@ function ProjectBoxBack() {
       <path
         d="M535.59 78.7427L487.973 42.8776L558.738 13.9516C562.902 12.2494 564.984 11.3984 567.143 11.5597C569.301 11.7211 571.233 12.8723 575.098 15.1747L590.22 24.1832C603.923 32.347 610.775 36.4289 610.372 42.0779C609.97 47.7269 602.609 50.7964 587.887 56.9354L535.59 78.7427Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
       <path
         d="M123.116 79.1145L171.548 42.8776L97.2715 12.5164C94.8305 11.5186 93.61 11.0197 92.3446 11.1143C91.0793 11.2089 89.9465 11.8837 87.681 13.2334L56.155 32.0149C48.1832 36.7641 44.1973 39.1386 44.4205 42.4378C44.6438 45.737 48.9132 47.553 57.4522 51.1849L123.116 79.1145Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
       <path
         d="M487.973 42.8774L171.548 42.8775L123.116 79.1144L535.59 78.7424L487.973 42.8774Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
       <path
         d="M171.548 78.9088V42.8774L123.116 79.1144L171.548 78.9088Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
       <path
         d="M487.973 78.9088V42.8774L536.404 79.1144L487.973 78.9088Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
     </svg>
   );
@@ -204,16 +204,16 @@ function ProjectBoxFront() {
         className="fill-card"
         d="M123.766 79.1595H536.766V351.159H123.766V79.1595Z"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
       <path
         d="M74.6011 164.033L123.116 79.1138L535.59 78.7419L581.532 164.469C588.006 176.55 591.243 182.59 588.568 187.06C585.892 191.529 579.039 191.529 565.333 191.529H90.5591C76.4759 191.529 69.4343 191.529 66.7781 186.953C64.1219 182.376 67.615 176.262 74.6011 164.033Z"
         fill="currentColor"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="currentColor"
-        stroke-opacity="0.3"
-        stroke-width="0.5"
+        strokeOpacity="0.3"
+        strokeWidth="0.5"
       ></path>
     </svg>
   );
