@@ -4,7 +4,7 @@ import { TechStackOverlay } from "./overlay";
 
 export function TechStackCard() {
   return (
-    <BentoCard link={"/skills"}>
+    <BentoCard>
       <TechStackOverlay />
       <CardFooter
         title="TECH STACK"
